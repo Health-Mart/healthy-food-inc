@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "nodemon": "^2.0.7",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "name": "gridception",
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.1",
+    "@babel/preset-react": "^7.13.13",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.18.0",
+    "babel-loader": "^8.2.2",
+    "live-server": "^1.2.1",
+    "npm": "^7.12.0",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.7.0"
+  },
+  "scripts": {
+    "build": "webpack -w"
+  }
+}
