@@ -11,11 +11,7 @@ function RecipeGenerator() {
   const { countIncrement } = useContext(HealthContext);
   const [count, setCount] = countIncrement;
   return (
-    <>
-      <div>RecipeGenerator</div>
-      <button onClick={() => setCount(count + 1)}>increase</button>
-      <div>{`count: ${count}`}</div>
-    </>
+    <div>RecipeGenerator</div>
   )
 };
 
