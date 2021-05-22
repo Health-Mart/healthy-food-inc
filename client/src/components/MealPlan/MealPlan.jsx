@@ -4,11 +4,8 @@ import {
   BrowserRouter as Router, Switch, Route, Link,
   useLocation, useParams
 } from "react-router-dom";
-import { HealthContext } from '../../context/healthContext.jsx';
 
 function MealPlan() {
-  const { countIncrement } = useContext(HealthContext);
-  const [count, setCount] = countIncrement;
   return (
     <div>MealPlan</div>
   )
