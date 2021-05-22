@@ -10,11 +10,7 @@ function MealPlan() {
   const { countIncrement } = useContext(HealthContext);
   const [count, setCount] = countIncrement;
   return (
-    <>
-      <div>MealPlan</div>
-      <button onClick={() => setCount(count - 1)}>decrease</button>
-      <div>{`count ${count}`}</div>
-    </>
+    <div>MealPlan</div>
   )
 };
 
