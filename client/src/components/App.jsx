@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import styled from 'styled-components';
-import './App.sass';
 
 const BigFont = styled.div`
   font-size: 17px;
@@ -18,7 +17,7 @@ const App = () => {
 
         </h2>
       </Wrapper>
-      <section class="section">
+      {/* <section class="section">
         <div class="container">
           <h1 class="title">
             Hello World
@@ -27,7 +26,7 @@ const App = () => {
             My first website with <strong>Bulma</strong>!
           </p>
         </div>
-     </section>
+     </section> */}
     </>
   );
 };
