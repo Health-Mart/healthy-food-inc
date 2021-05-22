@@ -1,2 +1,21 @@
 @charset "utf-8";
+
+
+
+// #C4EBC8
+// #095256
+// #087F8C
+// #D4AFB9
+// #E39773
+
+$ugly-green: #087F8C;
+
+.green {
+
+  color: $ugly-green;
+}
+
+$primary: #E39773;
+$link: $ugly-green;
+
 @import "../../node_modules/bulma";

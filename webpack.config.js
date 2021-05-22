@@ -39,7 +39,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'mystyles.css'
+      filename: '/mystyles.css'
     }),
   ]
 }

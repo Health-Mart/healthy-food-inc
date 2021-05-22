@@ -12,7 +12,7 @@ const App = () => {
   return (
     <>
       <Wrapper>
-        <h2>
+        <h2 className="green">
           Welcome to the future website of Health Food Inc!
 
         </h2>
