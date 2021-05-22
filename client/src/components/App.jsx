@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router, Switch, Route, Link,
+  useLocation, useParams
+} from "react-router-dom";
 import styled from 'styled-components';
 
 const BigFont = styled.div`
@@ -8,7 +11,9 @@ const BigFont = styled.div`
 const Wrapper = styled(BigFont)`
   color: red;
 `
-const App = () => {
+const Bulma = () => {
+  let location = useLocation();
+
   return (
     <>
       <Wrapper>
@@ -44,9 +49,40 @@ const App = () => {
       <div className="buttons">
         <a className="button is-primary">Primary</a>
         <a className="button is-link">Link</a>
+        <Link to="/dashboard"><button className="button is-warning">Dashboard </button></Link>
       </div>
     </>
   );
 };
+
+
+function App() {
+  let location = useLocation();
+  let params = useParams();
+  return (
+    <>
+    <Link to="/router"><button className="button is-danger"> Router </button></Link>
+    <Link to="/bulma"><button className="button is-success"> Bulma </button></Link>
+    <Link to="/dashboard"><button className="button is-warning">Dashboard </button></Link>
+
+    <Switch>
+      <Route exact path="/">
+        <div> / </div>
+      </Route>
+      <Route path="/router">
+        <div>{JSON.stringify(location)}</div>
+        <div>{JSON.stringify(params)}</div>
+      </Route>
+      <Route path="/dashboard">
+        <div>dashboard</div>
+      </Route>
+      <Route>
+        <Bulma />
+      </Route>
+    </Switch>
+    </>
+  );
+}
+
 
 export default App;
