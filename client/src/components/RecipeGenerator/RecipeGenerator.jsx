@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import {
   BrowserRouter as Router, Switch, Route, Link,
   useLocation, useParams
 } from "react-router-dom";
 
+import { HealthContext } from '../../context/healthContext.jsx';
+
 function RecipeGenerator() {
-  return(
+  const { countIncrement } = useContext(HealthContext);
+  const [count, setCount] = countIncrement;
+  return (
     <div>RecipeGenerator</div>
   )
 };
