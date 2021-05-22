@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router, Switch, Route, Link,
+  useLocation, useParams
+} from "react-router-dom";
+import styled from 'styled-components';
 
 const App = () => {
   return (
-    <h2>Welcome to the future website of Health Food Inc!</h2>
+    <div>Welcome to the future homepage of Health Food Inc.!</div>
   );
-};
+}
 
 export default App;

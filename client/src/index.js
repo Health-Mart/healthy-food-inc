@@ -1,8 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App.jsx';
+import { BrowserRouter as Router, Switch, Route, Link, useLocation } from "react-router-dom";
+require('./mystyles.scss');
 
 ReactDOM.render(
-  <App />,
+
+  <Router>
+    <App />
+  </Router>,
   document.querySelector('#app')
 );
