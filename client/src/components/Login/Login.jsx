@@ -5,10 +5,10 @@ import {
   useLocation, useParams
 } from "react-router-dom";
 
-function GroceryStore() {
+function Login() {
   return(
-    <div>GroceryStore</div>
+    <div>Login</div>
   )
 };
 
-export default GroceryStore;
+export default Login;
