@@ -29,6 +29,7 @@
     "webpack-cli": "^4.7.0"
   },
   "scripts": {
+    "start": "nodemon server/index.js",
     "build": "webpack -w --config webpack.config.js"
   }
 }
