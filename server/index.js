@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, '..', 'client', 'dist')));
 const apiPrefix = '/api';
 
 app.get(apiPrefix + '/recipes', getRecipes);
-app.get(apiPrefix + '/recipe/id', getRecipe);
+app.get(apiPrefix + '/recipe/:id', getRecipe);
 // -> {name, description, keywords, instructions, image, ingredients: [{id, name, image?}]}
 
 
