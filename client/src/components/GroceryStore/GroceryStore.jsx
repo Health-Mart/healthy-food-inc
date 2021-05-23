@@ -1,14 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import {
-  BrowserRouter as Router, Switch, Route, Link,
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
   useLocation, useParams
-} from "react-router-dom";
+} from 'react-router-dom';
+import Navbar from './Navbar.jsx';
+import Column from './Column.jsx';
+import Footer from './Footer.jsx';
 
 function GroceryStore() {
   return(
-    <div>GroceryStore</div>
-  )
-};
+    <>
+      <Navbar />
+      <Column />
+      <Footer />
+    </>
+  );
+}
 
 export default GroceryStore;
