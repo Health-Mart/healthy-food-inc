@@ -11,6 +11,7 @@ import {
 import Card from './Card.jsx';
 import Form from './Form.jsx';
 import Buttons from './Buttons.jsx';
+import dummyData from './dummyData.js';
 
 const Cards = styled.div`
   display: grid;
@@ -21,6 +22,7 @@ const Cards = styled.div`
 `;
 
 function Column() {
+  const { produces } = dummyData;
   return (
     <>
       <div className="columns">
@@ -38,18 +40,9 @@ function Column() {
           <section className="section">
             <div className="container">
               <Cards>
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                {produces.map((item, i) => (
+                  <Card item={item} key={i} />
+                ))}
               </Cards>
             </div>
           </section>

@@ -9,17 +9,19 @@ import {
   useParams
 } from 'react-router-dom';
 
-function Card() {
+function Card(props) {
+  const { item } = props;
+  const { image, title } = item;
   return (
     <>
       <div className="card">
         <div className="card-image">
           <figure className="image is-4by3">
-            <img src="https://www.applesfromny.com/wp-content/uploads/2020/05/Jonagold_NYAS-Apples2.png" />
+            <img src={image} alt="profile" />
           </figure>
         </div>
         <div className="card-content">
-          <p className="title is-4">Apple</p>
+          <p className="title is-4">{title}</p>
         </div>
       </div>
     </>
