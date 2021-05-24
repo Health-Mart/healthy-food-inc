@@ -8,6 +8,7 @@ import {
   useLocation,
   useParams
 } from 'react-router-dom';
+import Modal from './Modal.jsx';
 
 function Card() {
   return (
