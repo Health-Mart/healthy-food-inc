@@ -12,13 +12,11 @@ import {
 function Hero() {
   return (
     <>
-      <section className="hero">
-        <figure className="image">
-          <img
-            src="https://www.michigan.org/sites/default/files/styles/15_6_desktop/public/farm.markets.jpg?itok=zcMJpZom&timestamp=1525119203"
-            alt="background"
-          />
-        </figure>
+      <section className="hero is-primary">
+        <div className="hero-body">
+          <p className="title">Primary hero</p>
+          <p className="subtitle">Primary subtitle</p>
+        </div>
       </section>
     </>
   );
