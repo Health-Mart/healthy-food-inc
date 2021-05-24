@@ -41,6 +41,7 @@
   },
   "scripts": {
     "start": "nodemon server/index.js",
-    "build": "webpack -w --config webpack.config.js"
+    "build": "webpack -w --config webpack.config.js",
+    "test": "jest"
   }
 }
