@@ -23,6 +23,11 @@ function Hero() {
           </div>
         </div>
         <div className="hero-foot">
+          <div className="navbar-dropdown">
+            <a className="navbar-item">About</a>
+            <a className="navbar-item">Stories</a>
+            <a className="navbar-item">Learn More</a>
+          </div>
           <nav className="tabs is-boxed is-fullwidth">
             <div className="container">
               <ul>

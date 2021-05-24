@@ -8,8 +8,13 @@ import {
   useLocation,
   useParams
 } from 'react-router-dom';
+import Modal from './Modal.jsx';
 
 function Card() {
+  const [showModal, setShowModal] = useState(false);
+  const openModal = () => {
+    setShowModal((prev) => !prev);
+  };
   return (
     <>
       <div className="card">
@@ -22,7 +27,6 @@ function Card() {
           </figure>
         </div>
         <div className="card-content">
-          <p className="title is-6">Recipe</p>
           <p className="title is-5">Tuscan Chicken Skillet</p>
           <p className="title is-7">
             Bacon, cream, Parmesan -- is your mouth watering yet? There's no need to go out to
@@ -30,6 +34,10 @@ function Card() {
             home.
           </p>
         </div>
+        <button onClick={openModal} className="button is-small" type="button">
+          Learn More
+        </button>
+        <Modal showModal={showModal} setShowModal={setShowModal} openModal={openModal} />
       </div>
     </>
   );
