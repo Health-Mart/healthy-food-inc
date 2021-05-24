@@ -19,38 +19,44 @@ function LandingPage() {
   const [steps, setSteps] = useState([
     {
       title: 'More Choice, Less Boredom',
-      content:
-        'That’s the finest pirate booty I’ve ever laid eyes on. Not all treasure is silver and gold Now and then we had a hope that if we lived and were good, God would permit us to be pirates. To err is human but to arr is pirate!! Damnation seize my soul if I give you quarters, or take any from you. Shiver me timbers.'
+      content: 'Pardon me, but would ya mind if I fired me cannon through your porthole?'
     },
     {
       title: 'Quicker Recipes, Less Prep Work',
-      content:
-        'Prepare to be boarded. You’re drinking a Salty Dog? How’d you like to try the real thing? Why is the rum gone? Damnation seize my soul if I give you quarters, or take any from you. Pirate’s code: First freedom and the captain. Second the loot, third woman and the rum and at the end no mercy if they not immediately surrender!'
+      content: 'I’d love to drop anchor in your lagoon.'
     },
     {
       title: 'Flexible Plans, Less Hassle',
-      content:
-        'Come on up and see me urchins. Is that a belayin’ pin in yer britches, or are ye …  Always be yourself, unless you can be a pirate. Then always be a pirate. A pirate is a man that is weak to achieve but too strong to steal from even the greatest achiever. Well actualy piracy is a democracy with captains voted for by the crew. Ahoy! lets trouble the water!'
+      content: 'If ye can’t trust a pirate, ye damn well can’t trust a merchant either!'
     }
   ]);
 
   const TitlesAndContent = () =>
     steps.map((step, index) => (
-      <div key={index}>
-        <img src={dummyImg[index]} height='300px' width='300px' />
-        <h3>{step.title}</h3>
-        <p>{step.content}</p>
+      <div className="container is-max-desktop" key={index}>
+        <h1>Plans Introduction</h1>
+        <div>
+          <img src={dummyImg[index]} alt="" height="300px" width="300px" />
+          <h1>{index + 1}</h1>
+          <h1>{step.title}</h1>
+          <p>{step.content}</p>
+        </div>
       </div>
     ));
 
   return (
-    <div className="container">
-      <div className="notification.decoration1">
-        <strong>Get Started</strong>
-      </div>
+    <div className="container is-max-desktop">
+      <Header className="hero is-primary">
+        <p className="title">Get Started</p>
+      </Header>
       <TitlesAndContent />
     </div>
   );
 }
+
+const Header = styled.div`
+  background-img: url('https://images.unsplash.com/photo-1547592180-85f173990554?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+  background-color: blue;
+`;
 
 export default LandingPage;
