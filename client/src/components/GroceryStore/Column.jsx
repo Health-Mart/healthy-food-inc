@@ -29,6 +29,7 @@ function Column() {
         <div className="column is-one-fifth">
           <section className="section">
             <Form />
+            <br />
             <div className="container">
               <ul>
                 <Buttons />

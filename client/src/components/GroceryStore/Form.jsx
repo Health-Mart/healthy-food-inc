@@ -13,7 +13,7 @@ function Form() {
   return (
     <>
       <div className="columns">
-        <input className="input is-small" type="text" placeholder="Text input" />
+        <input className="input is-small" type="text" placeholder="Search" />
       </div>
     </>
   );

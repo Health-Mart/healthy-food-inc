@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Hero from './Hero.jsx';
 import Column from './Column.jsx';
+import Footer from './Footer.jsx';
 
 // import { HealthContext } from '../../context/healthContext.jsx';
 
@@ -17,6 +18,7 @@ function RecipeGenerator() {
       <Hero />
       <br />
       <Column />
+      <Footer />
     </>
   );
 }
