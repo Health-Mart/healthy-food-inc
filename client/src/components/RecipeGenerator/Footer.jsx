@@ -9,17 +9,18 @@ import {
   useParams
 } from 'react-router-dom';
 
-function Hero() {
+function Footer() {
   return (
     <>
-      <section className="hero is-primary">
-        <div className="hero-body">
-          <p className="title">Primary hero</p>
-          <p className="subtitle">Primary subtitle</p>
+      <footer className="footer">
+        <div className="content has-text-centered">
+          <p>
+            <strong>Farmer Market</strong> by Health Food inc.
+          </p>
         </div>
-      </section>
+      </footer>
     </>
   );
 }
 
-export default Hero;
+export default Footer;

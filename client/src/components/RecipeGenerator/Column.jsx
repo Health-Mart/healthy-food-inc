@@ -9,9 +9,7 @@ import {
   useParams
 } from 'react-router-dom';
 import Card from './Card.jsx';
-import Form from './Form.jsx';
-import Buttons from './Buttons.jsx';
-import dummyData from './dummyData.js';
+// import dummyData from './dummyData.js';
 
 const Cards = styled.div`
   display: grid;
@@ -22,28 +20,25 @@ const Cards = styled.div`
 `;
 
 function Column() {
-  const { produces } = dummyData;
   return (
     <>
-      <div className="columns">
-        <div className="column is-one-fifth">
-          <section className="section">
-            <Form />
-            <br />
-            <div className="container">
-              <ul>
-                <Buttons />
-              </ul>
-            </div>
-          </section>
-        </div>
+      <div>
         <div className="column">
           <section className="section">
             <div className="container">
               <Cards>
-                {produces.map((item, i) => (
-                  <Card item={item} key={i} />
-                ))}
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
               </Cards>
             </div>
           </section>

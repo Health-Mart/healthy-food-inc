@@ -12,8 +12,14 @@ import {
 function Form() {
   return (
     <>
-      <div className="columns">
-        <input className="input is-small" type="text" placeholder="Search" />
+      <div className="section">
+        <div className="container">
+          <input
+            className="input is-success is-large is-rounded"
+            type="text"
+            placeholder="Search"
+          />
+        </div>
       </div>
     </>
   );
