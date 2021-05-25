@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const filename = path.join(__dirname, '..', 'stored-data', 'groceries', 'goodeggs.json')
+const filename = path.join(__dirname, '..', 'stored-data', 'groceries', 'goodeggs.json');
 
 const loadGe = () =>
   new Promise((resolve) => {
@@ -23,24 +23,25 @@ const matches = (key, val) => {
   }
   val = val.toLowerCase();
   return (item) => item[key].toLowerCase() === val;
+};
 
-}
-
-const matchesTitle = title => {
+const matchesTitle = (title) => {
   if (title === '') {
     return () => true;
   }
-    title = title.toLowerCase();
-    return (item) => item.title.toLowerCase().indexOf(title) !== -1;
+  title = title.toLowerCase();
+  return (item) => item.title.toLowerCase().indexOf(title) !== -1;
+};
 
-}
-
-const getGroceryItems = ({ mainCategory = '', categoryName = '', subCategoryName = '', title = '' }) => {
-  return new Promise((resolve, reject) => {
+const getGroceryItems = ({
+  mainCategory = '',
+  categoryName = '',
+  subCategoryName = '',
+  title = ''
+}) => new Promise((resolve, reject) => {
     const startTime = new Date();
     groceryData.then(groceryItems => {
       const endTime = new Date();
-      console.log('groceryData resolve time:', endTime - startTime);
       if (mainCategory !== '') {
         groceryItems = groceryItems.filter(matches('mainCategory', mainCategory));
       }
@@ -53,18 +54,9 @@ const getGroceryItems = ({ mainCategory = '', categoryName = '', subCategoryName
       if (title !== '') {
         groceryItems = groceryItems.filter(matchesTitle(title));
       }
-      // const result = groceryItems
-      //   .filter(matches('mainCategory', mainCategory))
-      //   .filter(matches('categoryName', categoryName))
-      //   .filter(matches('subCategoryName', subCategoryName))
-      //   .filter(matchesTitle(title));
+
       resolve(groceryItems);
-    })
+    });
   });
-};
 
 module.exports = { getGroceryItems };
-// groceryData.then(groceryItems => {
-//   const res = groceryItems.filter(item => item.mainCategory === undefined);
-//   console.log(res);
-// });
