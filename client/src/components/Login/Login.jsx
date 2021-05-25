@@ -92,14 +92,16 @@ function Login() {
                     onChange={handleInputChange}
                   />
                 </div>
-                <button className="button mt-4">Sign In</button>
+                <button className="button mt-4 " type="submit" onClick={() => setShowModal(false)}>
+                  Sign In
+                </button>
               </div>
             </form>
           </CustomModalLogin>
         </CustomModal>
       ) : null}
       <div>
-        <button className="button mt-4" onClick={() => setShowModal(true)}>
+        <button className="button mt-4" type="button" onClick={() => setShowModal(true)}>
           Show Modal
         </button>
       </div>
