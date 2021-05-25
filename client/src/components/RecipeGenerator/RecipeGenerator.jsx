@@ -12,6 +12,7 @@ import Hero from './Hero.jsx';
 import Column from './Column.jsx';
 import Footer from './Footer.jsx';
 
+
 function RecipeGenerator() {
   return (
     <>
