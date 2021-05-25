@@ -1,6 +1,7 @@
 const cheerio = require('cheerio');
 
 const fs = require('fs');
+const path = require('path');
 
 const cleanPurchaseUnit = str =>
   str.replace('\n', ' ')
@@ -8,10 +9,30 @@ const cleanPurchaseUnit = str =>
     .filter(s => s.length)
     .join(' ');
 
+const matchFilename = name => {
+  name = name.split('/').slice(-1)[0];
+  const obj = {
+    'alcohol.html': 'Alcohol',
+    'dairy.html': 'Dairy',
+    'drinks.html': 'Drinks',
+    'health&home.html': 'Health & Home',
+    'meatAndFish.html': 'Meat & Fish',
+    'pantry.html': 'Pantry',
+    'prepared.html': 'Prepared',
+    'produce.html': 'Produce',
+    'snacks.html': 'Snacks',
+  };
+
+  return obj[name];
+}
+
 const scrapeGoodEggsPage = (fileName) => {
   const $ = cheerio.load(fs.readFileSync(fileName));
   const categories = $('.product-tiles');
   const result = [];
+
+  const mainCategory = matchFilename(fileName);
+  console.log(fileName, mainCategory);
 
   [...categories].forEach(category => {
     const categoryName = $(category).find('h2').text();
@@ -28,6 +49,7 @@ const scrapeGoodEggsPage = (fileName) => {
         let pricePer = $(product).find('.price-per').text().trim() + ' / ' + $(product).find('.per-unit').text();
         pricePer = pricePer === ' / ' ? null : pricePer;
         const itemData = {
+          mainCategory,
           categoryName,
           subCategoryName,
           title: $(product).find('.product-tile__product-name').text(),
@@ -71,7 +93,8 @@ const scrapeAllGoodEggsPages = () => {
 
 const goodEggs = scrapeAllGoodEggsPages();
 
-fs.writeFile('./goodeggs.json', JSON.stringify(goodEggs), (err) => {
+const filename = path.join(__dirname, '..', 'stored-data', 'groceries', 'goodeggs.json');
+fs.writeFile(filename, JSON.stringify(goodEggs), (err) => {
   if (err) throw err;
   console.log(goodEggs.length + ' items saved.');
 });
