@@ -5,14 +5,18 @@ import {
   Switch,
   Route,
   Link,
-  useLocation, useParams
+  useLocation,
+  useParams
 } from 'react-router-dom';
+// import { HealthContext } from '../../context/healthContext.jsx';
 import Navbar from './Navbar.jsx';
 import Column from './Column.jsx';
 import Footer from './Footer.jsx';
 
 function GroceryStore() {
-  return(
+  // const { countIncrement } = useContext(HealthContext);
+  // const [count, setCount] = countIncrement;
+  return (
     <>
       <Navbar />
       <Column />
