@@ -3,54 +3,67 @@ const path = require('path');
 
 const filename = path.join(__dirname, '..', 'stored-data', 'groceries', 'goodeggs.json')
 
-const loadGe = () => {
-  return new Promise((resolve, reject) => {
+const loadGe = () =>
+  new Promise((resolve) => {
     fs.readFile(filename, 'utf8', (err, data) => {
       if (err) {
         console.error(err);
-        return
+        return;
       }
-      resolve(JSON.parse(data));
-    })
+      const parsedData = JSON.parse(data);
+      resolve(parsedData);
+    });
   });
-}
 
 const groceryData = loadGe();
 
 const matches = (key, val) => {
   if (val === '') {
     return () => true;
-  } else {
-    val = val.toLowerCase();
-    return (item) => item[key].toLowerCase() === val;
   }
+  val = val.toLowerCase();
+  return (item) => item[key].toLowerCase() === val;
+
 }
 
 const matchesTitle = title => {
   if (title === '') {
     return () => true;
-  } else {
+  }
     title = title.toLowerCase();
     return (item) => item.title.toLowerCase().indexOf(title) !== -1;
-  }
+
 }
 
-const getGroceryItems = ({ maincategory = '', category = '', subcategory = '', title = '', count = 10, offset = 0 }) => {
+const getGroceryItems = ({ mainCategory = '', categoryName = '', subCategoryName = '', title = '' }) => {
   return new Promise((resolve, reject) => {
+    const startTime = new Date();
     groceryData.then(groceryItems => {
-      const result = groceryItems
-        .filter(matches('mainCategory', maincategory))
-        .filter(matches('categoryName', category))
-        .filter(matches('subCategoryName', subcategory))
-        .filter(matchesTitle(title));
-      resolve(result.slice(offset, offset + count));
+      const endTime = new Date();
+      console.log('groceryData resolve time:', endTime - startTime);
+      if (mainCategory !== '') {
+        groceryItems = groceryItems.filter(matches('mainCategory', mainCategory));
+      }
+      if (categoryName !== '') {
+        groceryItems = groceryItems.filter(matches('categoryName', categoryName));
+      }
+      if (subCategoryName !== '') {
+        groceryItems = groceryItems.filter(matches('subCategoryName', subCategoryName));
+      }
+      if (title !== '') {
+        groceryItems = groceryItems.filter(matchesTitle(title));
+      }
+      // const result = groceryItems
+      //   .filter(matches('mainCategory', mainCategory))
+      //   .filter(matches('categoryName', categoryName))
+      //   .filter(matches('subCategoryName', subCategoryName))
+      //   .filter(matchesTitle(title));
+      resolve(groceryItems);
     })
   });
 };
 
-getGroceryItems({ maincategory: 'pantry', title: 'tea', offset: 0, count: 50})
-.then(console.log);
-
+module.exports = { getGroceryItems };
 // groceryData.then(groceryItems => {
 //   const res = groceryItems.filter(item => item.mainCategory === undefined);
 //   console.log(res);

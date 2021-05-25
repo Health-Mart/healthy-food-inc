@@ -55,15 +55,15 @@ const recipeCountByDietAndTag = () => {
         }
       }
     }
-    const dietData = Object.entries(diets);
-    dietData.sort((a, b) => b[1] - a[1]);
-    console.log('DIETS');
-    dietData.forEach(i => console.log(`${i[0]}: ${i[1]}`));
+    // const dietData = Object.entries(diets);
+    // dietData.sort((a, b) => b[1] - a[1]);
+    // console.log('DIETS');
+    // dietData.forEach(i => console.log(`${i[0]}: ${i[1]}`));
 
-    const tagData = Object.entries(tags);
-    tagData.sort((a, b) => b[1] - a[1]);
-    console.log('TAGS');
-    tagData.forEach(i => console.log(`${i[0]}: ${i[1]}`));
+    // const tagData = Object.entries(tags);
+    // tagData.sort((a, b) => b[1] - a[1]);
+    // console.log('TAGS');
+    // tagData.forEach(i => console.log(`${i[0]}: ${i[1]}`));
 
   });
 }
