@@ -94,7 +94,9 @@ function LandingPage() {
           <div className="">
             <p className="has-text-light container is-size-6">{farmerData[0]}</p>
             <br />
-            <button type="button" className="button is-decoration1">
+            <p className="has-text-light container">{`Want to know more about ( ??? )`}</p>
+            <br />
+            <button type="button" className="button is-decoration1 is-rounded">
               Click for more
             </button>
           </div>
