@@ -8,6 +8,8 @@ import {
   useParams
 } from 'react-router-dom';
 import styled from 'styled-components';
+import { FaUserAlt, FaLock } from 'react-icons/fa';
+import { RiCloseFill } from "react-icons/ri";
 import Questionnaire from './Questionnaire/Questionnaire.jsx';
 import LandingPage from './LandingPage/LandingPage.jsx';
 import SignUp from './SignUp/SignUp.jsx';
@@ -43,10 +45,12 @@ const CustomModalLogin = styled.div`
 `;
 
 const CloseButton = styled.button`
-  color: grey;
   position: absolute;
   top: 0.25rem;
   right: 0.25rem;
+  border: none;
+  outline: none;
+  background: none;
 `;
 
 function Navbar() {
@@ -74,30 +78,42 @@ function Navbar() {
       {showModal ? (
         <CustomModal className="is-flex is-justify-content-center">
           <CustomModalLogin>
-            <CloseButton className="close-button" onClick={() => setShowModal(false)} />
+            <CloseButton className="close-button" onClick={() => setShowModal(false)}>
+              <RiCloseFill />
+            </CloseButton>
             <form onSubmit={handleSubmit}>
               <div className="login-container">
                 <div className="field">
                   <label className="label">Username</label>
-                  <input
-                    className="input"
-                    type="text"
-                    name="username"
-                    placeholder="Username"
-                    value={state.username}
-                    onChange={handleInputChange}
-                  />
+                  <div className="control has-icons-left has-icons-right">
+                    <input
+                      className="input"
+                      type="text"
+                      name="username"
+                      placeholder="Username"
+                      value={state.username}
+                      onChange={handleInputChange}
+                    />
+                    <span className="icon is-small is-left">
+                      <FaUserAlt />
+                    </span>
+                  </div>
                 </div>
                 <div className="field">
                   <label className="label">Password</label>
-                  <input
-                    className="input"
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    value={state.password}
-                    onChange={handleInputChange}
-                  />
+                  <div className="control has-icons-left has-icons-right">
+                    <input
+                      className="input"
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      value={state.password}
+                      onChange={handleInputChange}
+                    />
+                    <span className="icon is-small is-left">
+                      <FaLock />
+                    </span>
+                  </div>
                 </div>
                 <button className="button mt-4 " type="submit" onClick={() => setShowModal(false)}>
                   Sign In
