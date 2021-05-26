@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaUserAlt, FaLock } from 'react-icons/fa';
-import { RiCloseFill } from "react-icons/ri";
+import { RiCloseFill } from 'react-icons/ri';
 import Questionnaire from './Questionnaire/Questionnaire.jsx';
 import LandingPage from './LandingPage/LandingPage.jsx';
 import SignUp from './SignUp/SignUp.jsx';
@@ -33,7 +33,6 @@ const CustomModal = styled.div`
   bottom: 0;
   right: 0;
 `;
-
 
 const CustomModalLogin = styled.div`
   background: white;
