@@ -18,6 +18,7 @@ function RecipeGenerator() {
   const [dataReady, setdataReady] = useState(false);
   const paramas = {
     query: 'pasta',
+    tag: ['veryHealthy'],
     restrictions: ['dairy free', 'vagan']
   };
 
