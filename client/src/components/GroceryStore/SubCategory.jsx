@@ -13,7 +13,7 @@ const Cards = styled.div`
 function SubCategory({ subCategory, subCategoryData }) {
   return (
     <>
-      <h3 className="subtitle is-3">{subCategory}</h3>
+      <h3 className="subtitle is-3" id={subCategory}>{subCategory}</h3>
       <Cards>
         {subCategoryData.map((item, i) => (
           <Card item={item} key={i} />

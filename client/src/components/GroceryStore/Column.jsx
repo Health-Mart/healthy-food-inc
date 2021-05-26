@@ -14,6 +14,15 @@ import Buttons from './Buttons.jsx';
 import dummyData from './dummyData.js';
 import Category from './Category.jsx';
 
+const StyledSideBar = styled.section`
+  position: sticky;
+  top: 0px;
+`;
+
+const ButtonNav = styled.div`
+  color: red;
+`;
+
 function sortData(arr) {
   const obj = {};
 
@@ -57,39 +66,44 @@ function Column({ mainCategory }) {
       });
   }, []);
 
+  const cleanString = (key) => {
+    const cleanKey = key.toLowerCase().split(' ').join('-');
+    console.log(cleanKey);
+    return cleanKey;
+  }
+
   return (
     <>
+    {isLoading === true ? (
+                <div>Loading</div>
+              ) : (
       <div className="columns">
         <div className="column is-one-fifth">
-          <section className="section">
-            <Form />
-            <br />
+          <StyledSideBar className="section">
             <div className="container">
-              <ul>
-                <Buttons />
-              </ul>
+              <ButtonNav>
+                <h1 className="title">Browse</h1>
+                <br />
+                {Object.keys(categoryData).map((key) => (
+                  <Buttons category={key} cleanHref={cleanString(key)} />
+                ))}
+              </ButtonNav>
             </div>
-          </section>
+          </StyledSideBar>
         </div>
         <div className="column">
           <section className="section">
             <div className="container">
-              {isLoading === true ? (
-                <div>Loading</div>
-              ) : (
+              {
                 Object.keys(categoryData).map((key) => (
-                  <Category categoryData={categoryData[key]} category={key} />
+                  <Category categoryData={categoryData[key]} category={key} cleanHref={cleanString(key)} />
                 ))
-              )}
-              {/* <Cards> */}
-              {/* {produces.map((item, i) => (
-                  <Card item={item} key={i} />
-                ))} */}
-              {/* </Cards> */}
+              }
             </div>
           </section>
         </div>
       </div>
+      )}
     </>
   );
 }
