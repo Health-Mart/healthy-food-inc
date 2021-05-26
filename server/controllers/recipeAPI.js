@@ -3,10 +3,11 @@ const { getRecipes } = require('../models/stored-recipes')
 exports.getRecipes = async (req, res) => {
   try {
     console.log(req.url);
+    console.log('query: ', req.params.query);
     const query = req.query.query ?? '';
     const tags = req.query.tags ?? [];
     const restrictions = req.query.restrictions ?? [];
-    const count = req.query.count ?? 5;
+    const count = req.query.count ?? 12;
     const offset = req.query.offset ?? 0;
 
     console.log('params: ', query, tags, restrictions, count, offset);

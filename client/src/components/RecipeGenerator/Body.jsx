@@ -19,7 +19,9 @@ const Cards = styled.div`
   margin: 2rem;
 `;
 
-function Column() {
+function Body(props) {
+  const { recipes } = props;
+  console.log('recipes: ', recipes);
   return (
     <>
       <div>
@@ -27,17 +29,9 @@ function Column() {
           <section className="section">
             <div className="container">
               <Cards>
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                {recipes.map((item) => (
+                  <Card item={item} />
+                ))}
                 <Card />
               </Cards>
             </div>
@@ -48,4 +42,4 @@ function Column() {
   );
 }
 
-export default Column;
+export default Body;
