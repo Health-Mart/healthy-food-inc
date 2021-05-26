@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import {
   BrowserRouter as Router,
@@ -8,10 +8,14 @@ import {
   useLocation,
   useParams
 } from 'react-router-dom';
+import { HealthContext } from '../../context/healthContext.jsx';
+import SignUp from '../SignUp/SignUp.jsx';
 
 function Questionnarie() {
   const [step, setStep] = useState(1);
-  const [options, setOptions] = useState([
+  const { question } = useContext(HealthContext);
+  const [survey, setSurvey] = question;
+  const options = [
     {
       title: 'Who do you shop for?',
       step: 1,
@@ -37,113 +41,101 @@ function Questionnarie() {
       ]
     },
     {
-      title: "What's on your typical shopping list?",
+      title: 'How long would you like to spend cooking your food?',
       step: 3,
-      option: [
-        'Snacks',
-        'Sweets',
-        'Cooking staples',
-        'Baking',
-        'Pantry essentials',
-        'Wine',
-        'Meat & seafood',
-        'Cleaning & laundry',
-        'Babies or kids',
-        'Bath & body',
-        'Vitamins & supplements',
-        'Pets',
-        'All of these',
-        'None of these'
-      ]
+      option: ['15 minutes', '30 minutes', '45 minutes', '1 hour', "I don't want to cook"]
     },
     {
       title: 'What diets are you interested in?',
       step: 4,
       option: [
-        'Organic',
-        'Gluetn free',
+        'Gluten Free',
         'Ketogenic',
-        'Paleo',
-        'Vegan',
         'Vegetarian',
-        'Dairy free',
-        'Nut free',
-        'Kosher',
-        'Peanut free',
-        'Raw',
-        'Soy free',
-        'Whole 30',
-        'None of these'
-      ]
-    },
-    {
-      title: 'What values or causes are most important to you?',
-      step: 5,
-      option: [
-        'Animal welfare',
-        'Food Access',
-        'Carbon impact',
-        'Fair trade',
-        'Sustainable sourcing',
-        'Organic / non - GMO',
-        'No artificial ingredients',
-        'Regenrative agriculture'
+        'Lacto-Vegetarian',
+        'Ovo-Vegetarian',
+        'Vegan',
+        'Pescetarian',
+        'Paleo',
+        'Primal',
+        'Whole30'
       ]
     }
-  ]);
+  ];
+
+  const handleClick = (value) => setSurvey((oldSurvey) => [...oldSurvey, value]);
 
   const RenderItems = () =>
-    step === 6 ? (
-      <div>
-        <h2>hello</h2>
-        <button type="button" onClick={() => setStep(1)}>
-          Next Step
-        </button>
-      </div>
+    step === 5 ? (
+      <SignUp />
+      //route to sign up
     ) : (
       options.map((option, i) =>
         option.step === step ? (
-          <Div className="container" key={i}>
-            <Div className="columns section is-medium">
-              <Div className="has-background-primary has-text-success column is-three-fifths">
-                <Section className="">
-                  <Title className="title">{option.title}</Title>
-                </Section>
-              </Div>
-              <Div className="">
-                {option.option.map((items, j) => (
-                  <Div className="" key={j}>
-                    <p className="title">{items}</p>
-                  </Div>
-                ))}
-              </Div>
-            </Div>
-            <Div>
-              <button type="button" onClick={() => setStep(step + 1)} className="">
-                Next
-              </button>
-            </Div>
-          </Div>
+          <section className="section">
+            <progress className="progress is-danger" value={step} max={4} />
+            <Container className="container card">
+              <Section className="columns section is-medium" key={i}>
+                <Div className="section column" />
+                <Div className="section column columns is-multiline">
+                  <Title className="title is-1">{option.title}</Title>
+                  {option.option.map((items, j) => (
+                    <Div className="column">
+                      <p
+                        className="title button is-medium is-warning has-text-info is-rounded"
+                        onClick={() => handleClick(items)}
+                        aria-hidden="true"
+                      >
+                        {items}
+                      </p>
+                    </Div>
+                  ))}
+                </Div>
+              </Section>
+              <div className="level">
+                <Button
+                  className="button is-info is-rounded is-focused is-large"
+                  type="button"
+                  onClick={() => setStep(step + 1)}
+                >
+                  Next
+                </Button>
+              </div>
+            </Container>
+          </section>
         ) : null
       )
     );
-  // add progress bar?
+  console.log(survey);
   return <RenderItems />;
 }
 
-const Div = styled.div`
-  padding: 0;
+const Section = styled.div`
   margin: 0;
-  border: 2px solid purple;
 `;
 
-const Section = styled.div`
-  text-align: center;
+const Button = styled.button`
+  padding: 2rem;
+  position: right;
+`;
+
+const Container = styled.div`
+  background-image: url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1231&q=80');
+  background-position: left;
+  background-repeat: no-repeat;
+`;
+
+const Div = styled.div`
+  padding: 0;
+  margin: 0.5rem;
 `;
 
 const Title = styled.div`
   text-align: left;
-  font-size: 4em;
+  font-size: 3em;
+  font-weight: bold;
+  color: #087f8c;
+  overflow-wrap: break-word;
 `;
 
 export default Questionnarie;

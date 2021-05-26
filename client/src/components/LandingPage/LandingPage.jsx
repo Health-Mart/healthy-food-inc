@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { GiFarmer } from 'react-icons/gi';
 import styled from 'styled-components';
 import {
   BrowserRouter as Router,
@@ -12,10 +13,19 @@ import Bulma from 'bulma';
 
 function LandingPage() {
   const dummyImg = [
-    'https://images.unsplash.com/photo-1543353071-873f17a7a088?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80',
-    'https://images.unsplash.com/photo-1556908153-c0e609dda194?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=668&q=80',
-    'https://images.unsplash.com/photo-1615657711994-f0e35eb9e46d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80'
+    'https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGhlYWx0aCUyMGZvb2R8ZW58MHwwfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1556911073-52527ac43761?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
+    'https://images.unsplash.com/photo-1615657711994-f0e35eb9e46d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
   ];
+  const dummyImg2 = [
+    'https://www.svgrepo.com/show/277590/healthy-food-salad.svg',
+    'https://www.svgrepo.com/show/186339/recipe-book.svg',
+    'https://www.svgrepo.com/show/161390/happy.svg'
+  ];
+  const farmerData = [
+    `Come on up and see me urchins. Me I’m Dishonest. And A Dishonest Man You Can Always Trust To Be Dishonest. Honestly Its The Honest Ones You Want To Watch Out For Because You Never Know When They Are Going To Do Something Completely Stupid! Why are pirates pirates? cuz they arrrrrr you know, thats the 2nd time I’v watched that man sail away with my ship.`
+  ];
+
   const [steps, setSteps] = useState([
     {
       title: 'More Choice, Less Boredom',
@@ -33,30 +43,104 @@ function LandingPage() {
 
   const TitlesAndContent = () =>
     steps.map((step, index) => (
-      <div className="container is-max-desktop" key={index}>
-        <h1>Plans Introduction</h1>
-        <div>
-          <img src={dummyImg[index]} alt="" height="300px" width="300px" />
-          <h1>{index + 1}</h1>
-          <h1>{step.title}</h1>
-          <p>{step.content}</p>
-        </div>
+      <div className="columns">
+        <CardContent className="column card" key={index}>
+          <div className="card-image">
+            <figure className="image is-3x4">
+              <img src={dummyImg[index]} alt="" />
+            </figure>
+          </div>
+          <div className="card-content">
+            <CardText className="is-size-6 has-text-black has-text-weight-bold">
+              {step.title}
+            </CardText>
+            <p className="has-text-black">{step.content}</p>
+          </div>
+        </CardContent>
       </div>
     ));
 
   return (
-    <div className="container is-max-desktop">
-      <Header className="hero is-primary">
-        <p className="title">Get Started</p>
+    <>
+      <Header className="box container is-fullhd section is-medium">
+        <div className="hero-body">
+          <div className="is-size-3 has-text-success has-text-weight-bold">Start a plan</div>
+          <div className="is-size-2 has-text-success has-text-weight-bold">Change your life</div>
+          <button type="button" className="button is-primary">
+            Get Started
+          </button>
+        </div>
       </Header>
-      <TitlesAndContent />
-    </div>
+      <div className="container section level">
+        <h1 className="title level-item is-size-1 ">How it works</h1>
+      </div>
+      <Content className="container is-max-desktop level">
+        <div className="columns is-desktop is-vcentered section">
+          <TitlesAndContent />
+        </div>
+      </Content>
+      {/* <Bullshit className="container section is-large">
+        <p className="is-size-1 has-text-black has-text-weight-bold">Our purpose is to create a happy healthy life style.</p>
+      </Bullshit> */}
+      <FarmerInfo className="columns box">
+        <div className="column">
+          <div className="columns">
+            <h1 className="column is-size-3 has-text-warning has-text-weight-bold">
+              Meet the <span className="is-size-2">farmers</span>
+            </h1>
+            <GiFarmer reverse size={100} className="column has-text-warning" />
+          </div>
+          <br />
+          <div className="">
+            <p className="has-text-light container is-size-6">{farmerData[0]}</p>
+            <br />
+            <button type="button" className="button is-decoration1">
+              Click for more
+            </button>
+          </div>
+        </div>
+        <FarmerPicture className="container section is-large column is-four-fifths" />
+      </FarmerInfo>
+    </>
   );
 }
 
-const Header = styled.div`
-  background-img: url('https://images.unsplash.com/photo-1547592180-85f173990554?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
-  background-color: blue;
+const Header = styled.section`
+  background-image: url('https://images.unsplash.com/photo-1543353071-873f17a7a088?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  margin: 0;
+`;
+
+const FarmerPicture = styled(Header)`
+  background-image: url('https://images.unsplash.com/photo-1602046747040-1df0f6527803?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80');
+  background-position: center;
+  background-size: 100%;
+`;
+
+const Bullshit = styled.section`
+  background-image: url('https://images.unsplash.com/photo-1556911073-a517e752729c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+  background-position: center;
+  background-repeat: no-repeat;
+`;
+
+const FarmerInfo = styled.section`
+  background-color: #095256;
+  padding: 0;
+  margin: 0;
+`;
+
+const Content = styled.section``;
+
+const CardText = styled.p`
+  text-align: center;
+  padding: 0.5rem;
+`;
+
+const CardContent = styled.div`
+  background-color: #d4afb9;
+  padding: 0;
+  margin: 2rem;
 `;
 
 export default LandingPage;
