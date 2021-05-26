@@ -16,7 +16,7 @@ function Hero() {
         <div className="hero-body">
           <div className="container">
             <input
-              className="input is-success is-large is-rounded"
+              className="input is-success is-medium is-rounded"
               type="text"
               placeholder="Search"
             />
