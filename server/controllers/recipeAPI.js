@@ -2,9 +2,10 @@ const { getRecipes } = require('../models/stored-recipes')
 
 exports.getRecipes = async (req, res) => {
   try {
+    console.log(req.url);
     const query = req.query.query ?? '';
-    const tags = req.query.tags ? JSON.parse(req.query.tags) : [];
-    const restrictions = req.query.tags ? JSON.parse(req.query.restrictions) : [];
+    const tags = req.query.tags ?? [];
+    const restrictions = req.query.restrictions ?? [];
     const count = req.query.count ?? 5;
     const offset = req.query.offset ?? 0;
 
