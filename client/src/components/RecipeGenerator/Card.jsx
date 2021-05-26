@@ -11,7 +11,7 @@ import {
 import Modal from './Modal.jsx';
 
 const replacementImages = {
-  511748: 'https://kubrick.htvapps.com/htv-prod-media.s3.amazonaws.com/images/tacobellsign-getty-1595024816.jpg?crop=1.00xw:0.817xh;0,0&resize=1200:*',
+  // 511748: 'https://kubrick.htvapps.com/htv-prod-media.s3.amazonaws.com/images/tacobellsign-getty-1595024816.jpg?crop=1.00xw:0.817xh;0,0&resize=1200:*',
 };
 
 function Card({ item }) {
@@ -34,7 +34,7 @@ function Card({ item }) {
         </div>
         <div className="card-content">
           <p className="title is-5">{title}</p>
-          <span>{item.id}</span>
+          {/* <span>{item.id}</span> */}
           <p className="title is-7" />
         </div>
         <button onClick={openModal} className="button is-small" type="button">
