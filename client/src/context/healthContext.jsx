@@ -6,7 +6,16 @@ const HealthProvider = (props) => {
   const { children } = props;
   // create states here
   // ex: [test, setTest] = useState('im a test woot')
-  return <HealthContext.Provider value={2}>{children}</HealthContext.Provider>;
+  const [survey, setSurvey] = useState([]);
+  return (
+    <HealthContext.Provider
+      value={{
+        question: [survey, setSurvey]
+      }}
+    >
+      {children}
+    </HealthContext.Provider>
+  );
 };
 
 export default HealthProvider;
