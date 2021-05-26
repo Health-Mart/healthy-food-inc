@@ -108,12 +108,12 @@ const scrapeIndividualMealPage = (filename) => {
     if (!name || text.indexOf('Contains:') !== -1 || !text.trim().length) {
       return;
     }
-    productDetails.push({ text, elementType: name, filename });
+    productDetails.push({ text, elementType: name });
   });
 
   const imageUrl = $('.photo').attr('src');
 
-  return { quantityDetails, productDetails, imageUrl };
+  return { quantityDetails, productDetails, imageUrl, filename };
 };
 
 const scrapeAllIndividualMealPages = () => {
@@ -135,7 +135,7 @@ const scrapeAllIndividualMealPages = () => {
 };
 
 const createMealPlansJson = () => {
-  // Generates
+  // Generates the final json file, assuming all html files are downloaded.
   const meals = scrapeMealsPage('./meal-kits-html/mealkits.html');
   scrapeAllIndividualMealPages()
     .then(pages => {
@@ -152,4 +152,6 @@ const createMealPlansJson = () => {
       fs.writeFileSync('../stored-data/meals/meals.json', JSON.stringify(detailedMeals));
     });
 };
+
+createMealPlansJson();
 
