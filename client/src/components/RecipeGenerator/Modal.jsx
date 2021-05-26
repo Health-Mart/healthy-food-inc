@@ -63,8 +63,8 @@ const Modal = ({ showModal, setShowModal, openModal, item }) => {
               </figure>
             </div>
             <div className="modal-card-body">
-              <p className="title is-7" dangerouslySetInnerHTML={ { __html: summary } }></p>
               <p className="title is-4">{title}</p>
+              <p className="title is-7 is-black" dangerouslySetInnerHTML={ { __html: summary } }></p>
               <p className="title is-5">Ingredients</p>
               <p className="title is-7">12 ounces fettuccine</p>
               <p className="title is-7">4 slices bacon, chopped</p>
@@ -76,8 +76,8 @@ const Modal = ({ showModal, setShowModal, openModal, item }) => {
               <p className="title is-7">3/4 cup grated Parmesan</p>
               <p className="title is-7">3 tablespoons chopped fresh basil</p>
             </div>
-            <div className="modal-card-foot">
-              <button className="button is-success" type="button">
+            <div className="modal-card-foot is-white">
+              <button className="button is-white" type="button">
                 Save
               </button>
               <button className="button" type="button">

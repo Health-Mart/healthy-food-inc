@@ -64,16 +64,17 @@ function Card({ item }) {
         <div className="card-image">
           <figure className="image is-4by3">
             <img src={image} alt="profile" />
+            <button onClick={openModal} className="button is-small" type="button">
+              Learn More
+            </button>
           </figure>
         </div>
         <div className="card-content">
           <p className="title is-5">{title}</p>
-          <span>{item.id}</span>
+          {/* <span>{item.id}</span> */}
           <p className="title is-7" />
+          <p className="title is-7">{item.readyInMinutes} min</p>
         </div>
-        <button onClick={openModal} className="button is-small" type="button">
-          Learn More
-        </button>
         <Modal
           item={item}
           showModal={showModal}
