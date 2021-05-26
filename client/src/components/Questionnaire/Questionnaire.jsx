@@ -9,7 +9,6 @@ import {
   useParams
 } from 'react-router-dom';
 import { HealthContext } from '../../context/healthContext.jsx';
-import SignUp from '../SignUp/SignUp.jsx';
 
 function Questionnarie() {
   const [step, setStep] = useState(1);
@@ -67,8 +66,13 @@ function Questionnarie() {
 
   const RenderItems = () =>
     step === 5 ? (
-      <SignUp />
-      //route to sign up
+      <div>
+        {/* show summary of choice */}
+        Looks Great!
+        <Link to="/signup">
+          <button type="button">Sign Me Up!</button>
+        </Link>
+      </div>
     ) : (
       options.map((option, i) =>
         option.step === step ? (
@@ -123,6 +127,7 @@ const Container = styled.div`
   background-image: url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1231&q=80');
   background-position: left;
   background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 const Div = styled.div`

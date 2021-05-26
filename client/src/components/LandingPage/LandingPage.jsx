@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { GiFarmer } from 'react-icons/gi';
 import styled from 'styled-components';
 import {
@@ -66,9 +66,11 @@ function LandingPage() {
         <div className="hero-body">
           <div className="is-size-3 has-text-success has-text-weight-bold">Start a plan</div>
           <div className="is-size-2 has-text-success has-text-weight-bold">Change your life</div>
-          <button type="button" className="button is-primary">
-            Get Started
-          </button>
+          <Link to="/questionnaire">
+            <button type="button" className="button is-primary">
+              Get Started
+            </button>
+          </Link>
         </div>
       </Header>
       <div className="container section level">
@@ -94,7 +96,7 @@ function LandingPage() {
           <div className="">
             <p className="has-text-light container is-size-6">{farmerData[0]}</p>
             <br />
-            <p className="has-text-light container">{`Want to know more about ( ??? )`}</p>
+            <p className="has-text-light container">Want to know more about ( ??? )</p>
             <br />
             <button type="button" className="button is-decoration1 is-rounded">
               Click for more
