@@ -9,19 +9,10 @@ import {
   useLocation,
   useParams
 } from 'react-router-dom';
-import Card from './Card.jsx';
 import Form from './Form.jsx';
 import Buttons from './Buttons.jsx';
 import dummyData from './dummyData.js';
 import Category from './Category.jsx';
-
-const Cards = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: auto;
-  grid-gap: 2rem;
-  margin: 2rem;
-`;
 
 function sortData(arr) {
   const obj = {};
@@ -91,7 +82,6 @@ function Column({ mainCategory }) {
                 ))
               )}
               {/* <Cards> */}
-              {/* <h3>{data.categoryName.subCategoryName}</h3> */}
               {/* {produces.map((item, i) => (
                   <Card item={item} key={i} />
                 ))} */}

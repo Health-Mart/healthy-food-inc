@@ -3,10 +3,9 @@ import styled from 'styled-components';
 import SubCategory from './SubCategory.jsx';
 
 function Category({ category, categoryData }) {
-  console.log('this is categoryData', categoryData);
   return (
     <>
-      <h2>{category}</h2>
+      <h2 className="title is-2">{category}</h2>
       {
         Object.keys(categoryData).map((key) => {
           return (
