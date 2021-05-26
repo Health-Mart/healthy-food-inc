@@ -22,6 +22,9 @@ getMeals = ({ categoryName, subCategoryName, title, count = 5, offset = 0 } = {}
       title = title.toLowerCase();
       meals = meals.filter(meal => meal.title.indexOf(title) !== -1);
     }
+    for (meal in meals) {
+      delete meals[meal].productUrl;
+    }
     return meals.slice(offset, offset + count);
   });
 }

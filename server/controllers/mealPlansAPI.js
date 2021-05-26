@@ -1,4 +1,4 @@
-const getMeals = require('../models/stored-meals.js');
+const { getMeals } = require('../models/stored-meals.js');
 
 exports.getMealPlan = async (req, res) => {
   try {
@@ -12,9 +12,10 @@ exports.getMealPlans = async (req, res) => {
   console.log('GETMEALPLAN');
   try {
     const key = JSON.stringify(req.query);
-    console.log(key);
-    getMeals(key).then(res => {
-      res.status(200).json(key);
+    console.log(getMeals);
+    getMeals(key).then(meals => {
+      console.log('inside getMeals.then');
+      res.status(200).json(meals);
     });
   } catch (err) {
     res.status(404).send(err.message);
