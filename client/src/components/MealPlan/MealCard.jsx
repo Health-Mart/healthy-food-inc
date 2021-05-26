@@ -28,17 +28,3 @@ function MealCard({ meal }) {
 }
 
 export default MealCard;
-
-{
-  /* <Article className="notification">
-      <p className="is-6">{mealName}</p>
-      <div className="card-image">
-        <figure className="image">
-          <img
-            src="https://www.heynutritionlady.com/wp-content/uploads/2018/01/winter_vegetable_meal_prep_bowls.jpg"
-            alt="images"
-          />
-        </figure>
-      </div>
-    </Article> */
-}
