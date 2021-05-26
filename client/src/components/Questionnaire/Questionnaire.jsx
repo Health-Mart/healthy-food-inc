@@ -67,8 +67,13 @@ function Questionnarie() {
 
   const RenderItems = () =>
     step === 5 ? (
-      <SignUp />
-      //route to sign up
+      <div>
+        {/* show summary of choice */}
+        Looks Great!
+        <Link to="/signup">
+          <button type="button">Sign Me Up!</button>
+        </Link>
+      </div>
     ) : (
       options.map((option, i) =>
         option.step === step ? (
