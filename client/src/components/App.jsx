@@ -108,7 +108,7 @@ function Navbar() {
         </CustomModal>
       ) : null}
       <div>
-        <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
+        <nav className="navbar is-white" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
             <a className="navbar-item">
               <div>

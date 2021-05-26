@@ -13,34 +13,55 @@ import Header from './Header.jsx';
 import Body from './Body.jsx';
 import Footer from './Footer.jsx';
 
-function getRecipes() {
-  const [recipes, setRecipes] = useState([]);
-  console.log('load');
-  axios
-    .get(
-      'http://localhost:3000/api/recipes?query=pasta&restrictions[]=dairy+free&restrictions[]=vegan'
-    )
-    .then((response) => {
-      console.log(response.data);
-      setRecipes([...recipes, response.data]);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
-
 function RecipeGenerator() {
+  const [recipes, setRecipes] = useState([]);
+  const [dataReady, setdataReady] = useState(false);
+  const paramas = {
+    query: 'pasta',
+    restrictions: ['dairy free', 'vagan']
+  };
+
+  function GetRecipes() {
+    axios
+      .get('/api/recipes', { paramas })
+      .then((response) => {
+        setRecipes(response.data);
+        setdataReady(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   useEffect(() => {
-    getRecipes();
-  });
-  return (
-    <>
-      <Header />
-      <br />
-      <Body />
-      <Footer />
-    </>
-  );
+    GetRecipes();
+  }, []);
+
+  function searchRecipes(term) {
+    const params = {
+      query: term
+    };
+    axios
+      .get('/api/recipes', { params })
+      .then((response) => {
+        setRecipes(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  if (dataReady) {
+    return (
+      <>
+        <Header searchRecipes={searchRecipes} />
+        <br />
+        <Body recipes={recipes} />
+        <Footer />
+      </>
+    );
+  }
+  return 'loading...';
 }
 
 export default RecipeGenerator;

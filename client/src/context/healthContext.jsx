@@ -4,13 +4,9 @@ export const HealthContext = createContext();
 
 const HealthProvider = (props) => {
   const { children } = props;
-  //create states here
-  //ex: [test, setTest] = useState('im a test woot')
-  return (
-    <HealthContext.Provider>
-      {children}
-    </HealthContext.Provider>
-  )
+  // create states here
+  // ex: [test, setTest] = useState('im a test woot')
+  return <HealthContext.Provider value={2}>{children}</HealthContext.Provider>;
 };
 
 export default HealthProvider;

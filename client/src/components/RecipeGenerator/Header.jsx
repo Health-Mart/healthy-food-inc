@@ -9,43 +9,34 @@ import {
   useParams
 } from 'react-router-dom';
 
-function Header() {
+function Header({ searchRecipes }) {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  function handleChange(e) {
+    setSearchTerm(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const term = searchTerm;
+    searchRecipes(term);
+  }
+
   return (
     <>
-      <section className="hero is-success is-medium">
-        <div className="hero-body">
-          <div className="container">
+      <section className="section">
+        <div className="container">
+          <h1 className="title">Find a recipe</h1>
+          <form>
             <input
               className="input is-success is-medium is-rounded"
               type="text"
+              value={searchTerm}
+              onChange={handleChange}
               placeholder="Search"
             />
-          </div>
-        </div>
-        <div className="hero-foot">
-          <div className="navbar-dropdown">
-            <a className="navbar-item">About</a>
-            <a className="navbar-item">Stories</a>
-            <a className="navbar-item">Learn More</a>
-          </div>
-          <nav className="tabs is-boxed is-fullwidth">
-            <div className="container">
-              <ul>
-                <li>
-                  <a>Ingrediants</a>
-                </li>
-                <li>
-                  <a>Nutrients</a>
-                </li>
-                <li>
-                  <a>Cuisine</a>
-                </li>
-                <li>
-                  <a>Taste</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
+            <input onClick={handleSubmit} className="button" type="submit" value="Search" />
+          </form>
         </div>
       </section>
     </>
@@ -53,3 +44,5 @@ function Header() {
 }
 
 export default Header;
+
+// https://assets.epicurious.com/photos/5b731134c31eaf1fc1402f11/16:9/w_2560%2Cc_limit/Arugula-with-Italian-Plums-and-Parmesan-recipe%3D08082018.jpg
