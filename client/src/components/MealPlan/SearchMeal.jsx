@@ -12,7 +12,7 @@ import {
 
 function SearchMeal() {
   return (
-  <div className="field is-grouped my-2 px-6">
+  <div className="field is-grouped my-6 px-6">
     <p className="control is-expanded">
       <input className="input is-rounded" type="text" placeholder="What do you want to eat?" />
     </p>

@@ -7,7 +7,7 @@ const HealthProvider = (props) => {
   //create states here
   //ex: [test, setTest] = useState('im a test woot')
   return (
-    <HealthContext.Provider>
+    <HealthContext.Provider value={'test'}>
       {children}
     </HealthContext.Provider>
   )
