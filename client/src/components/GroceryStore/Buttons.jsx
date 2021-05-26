@@ -9,33 +9,23 @@ import {
   useParams
 } from 'react-router-dom';
 
-function Buttons() {
-  const buttons = [
-    'All Products',
-    'Produce',
-    'Dairy & Eggs',
-    'Meat',
-    'Prepared Foods',
-    'Pantry Essentials',
-    'Breads, Rolles & Bakery',
-    'Desserts',
-    'Seafood',
-    'Beverages',
-    'Wine, Beer & Spirits'
-  ];
+const StyledSidebarButton = styled.div`
+  margin-bottom: 0 !important;
+`;
+
+function Buttons({ category, cleanHref }) {
+  console.log('clean Href from buttons is', cleanHref);
   return (
     <>
-      <h1 className="title">Browse</h1>
-      <br />
-      <p className="subtitle">Category</p>
-      <br />
-      <div className="buttons">
-        {buttons.map((item) => (
+      <StyledSidebarButton className="buttons">
+        {/* {buttons.map((item) => ( */}
           <button className="button" type="button">
-            {item}
+            <a href={`#${cleanHref}`}>
+            {category}
+            </a>
           </button>
-        ))}
-      </div>
+        {/* ))} */}
+      </StyledSidebarButton>
     </>
   );
 }
