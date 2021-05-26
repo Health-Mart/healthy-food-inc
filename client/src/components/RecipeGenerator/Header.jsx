@@ -9,6 +9,14 @@ import {
   useParams
 } from 'react-router-dom';
 
+const Background = styled.section`
+  background-image: url('https://assets.epicurious.com/photos/5b731134c31eaf1fc1402f11/16:9/w_2560%2Cc_limit/Arugula-with-Italian-Plums-and-Parmesan-recipe%3D08082018.jpg');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  height: 30%;
+  margin: 0;
+`;
+
 function Header({ searchRecipes }) {
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -24,7 +32,7 @@ function Header({ searchRecipes }) {
 
   return (
     <>
-      <section className="section">
+      <Background className="section">
         <div className="container">
           <h1 className="title">Find a recipe</h1>
           <form>
@@ -38,7 +46,7 @@ function Header({ searchRecipes }) {
             <input onClick={handleSubmit} className="button" type="submit" value="Search" />
           </form>
         </div>
-      </section>
+      </Background>
     </>
   );
 }
