@@ -9,7 +9,7 @@ import {
   useParams
 } from 'react-router-dom';
 
-function Hero() {
+function Header() {
   return (
     <>
       <section className="hero is-success is-medium">
@@ -52,4 +52,4 @@ function Hero() {
   );
 }
 
-export default Hero;
+export default Header;

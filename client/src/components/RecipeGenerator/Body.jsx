@@ -19,7 +19,7 @@ const Cards = styled.div`
   margin: 2rem;
 `;
 
-function Column() {
+function Body() {
   return (
     <>
       <div>
@@ -48,4 +48,4 @@ function Column() {
   );
 }
 
-export default Column;
+export default Body;
