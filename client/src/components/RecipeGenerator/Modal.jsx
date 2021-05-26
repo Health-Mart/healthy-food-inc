@@ -11,6 +11,7 @@ import {
 
 const Modal = ({ showModal, setShowModal, openModal, item }) => {
   const { image, title, summary } = item;
+  // console.log(summary);
 
   return (
     <>
@@ -24,6 +25,7 @@ const Modal = ({ showModal, setShowModal, openModal, item }) => {
               </figure>
             </div>
             <div className="modal-card-body">
+              <p className="title is-7" dangerouslySetInnerHTML={ { __html: summary } }></p>
               <p className="title is-4">{title}</p>
               <p className="title is-5">Ingredients</p>
               <p className="title is-7">12 ounces fettuccine</p>
@@ -38,10 +40,10 @@ const Modal = ({ showModal, setShowModal, openModal, item }) => {
             </div>
             <div className="modal-card-foot">
               <button className="button is-success" type="button">
-                Select
+                Save
               </button>
               <button className="button" type="button">
-                Cancel
+                Delete
               </button>
             </div>
           </div>
