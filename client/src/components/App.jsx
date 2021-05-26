@@ -34,6 +34,7 @@ const CustomModal = styled.div`
   right: 0;
 `;
 
+
 const CustomModalLogin = styled.div`
   background: white;
   border-radius: 6px;
