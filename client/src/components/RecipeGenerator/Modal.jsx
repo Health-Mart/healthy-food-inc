@@ -25,7 +25,7 @@ const Modal = ({ showModal, setShowModal, openModal, item }) => {
               </figure>
             </div>
             <div className="modal-card-body">
-              <p className="title is-5">{summary}</p>
+              <p className="title is-7" dangerouslySetInnerHTML={ { __html: summary } }></p>
               <p className="title is-4">{title}</p>
               <p className="title is-5">Ingredients</p>
               <p className="title is-7">12 ounces fettuccine</p>
