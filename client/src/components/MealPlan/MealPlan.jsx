@@ -22,7 +22,7 @@ const Div = styled.div`
 
 function MealPlan() {
   const [meals, setMealName] = useState(['pizza', 'pasta', 'salad']);
-
+  
   return (
     <Section className="section m-6 p-6">
       <Div className="container mx-3 px-3">
