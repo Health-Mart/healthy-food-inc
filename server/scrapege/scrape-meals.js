@@ -38,7 +38,7 @@ const scrapeMealsPage = (fileName) => {
           // photoPath: $(product).find('.product-tile__product-photo').attr('src'),
           photoPath: $(product).find('.js-product-photo-link').attr('data-src'),
           price: $(product).find('.split-price__dollars').text() + '.' + $(product).find('.split-price__cents').text(),
-          pricePer,
+          // pricePer,
           purchaseUnit: cleanPurchaseUnit($(product).find('.product-tile__purchase-unit').text()),
         };
         // console.log(JSON.stringify(itemData));
