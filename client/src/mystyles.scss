@@ -1,7 +1,11 @@
 @charset "utf-8";
+html {
+  scroll-behavior: smooth;
+}
+
 // client color scheme:
 $backgroundlight: #E9F2EC;
-$background: #C4EBC8;
+$background: #c9e8cc;
 $caption: #095256;
 $text: #087F8C;
 $decoration1: #E9F2EC;
@@ -11,4 +15,7 @@ $success: $caption;
 $info: $text;
 $warning: $background;
 $light: $backgroundlight;
+$navbar-tab-active-border-bottom-color:rgba(255, 255, 255, 0.907);
+$navbar-tab-active-border-bottom-width: 5px;
 @import "../../node_modules/bulma";
+
