@@ -16,7 +16,10 @@ import useUserInfo from '../../context/useUserInfo.jsx';
 const CreateContent = ({ count, params, signUp, handleChange, addUserInfo, userInfo }) =>
   count === 4 ? (
     <div>
-      <button type="button" onClick={() => addUserInfo(signUp)}> Check </button>
+      <button type="button" onClick={() => addUserInfo(signUp)}>
+        {' '}
+        Check{' '}
+      </button>
     </div>
   ) : (
     params.map((paramGroup, index) =>
@@ -56,7 +59,13 @@ const Container = styled.div`
 
 const FactStyle = styled.div`
   border: black 1px;
-  opacity: 0.65;
+  background: #f0ffff;
+  opacity .9;
+`;
+
+const FormStyle = styled.div`
+  border: black 1px;
+  background: #f0ffff;
 `;
 
 function SignUp() {
@@ -95,7 +104,7 @@ function SignUp() {
     'The first oranges weren’t orange.',
     'A cow-bison hybrid is called a “beefalo”.',
     'Johnny Appleseed’s fruits weren’t for eating.',
-    '90% of clients who sign up gain 6 packs.'
+    '90% of clients who sign up gain washboard ab.'
   ];
 
   const { updateUserInfo, userInfo } = useUserInfo();
@@ -121,11 +130,11 @@ function SignUp() {
     <>
       <Container>
         <div className="columns section is-medium">
-          <FactStyle className="column is-5 is-size-1 box">
+          <FactStyle className="column is-5 is-size-3 box">
             Fun Fact: <br /> {facts[count]}
           </FactStyle>
           <div className="column is-4" />
-          <div className="column">
+          <FormStyle className="column box">
             <CreateContent
               count={count}
               params={params}
@@ -137,21 +146,57 @@ function SignUp() {
             <br />
             <div className="mt2">
               <button
-                className=" button is-flex is-justify-content-center margin-top-5"
+                className=" button n is-success has-text-white has-text-weight-bold is-roundedis-flex is-justify-content-center margin-top-5"
                 onClick={() => {
-                  setCount(count + 1)
+                  setCount(count + 1);
                   addUserInfo;
                 }}
               >
-                button
+                Next
               </button>
             </div>
-          </div>
+          </FormStyle>
         </div>
       </Container>
       <br />
     </>
   );
+
+  // return (
+  //   <>
+  //     <Container>
+  //       <div className="columns section is-medium">
+  //         <FactStyle className="column is-5 is-size-3 box">
+  //           Fun Fact: <br /> {facts[count]}
+  //         </FactStyle>
+  //         <div className="column is-4" />
+  //         <FormStyle className="column box">
+  //           <CreateContent
+  //             count={count}
+  //             params={params}
+  //             signUp={signUp}
+  //             handleChange={handleChange}
+  //             addUserInfo={addUserInfo}
+  //             userInfo={userInfo}
+  //           />
+  //           <br />
+  //           <div className="mt2">
+  //             <button
+  //               className=" button n is-success has-text-white has-text-weight-bold is-roundedis-flex is-justify-content-center margin-top-5"
+  //               onClick={() => {
+  //                 setCount(count + 1);
+  //                 addUserInfo;
+  //               }}
+  //             >
+  //               Next
+  //             </button>
+  //           </div>
+  //         </FormStyle>
+  //       </div>
+  //     </Container>
+  //     <br />
+  //   </>
+  // );
 }
 
 export default SignUp;
