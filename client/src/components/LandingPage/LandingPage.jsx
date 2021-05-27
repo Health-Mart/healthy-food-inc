@@ -79,7 +79,10 @@ function LandingPage() {
           <div className="is-size-3 has-text-success has-text-weight-bold">Start a plan</div>
           <div className="is-size-2 has-text-success has-text-weight-bold">Change your life</div>
           <Link to="/questionnaire">
-            <button type="button" className="button is-primary">
+            <button
+              type="button"
+              className="button is-success has-text-white is-size-4 has-text-weight-bold is-rounded"
+            >
               Get Started
             </button>
           </Link>

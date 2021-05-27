@@ -10,8 +10,46 @@ import {
 } from 'react-router-dom';
 import { HealthContext } from '../../context/healthContext.jsx';
 
+const TransitionPage = () => (
+  <>
+    <div className="container section has-background-success is-size-2 has-text-weight-bold">
+      Welcome to Healthy Food!
+    </div>
+    <div className="section is-medium columns">
+      <div className="container column">
+        <p>Save up to $1000 a year!</p>
+        <p>Try us risk free for 30 days and start saving</p>
+      </div>
+      <div className="container column">
+        <Option className="box columns section has-background-warning">
+          <h1 className="column">Hello</h1>
+          <Link to="/recipe-generator">
+            <button type="button" className="column">
+              Hello
+            </button>
+          </Link>
+        </Option>
+        <Option className="box columns section">
+          <h1 className="column">Goodbye</h1>
+          <Link to="/signup">
+            <button type="button" className="column">
+              Goodbye
+            </button>
+          </Link>
+        </Option>
+        <div>
+          <h1>Membership benefits</h1>
+          <p>Guaranteed savings on 6000 + healthy essentials</p>
+          <p>Fast, free, carbon-neutral shipping</p>
+          <p>Get meals from local farmers</p>
+        </div>
+      </div>
+    </div>
+  </>
+);
+
 function Questionnarie() {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(5);
   const { question } = useContext(HealthContext);
   const [survey, setSurvey] = question;
   const options = [
@@ -66,15 +104,7 @@ function Questionnarie() {
 
   const RenderItems = () =>
     step === 5 ? (
-      <div>
-        {/* show summary of choice */}
-        Looks Great!
-        <Link to="/signup">
-          <button type="button" onClick={() => setStep(1)}>
-            Sign Me Up!
-          </button>
-        </Link>
-      </div>
+      <TransitionPage />
     ) : (
       options.map((option, i) =>
         option.step === step ? (
@@ -142,6 +172,13 @@ const Title = styled.div`
   font-weight: bold;
   color: #087f8c;
   overflow-wrap: break-word;
+`;
+
+const Option = styled.div`
+  margin: 1rem;
+  border: 3px solid #095256;
+  border-radius: 25px;
+  box-shadow: 1px 2px 3px;
 `;
 
 export default Questionnarie;
