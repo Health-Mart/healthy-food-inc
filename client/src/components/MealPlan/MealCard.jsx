@@ -7,6 +7,7 @@ const Div = styled.div`
   //border: 2px solid black;
 `;
 
+<<<<<<< HEAD
 function MealCard({ meal }) {
   const [isOpen, setIsOpen] = useState(false);
   console.log(isOpen);
@@ -15,6 +16,9 @@ function MealCard({ meal }) {
     setIsOpen(false);
   };
 
+=======
+function MealCard({ meal, image }) {
+>>>>>>> 4de727e2d70aa69f4fb8d7d770bd6676a3b43f40
   return (
     <>
       <Div className="card my-3 py-1 px-2">
@@ -22,6 +26,7 @@ function MealCard({ meal }) {
           <div className="card-header-title is-size-6">{meal}</div>
         </Div>
 
+<<<<<<< HEAD
         <Div className="card-image">
           <figure className="image is-1by1" onClick={() => setIsOpen(!isOpen)}>
             <img
@@ -30,6 +35,16 @@ function MealCard({ meal }) {
             />
           </figure>
         </Div>
+=======
+      <Div className="card-image">
+        <figure className="image is-1by1">
+          <img
+            src={image}
+            alt="images"
+          />
+        </figure>
+      </Div>
+>>>>>>> 4de727e2d70aa69f4fb8d7d770bd6676a3b43f40
 
         <Div className="card-content is-size-6">Lorem Ipsum</Div>
       </Div>
