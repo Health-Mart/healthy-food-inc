@@ -13,15 +13,12 @@ exports.getMealPlan = async (req, res) => {
 exports.getMealPlans = async (req, res) => {
   console.log('GETMEALPLAN');
   try {
-<<<<<<< HEAD
-=======
     const key = JSON.stringify(req.query);
     console.log(getMeals);
     getMeals(key).then(meals => {
       console.log('inside getMeals.then');
       res.status(200).json(meals);
     });
->>>>>>> 4de727e2d70aa69f4fb8d7d770bd6676a3b43f40
   } catch (err) {
     res.status(404).send(err.message);
   }

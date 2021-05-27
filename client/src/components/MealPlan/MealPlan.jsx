@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
 import bulma from 'bulma';
-import axios from 'axios';
 import styled from 'styled-components';
 import {
   BrowserRouter as Router,
@@ -25,27 +24,15 @@ const Div = styled.div`
 `;
 
 function MealPlan() {
-  // const [meals, setMealName] = useState([
-  //   ['Pizza', 'Pasta', 'Salad'],
-  //   ['Chicken', 'Fish', 'Vegies'],
-  //   ['Soup', 'Sandwich', 'Turkey']
-  // ]);
-
-  const [meals, setMeals] = useState([]);
-
-  useEffect(() => {
-    axios.get('/api/meals/?count=9')
-      .then(result => {
-        const data = result.data;
-        console.log('/api/meals reslt:', data);
-        setMeals(data);
-      });
-  }, []);
-
+  const [meals, setMealName] = useState([
+    ['Pizza', 'Pasta', 'Salad'],
+    ['Chicken', 'Fish', 'Vegies'],
+    ['Soup', 'Sandwich', 'Turkey']
+  ]);
 
   const getMealPlans = () => {
     axios
-      .get('api/mealplans')
+      .get('api/meals')
       .then((res) => {
         console.log('API results ', res.data);
       })
@@ -56,7 +43,7 @@ function MealPlan() {
 
   useEffect(() => {
     getMealPlans();
-  });
+  })
 
   return (
     <Section className="section m-3 p-3">
@@ -69,21 +56,21 @@ function MealPlan() {
 
             <div className="columns is-centered is-align-items-center my-6 px-6">
               <div className="column pt-1 px-4 is-4">
-                {meals.slice(0, 3).map((meal, index) => (
-                  // <span>{meal.title}</span>
-                  <MealCard meal={meal.title} key={index} image={meal.photoPath} />
+                {meals[0].map((meal, index) => (
+                  <MealCard meal={meal} key={index} />
                 ))}
               </div>
 
               <div className="column pt-1 px-4 is-4">
-                {meals.slice(3, 6).map((meal, index) => (
-                  <MealCard meal={meal.title} key={index} image={meal.photoPath} />
+                {meals[1].map((meal, index) => (
+
+                  <MealCard meal={meal} key={index} />
                 ))}
               </div>
 
               <div className="column pt-1 px-4 is-4">
-                {meals.slice(6, 9).map((meal, index) => (
-                  <MealCard meal={meal.title} key={index} image={meal.photoPath} />
+                {meals[2].map((meal, index) => (
+                  <MealCard meal={meal} key={index} />
                 ))}
               </div>
             </div>

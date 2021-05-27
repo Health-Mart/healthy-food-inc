@@ -8,7 +8,7 @@ const allMeals = fs.readFile(filename, { encoding: 'utf8' })
     return JSON.parse(res);
   });
 
-getMeals = ({ categoryName, subCategoryName, title, count = 5, offset = 0 } = {}) => {
+getMeals = ({ categoryName, subCategoryName, title, count = 10, offset = 0 } = {}) => {
   return allMeals.then(meals => {
     if (categoryName) {
       categoryName = categoryName.toLowerCase();
