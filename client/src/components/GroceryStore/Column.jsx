@@ -10,13 +10,13 @@ import {
   useParams
 } from 'react-router-dom';
 import Form from './Form.jsx';
-import Buttons from './Buttons.jsx';
-import dummyData from './dummyData.js';
 import Category from './Category.jsx';
+import Browse from './Browse.jsx';
 
 const StyledSideBar = styled.section`
   position: sticky;
   top: 0px;
+  padding: 3rem 0rem 3rem 1rem;
 `;
 
 const ButtonNav = styled.div`
@@ -40,22 +40,19 @@ function sortData(arr) {
   return obj;
 }
 
-function Column({ mainCategory }) {
-  const { produces } = dummyData;
+function Column({ mainCategory, setCount, count }) {
   const [isLoading, setLoading] = useState(true);
   const [categoryData, setCategoryData] = useState(null);
 
   useEffect(() => {
     const params = {
-      mainCategory: 'Produce'
+      mainCategory
     };
 
     axios
       .get('/api/grocery-items', { params })
       .then((res) => {
-        console.log('API result:', res.data);
         const sortedData = sortData(res.data);
-        console.log('sorted data is ', sortedData);
         setCategoryData(sortedData);
       })
       .then(() => {
@@ -64,45 +61,51 @@ function Column({ mainCategory }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [mainCategory]);
 
   const cleanString = (key) => {
     const cleanKey = key.toLowerCase().split(' ').join('-');
-    console.log(cleanKey);
     return cleanKey;
-  }
+  };
 
   return (
     <>
-    {isLoading === true ? (
-                <div>Loading</div>
-              ) : (
-      <div className="columns">
-        <div className="column is-one-fifth">
-          <StyledSideBar className="section">
-            <div className="container">
-              <ButtonNav>
-                <h1 className="title">Browse</h1>
-                <br />
+      {isLoading === true ? (
+        <div> </div>
+      ) : (
+        <div className="columns">
+          <div className="column is-one-fifth">
+            <StyledSideBar className="section">
+              <div className="container">
+                <ButtonNav>
+                  <h1 className="title">Browse</h1>
+                  <aside className="menu">
+                    <ul className="menu-list">
+                      {Object.keys(categoryData).map((key) => (
+                        <Browse category={key} cleanHref={cleanString(key)} />
+                      ))}
+                    </ul>
+                  </aside>
+                </ButtonNav>
+              </div>
+            </StyledSideBar>
+          </div>
+          <div className="column">
+            <section className="section">
+              <div className="container">
                 {Object.keys(categoryData).map((key) => (
-                  <Buttons category={key} cleanHref={cleanString(key)} />
+                  <Category
+                    categoryData={categoryData[key]}
+                    category={key}
+                    cleanHref={cleanString(key)}
+                    count={count}
+                    setCount={setCount}
+                  />
                 ))}
-              </ButtonNav>
-            </div>
-          </StyledSideBar>
+              </div>
+            </section>
+          </div>
         </div>
-        <div className="column">
-          <section className="section">
-            <div className="container">
-              {
-                Object.keys(categoryData).map((key) => (
-                  <Category categoryData={categoryData[key]} category={key} cleanHref={cleanString(key)} />
-                ))
-              }
-            </div>
-          </section>
-        </div>
-      </div>
       )}
     </>
   );

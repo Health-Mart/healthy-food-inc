@@ -38,6 +38,7 @@ function MealPlan() {
     getMealPlans();
   }, []);
 
+<<<<<<< HEAD
   const searchMeals = (searchKeyword) => {
     const params = {
       title: searchKeyword
@@ -66,6 +67,13 @@ function MealPlan() {
                 <h1 className="title is-size-2 my-4 px-6">Meal Plans</h1>
                 <TimeSelector selectedWeek={selectedWeek} setSelectedWeek={setSelectedWeek} />
                 <SearchMeal searchMeals={searchMeals} />
+=======
+              <div className="column pt-1 px-4 is-4">
+                {meals[1].map((meal, index) => (
+                  <MealCard meal={meal} key={index} />
+                ))}
+              </div>
+>>>>>>> 4f4c06109d3ae44caab955b8f831586bdada9be2
 
                 <div className="columns is-centered is-align-items-center my-6 px-6">
                   {[0, 3, 6].map((n, i) => (
