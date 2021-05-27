@@ -24,17 +24,18 @@ const Div = styled.div`
 `;
 
 function MealPlan() {
-  const [meals, setMealName] = useState([
-    ['Pizza', 'Pasta', 'Salad'],
-    ['Chicken', 'Fish', 'Vegies'],
-    ['Soup', 'Sandwich', 'Turkey']
-  ]);
+  const [meals, setMeals] = useState();
+  const [isLoading, setLoading] = useState(true);
 
   const getMealPlans = () => {
     axios
       .get('api/meals')
       .then((res) => {
         console.log('API results ', res.data);
+        setMeals(res.data);
+      })
+      .then(() => {
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -43,41 +44,71 @@ function MealPlan() {
 
   useEffect(() => {
     getMealPlans();
-  })
+  }, []);
 
   return (
-    <Section className="section m-3 p-3">
-      <Div className="container mx-3 px-3">
-        <Div className="container mx-6 px-6">
-          <Div className="container mx-0 px-0">
-            <h1 className="title is-size-2 my-4 px-6">Meal Plans</h1>
-            <TimeSelector />
-            <SearchMeal />
+    <>
+      {isLoading === true ? (
+        <div>Loading</div>
+      ) : (
+        <Section className="section m-3 p-3">
+          <Div className="container mx-3 px-3">
+            <Div className="container mx-6 px-6">
+              <Div className="container mx-0 px-0">
+                <h1 className="title is-size-2 my-4 px-6">Meal Plans</h1>
+                <TimeSelector />
+                <SearchMeal />
 
-            <div className="columns is-centered is-align-items-center my-6 px-6">
-              <div className="column pt-1 px-4 is-4">
-                {meals[0].map((meal, index) => (
-                  <MealCard meal={meal} key={index} />
-                ))}
-              </div>
+                <div className="columns is-centered is-align-items-center my-6 px-6">
+                  <div className="column pt-1 px-4 is-4">
+                    {console.log('sliced: ', meals.slice(0, 3))}
+                    {meals.slice(0, 3).map((meal, index) => (
+                      <MealCard
+                        meal={meal.title}
+                        key={index}
+                        photo={meal.photoPath}
+                        prepTime={meal.prepTime}
+                        price={meal.price}
+                        serving={meal.purchaseUnit}
+                        details={meal.details.productDetails}
+                      />
+                    ))}
+                  </div>
 
-              <div className="column pt-1 px-4 is-4">
-                {meals[1].map((meal, index) => (
+                  <div className="column pt-1 px-4 is-4">
+                    {meals.slice(3, 6).map((meal, index) => (
+                      <MealCard
+                        meal={meal.title}
+                        key={index}
+                        photo={meal.photoPath}
+                        prepTime={meal.prepTime}
+                        price={meal.price}
+                        serving={meal.purchaseUnit}
+                        details={meal.details.productDetails}
+                      />
+                    ))}
+                  </div>
 
-                  <MealCard meal={meal} key={index} />
-                ))}
-              </div>
-
-              <div className="column pt-1 px-4 is-4">
-                {meals[2].map((meal, index) => (
-                  <MealCard meal={meal} key={index} />
-                ))}
-              </div>
-            </div>
+                  <div className="column pt-1 px-4 is-4">
+                    {meals.slice(6, 9).map((meal, index) => (
+                      <MealCard
+                        meal={meal.title}
+                        key={index}
+                        photo={meal.photoPath}
+                        prepTime={meal.prepTime}
+                        price={meal.price}
+                        serving={meal.purchaseUnit}
+                        details={meal.details.productDetails}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </Div>
+            </Div>
           </Div>
-        </Div>
-      </Div>
-    </Section>
+        </Section>
+      )}
+    </>
   );
 }
 

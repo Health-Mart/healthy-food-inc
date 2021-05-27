@@ -11,6 +11,7 @@ import {
 } from 'react-router-dom';
 
 function SearchMeal() {
+  //const [searchedKeyword]
   return (
     <div className="field is-grouped my-6 px-6">
       <p className="control is-expanded">

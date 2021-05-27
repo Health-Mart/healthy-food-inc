@@ -7,7 +7,11 @@ const Div = styled.div`
   //border: 2px solid black;
 `;
 
-function MealCard({ meal }) {
+const Img = styled.img`
+  object-fit: contain;
+`;
+
+function MealCard({ meal, photo, prepTime, price, serving, details }) {
   const [isOpen, setIsOpen] = useState(false);
   console.log(isOpen);
 
@@ -19,21 +23,31 @@ function MealCard({ meal }) {
     <>
       <Div className="card my-3 py-1 px-2">
         <Div className="card-header m-0 p-0">
-          <div className="card-header-title is-size-6">{meal}</div>
+          <div className="card-header-title is-size-7">{meal}</div>
         </Div>
 
         <Div className="card-image">
-          <figure className="image is-1by1" onClick={() => setIsOpen(!isOpen)}>
-            <img
-              src="https://www.heynutritionlady.com/wp-content/uploads/2018/01/winter_vegetable_meal_prep_bowls.jpg"
-              alt="images"
-            />
+          <figure className="image is-1by1" onClick={() => setIsOpen(true)}>
+            <Img src={photo} alt="image" />
           </figure>
         </Div>
 
-        <Div className="card-content is-size-6">Lorem Ipsum</Div>
+        <Div className="card-content is-size-7">
+          <span className="has-text-left">{prepTime}</span>
+          <span className="has-text-right">{price}</span>
+        </Div>
       </Div>
-      {isOpen ? <Modal resetModal={resetModal} /> : null}
+      {isOpen ? (
+        <Modal
+          resetModal={resetModal}
+          mealTitle={meal}
+          photo={photo}
+          prepTime={prepTime}
+          price={price}
+          serving={serving}
+          details={details}
+        />
+      ) : null}
     </>
   );
 }
