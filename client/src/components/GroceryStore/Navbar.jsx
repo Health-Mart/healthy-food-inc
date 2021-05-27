@@ -9,7 +9,7 @@ import {
   useParams
 } from 'react-router-dom';
 
-function Navbar() {
+function Navbar({ mainCategory, setMainCategory }) {
   return (
     <>
       <nav className="navbar is-success" role="navigation" aria-label="main navigation">
@@ -23,9 +23,21 @@ function Navbar() {
 
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start">
-            <a className="navbar-item">Browse Products</a>
+            <a className={'navbar-item ' + (mainCategory === 'Produce' ? 'is-tab is-active' : '')} id="Produce" onClick={(e) => setMainCategory(e.target.id)}>
+              Produce
+            </a>
 
-            <a className="navbar-item">Weekly Sales</a>
+            <a className={'navbar-item ' + (mainCategory === 'Dairy' ? 'is-tab is-active' : '')} id="Dairy" onClick={(e) => setMainCategory(e.target.id)}>
+              Dairy
+            </a>
+
+            <a className={'navbar-item' + (mainCategory === 'Dairy' ? 'is-tab is-active' : '')} id="Dairy" onClick={(e) => setMainCategory(e.target.id)}>
+              Dairy
+            </a>
+
+            <a className={'navbar-item' + (mainCategory === 'Dairy' ? 'is-tab is-active' : '')} id="Dairy" onClick={(e) => setMainCategory(e.target.id)}>
+              Dairy
+            </a>
 
             <div className="navbar-item has-dropdown is-hoverable">
               <a className="navbar-link">Meet Farmers</a>

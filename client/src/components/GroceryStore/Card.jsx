@@ -10,7 +10,7 @@ import {
 } from 'react-router-dom';
 
 const CardContent = styled.div`
-  padding: 0.5rem;
+  padding: 1rem;
   height: 8.5em;
   display: flex;
   flex-direction: column;
@@ -55,7 +55,7 @@ const PricePer = styled.div`
   padding-right: 0.5em;
   font-size: 0.8em;
   color: #403e3b;
-  opacity: 0.;
+  opacity: 0.7;
   font-weight: 600;
 `;
 
@@ -85,7 +85,7 @@ function Card(props) {
       <div className="card">
         <div className="card-image">
           <figure className="image">
-            <img src={photoPath} alt={title} loading="lazy" />
+            <img src={photoPath} alt={title}  />
           </figure>
         </div>
         <CardContent>
