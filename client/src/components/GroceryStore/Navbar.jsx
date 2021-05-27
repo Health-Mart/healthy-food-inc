@@ -9,7 +9,12 @@ import {
   useParams
 } from 'react-router-dom';
 
-function Navbar({ mainCategory, setMainCategory }) {
+const Count = styled.span`
+    font-weight: 800;
+    padding-left: 3px;
+`;
+
+function Navbar({ mainCategory, setMainCategory, count }) {
   return (
     <>
       <nav className="navbar is-success" role="navigation" aria-label="main navigation">
@@ -95,7 +100,7 @@ function Navbar({ mainCategory, setMainCategory }) {
           <div className="navbar-end">
             <div className="navbar-item">
               <div className="buttons">
-                <a className="button is-light">Shopping Bag</a>
+                <a className="button is-light">Shopping Bag <Count>({count})</Count></a>
               </div>
             </div>
           </div>
