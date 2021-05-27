@@ -70,7 +70,9 @@ function Questionnarie() {
         {/* show summary of choice */}
         Looks Great!
         <Link to="/signup">
-          <button type="button">Sign Me Up!</button>
+          <button type="button" onClick={() => setStep(1)}>
+            Sign Me Up!
+          </button>
         </Link>
       </div>
     ) : (
@@ -110,7 +112,6 @@ function Questionnarie() {
         ) : null
       )
     );
-  console.log(survey);
   return <RenderItems />;
 }
 
