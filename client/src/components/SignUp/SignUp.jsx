@@ -11,11 +11,12 @@ import {
   useLocation,
   useParams
 } from 'react-router-dom';
+import useUserInfo from '../../context/useUserInfo.jsx';
 
-const CreateContent = ({ count, params, signUp, handleChange }) =>
+const CreateContent = ({ count, params, signUp, handleChange, addUserInfo, userInfo }) =>
   count === 4 ? (
     <div>
-      <button onClick={() => setCount(1)}>Reset</button>
+      <button type="button" onClick={() => addUserInfo(signUp)}> Check </button>
     </div>
   ) : (
     params.map((paramGroup, index) =>
@@ -97,13 +98,24 @@ function SignUp() {
     '90% of clients who sign up gain 6 packs.'
   ];
 
+  const { updateUserInfo, userInfo } = useUserInfo();
+
   const handleChange = (e) => {
     e.preventDefault();
     setSignUp((oldstate) => ({ ...oldstate, [e.target.name]: e.target.value }));
-    /* console.log('e.target.value', e.target.value); */
-    /* console.log('e.target.name', e.target.name); */
+    // console.log('e.target.value', e.target.value);
+    // console.log('e.target.name', e.target.name);
     /* console.log(signUp); */
   };
+
+  const addUserInfo = () => {
+    Object.entries(signUp).forEach((entry) => {
+      const [key, value] = entry;
+      updateUserInfo(key, value);
+    });
+  };
+
+  console.log(userInfo);
 
   return (
     <>
@@ -119,12 +131,17 @@ function SignUp() {
               params={params}
               signUp={signUp}
               handleChange={handleChange}
+              addUserInfo={addUserInfo}
+              userInfo={userInfo}
             />
             <br />
             <div className="mt2">
               <button
                 className=" button is-flex is-justify-content-center margin-top-5"
-                onClick={() => setCount(count + 1)}
+                onClick={() => {
+                  setCount(count + 1)
+                  addUserInfo;
+                }}
               >
                 button
               </button>
