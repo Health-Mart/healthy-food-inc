@@ -11,12 +11,13 @@ const Cards = styled.div`
 `;
 
 function SubCategory({ subCategory, subCategoryData }) {
+  const [cartNumber, setCartNumber] = useState({});
   return (
     <>
       <h3 className="subtitle is-3" id={subCategory}>{subCategory}</h3>
       <Cards>
         {subCategoryData.map((item, i) => (
-          <Card item={item} key={i} />
+          <Card item={item} indexKey={i} cartNumber={cartNumber} setCartNumber={setCartNumber} />
         ))}
       </Cards>
     </>

@@ -17,8 +17,7 @@ const CardContent = styled.div`
   justify-content: space-between;
 `;
 
-const CardTop = styled.div`
-`;
+const CardTop = styled.div``;
 
 const CardProducer = styled.p`
   color: #403e3b;
@@ -26,7 +25,7 @@ const CardProducer = styled.p`
   font-size: 0.8rem;
   &:hover {
     opacity: 1;
-    color: #087F8C;
+    color: #087f8c;
     text-decoration: underline;
     cursor: pointer;
   }
@@ -36,7 +35,7 @@ const CardTitle = styled.p`
   font-weight: 700;
   color: #403e3b;
   &:hover {
-    color: #087F8C;
+    color: #087f8c;
     text-decoration: underline;
     cursor: pointer;
   }
@@ -104,9 +103,17 @@ const RemoveFromCart = styled(AddToCart)`
 `;
 
 function Card(props) {
-  const { item, key, cartNumber, setCartNumber } = props;
+  const { item, indexKey, cartNumber, setCartNumber } = props;
   const { photoPath, title, price, pricePer, purchaseUnit, producer } = item;
-  // const [cartNumber, setCartNumber] = useState(0);
+
+  const onAddCartHandler = () => {
+    console.log('hey cartNum is this: ', cartNumber);
+    let cartCopy = cartNumber;
+    cartCopy[indexKey] === undefined
+        ? (cartCopy[indexKey] = 1)
+        : (cartCopy[indexKey] = cartCopy[indexKey] + 1);
+    setCartNumber(cartCopy);
+  }
 
   return (
     <>
@@ -116,9 +123,9 @@ function Card(props) {
             <img src={photoPath} alt={title} loading="lazy" />
             {/* { cartNumber > 0 ? <RemoveFromCart onClick={setCartNumber(cartNumber - 1)}>-</RemoveFromCart> : <div></div>} */}
             <RemoveFromCart>-</RemoveFromCart>
-            {/* {cartNumber} */}
-            {/* <AddToCart onClick={setCartNumber(cartNumber[key] === null ? (cartNumber[key] = 1) : (cartNumber[key]++))}>+</AddToCart> */}
-            <AddToCart>+</AddToCart>
+            {cartNumber[indexKey] === undefined ? <div /> : <div>{cartNumber[indexKey]}</div>}
+            <AddToCart onClick={onAddCartHandler}>+</AddToCart>
+            {/* <AddToCart>+</AddToCart> */}
           </figure>
         </div>
         <CardContent>
