@@ -245,7 +245,6 @@ const App = () => (
     </Switch>
     <Switch>
       <Route path={['/signup', '/login']}>
-        <div>initial page</div>
       </Route>
     </Switch>
   </>
