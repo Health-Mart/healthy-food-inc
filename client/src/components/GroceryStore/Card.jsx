@@ -77,15 +77,48 @@ const Price = styled.div`
   text-align: right;
 `;
 
+const AddToCart = styled.button`
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: orange;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+`;
+
+const RemoveFromCart = styled(AddToCart)`
+  position: absolute;
+  left: 0.5rem;
+  bottom: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: orange;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+`;
+
 function Card(props) {
-  const { item } = props;
+  const { item, key, cartNumber, setCartNumber } = props;
   const { photoPath, title, price, pricePer, purchaseUnit, producer } = item;
+  // const [cartNumber, setCartNumber] = useState(0);
+
   return (
     <>
       <div className="card">
         <div className="card-image">
           <figure className="image">
-            <img src={photoPath} alt={title}  />
+            <img src={photoPath} alt={title} loading="lazy" />
+            {/* { cartNumber > 0 ? <RemoveFromCart onClick={setCartNumber(cartNumber - 1)}>-</RemoveFromCart> : <div></div>} */}
+            <RemoveFromCart>-</RemoveFromCart>
+            {/* {cartNumber} */}
+            {/* <AddToCart onClick={setCartNumber(cartNumber[key] === null ? (cartNumber[key] = 1) : (cartNumber[key]++))}>+</AddToCart> */}
+            <AddToCart>+</AddToCart>
           </figure>
         </div>
         <CardContent>

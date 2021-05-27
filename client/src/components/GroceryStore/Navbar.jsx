@@ -14,7 +14,7 @@ function Navbar({ mainCategory, setMainCategory }) {
     <>
       <nav className="navbar is-success" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <a className="navbar-item">
+          <a className="navbar-item" href="/">
             <div>
               <strong>FARMER MARKET</strong>
             </div>
@@ -23,29 +23,71 @@ function Navbar({ mainCategory, setMainCategory }) {
 
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start">
-            <a className={'navbar-item ' + (mainCategory === 'Produce' ? 'is-tab is-active' : '')} id="Produce" onClick={(e) => setMainCategory(e.target.id)}>
+            <a
+              className={`navbar-item ${mainCategory === 'Produce' ? 'is-tab is-active' : ''}`}
+              onClick={() => setMainCategory('Produce')}
+            >
               Produce
             </a>
-
-            <a className={'navbar-item ' + (mainCategory === 'Dairy' ? 'is-tab is-active' : '')} id="Dairy" onClick={(e) => setMainCategory(e.target.id)}>
+            <a
+              className={`navbar-item ${mainCategory === 'Dairy' ? 'is-tab is-active' : ''}`}
+              onClick={() => setMainCategory('Dairy')}
+            >
               Dairy
             </a>
-
-            <a className={'navbar-item' + (mainCategory === 'Dairy' ? 'is-tab is-active' : '')} id="Dairy" onClick={(e) => setMainCategory(e.target.id)}>
-              Dairy
+            <a
+              className={`navbar-item ${mainCategory === 'Meat & Fish' ? 'is-tab is-active' : ''}`}
+              onClick={() => setMainCategory('Meat & Fish')}
+            >
+              Meat & Fish
+            </a>
+            <a
+              className={`navbar-item ${mainCategory === 'Alcohol' ? 'is-tab is-active' : ''}`}
+              onClick={() => setMainCategory('Alcohol')}
+            >
+              Alcohol
+            </a>
+            <a
+              className={`navbar-item ${mainCategory === 'Prepared' ? 'is-tab is-active' : ''}`}
+              onClick={() => setMainCategory('Prepared')}
+            >
+              Prepared
+            </a>
+            <a
+              className={`navbar-item ${mainCategory === 'Snacks' ? 'is-tab is-active' : ''}`}
+              onClick={() => setMainCategory('Snacks')}
+            >
+              Snacks
+            </a>
+            <a
+              className={`navbar-item ${mainCategory === 'Drinks' ? 'is-tab is-active' : ''}`}
+              onClick={() => setMainCategory('Drinks')}
+            >
+              Drinks
+            </a>
+            <a
+              className={`navbar-item ${mainCategory === 'Pantry' ? 'is-tab is-active' : ''}`}
+              onClick={() => setMainCategory('Pantry')}
+            >
+              Pantry
+            </a>
+            <a
+              className={`navbar-item ${
+                mainCategory === 'Health & Home' ? 'is-tab is-active' : ''
+              }`}
+              onClick={() => setMainCategory('Health & Home')}
+            >
+              Health & Home
             </a>
 
-            <a className={'navbar-item' + (mainCategory === 'Dairy' ? 'is-tab is-active' : '')} id="Dairy" onClick={(e) => setMainCategory(e.target.id)}>
-              Dairy
-            </a>
 
             <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link">Meet Farmers</a>
+              <a className="navbar-link">More</a>
 
               <div className="navbar-dropdown">
-                <a className="navbar-item">About</a>
-                <a className="navbar-item">Stories</a>
-                <a className="navbar-item">Learn More</a>
+                <a className="navbar-item" href="/mealplan">Meal Plan</a>
+                <a className="navbar-item" href="/recipe-generator">Recipe Generator</a>
+                <a className="navbar-item" href="/questionnaire">Questionnaire</a>
               </div>
             </div>
           </div>

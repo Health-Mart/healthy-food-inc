@@ -18,9 +18,11 @@ function GroceryStore() {
   // const [count, setCount] = countIncrement;
   const [mainCategory, setMainCategory] = useState('Produce');
 
+  // const cleanMainCategoryId = (category) => category.toLowerCase().split(' ').join('-');
+
   return (
     <>
-      <Navbar setMainCategory={mainCategory, setMainCategory} />
+      <Navbar setMainCategory={setMainCategory} mainCategory={mainCategory} />
       <Column mainCategory={ mainCategory }/>
       <Footer />
     </>

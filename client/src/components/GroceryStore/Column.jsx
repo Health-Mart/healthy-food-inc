@@ -55,9 +55,9 @@ function Column({ mainCategory }) {
     axios
       .get('/api/grocery-items', { params })
       .then((res) => {
-        console.log('API result:', res.data);
+        // console.log('API result:', res.data);
         const sortedData = sortData(res.data);
-        console.log('sorted data is ', sortedData);
+        // console.log('sorted data is ', sortedData);
         setCategoryData(sortedData);
       })
       .then(() => {
@@ -70,14 +70,14 @@ function Column({ mainCategory }) {
 
   const cleanString = (key) => {
     const cleanKey = key.toLowerCase().split(' ').join('-');
-    console.log(cleanKey);
+    // console.log(cleanKey);
     return cleanKey;
   };
 
   return (
     <>
       {isLoading === true ? (
-        <div>Loading</div>
+        <div> </div>
       ) : (
         <div className="columns">
           <div className="column is-one-fifth">

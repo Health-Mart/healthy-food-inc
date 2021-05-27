@@ -210,30 +210,36 @@ const Nav = () => {
 
 const App = () => (
   <>
-    <Navbar />
     <Switch>
       <Route exact path="/">
+        <Navbar />
         <LandingPage />
       </Route>
       <Route path="/signup">
+        <Navbar />
         <SignUp />
       </Route>
       <Route path="/login">
+        <Navbar />
         <LogIn />
       </Route>
       <Route path="/mealplan">
+        <Navbar />
         <MealPlan />
       </Route>
       <Route path="/questionnaire">
+        <Navbar />
         <Questionnaire />
       </Route>
       <Route path="/recipe-generator">
+        <Navbar />
         <RecipeGenerator />
       </Route>
       <Route path="/grocery-store">
         <GroceryStore />
       </Route>
       <Route path="/user-profile">
+        <Navbar />
         <UserProfile />
       </Route>
     </Switch>
