@@ -9,10 +9,6 @@ import {
   useParams
 } from 'react-router-dom';
 
-const Div = styled.div`
-//border: 2px solid purple;
-`;
-
 function ContactInfo() {
   return (
     <div className="ml-4 pl-4">
@@ -23,7 +19,7 @@ function ContactInfo() {
         </button>
       </div>
 
-      <Div className="container is-flex is-flex-direction-row">
+      <div className="container is-flex is-flex-direction-row">
         <div className="columns is-flex is-flex-direction-column my-2 px-2">
           <div className="column">
             <div>Phone:</div>
@@ -51,7 +47,7 @@ function ContactInfo() {
             <div>billiesh@gmail.com</div>
           </div>
         </div>
-      </Div>
+      </div>
     </div>
   );
 }

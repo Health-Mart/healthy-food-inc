@@ -8,7 +8,7 @@ const allMeals = fs.readFile(filename, { encoding: 'utf8' })
     return JSON.parse(res);
   });
 
-getMeals = ({ categoryName, subCategoryName, title, count = 10, offset = 0 } = {}) => {
+getMeals = ({ categoryName, subCategoryName, title, count = 60, offset = 0 } = {}) => {
   return allMeals.then(meals => {
     if (categoryName) {
       categoryName = categoryName.toLowerCase();
@@ -20,7 +20,7 @@ getMeals = ({ categoryName, subCategoryName, title, count = 10, offset = 0 } = {
     }
     if (title) {
       title = title.toLowerCase();
-      meals = meals.filter(meal => meal.title.indexOf(title) !== -1);
+      meals = meals.filter(meal => meal.title.toLowerCase().indexOf(title) !== -1);
     }
     for (meal in meals) {
       delete meals[meal].productUrl;

@@ -13,7 +13,7 @@ exports.getMealPlan = async (req, res) => {
 exports.getMealPlans = async (req, res) => {
   console.log('GETMEALPLAN');
   try {
-    const key = JSON.stringify(req.query);
+    const key = req.query;
     console.log(getMeals);
     getMeals(key).then(meals => {
       console.log('inside getMeals.then');

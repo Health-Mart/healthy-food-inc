@@ -12,20 +12,12 @@ import {
 import axios from 'axios';
 import MealCard from './MealCard.jsx';
 import SearchMeal from './SearchMeal.jsx';
-
 import TimeSelector from './TimeSelector.jsx';
-
-const Section = styled.section`
-  //border: 2px solid yellow;
-`;
-
-const Div = styled.div`
-  //border: 2px solid purple;
-`;
 
 function MealPlan() {
   const [meals, setMeals] = useState();
   const [isLoading, setLoading] = useState(true);
+  const [selectedWeek, setSelectedWeek] = useState(0);
 
   const getMealPlans = () => {
     axios
@@ -46,6 +38,22 @@ function MealPlan() {
     getMealPlans();
   }, []);
 
+  const searchMeals = (searchKeyword) => {
+    const params = {
+      title: searchKeyword
+    };
+    console.log(params);
+    axios
+      .get('/api/meals', { params })
+      .then((response) => {
+        console.log('response data :', response.data);
+        setMeals(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
       {isLoading === true ? (
@@ -56,52 +64,27 @@ function MealPlan() {
             <Div className="container mx-6 px-6">
               <Div className="container mx-0 px-0">
                 <h1 className="title is-size-2 my-4 px-6">Meal Plans</h1>
-                <TimeSelector />
-                <SearchMeal />
+                <TimeSelector selectedWeek={selectedWeek} setSelectedWeek={setSelectedWeek} />
+                <SearchMeal searchMeals={searchMeals} />
 
                 <div className="columns is-centered is-align-items-center my-6 px-6">
-                  <div className="column pt-1 px-4 is-4">
-                    {console.log('sliced: ', meals.slice(0, 3))}
-                    {meals.slice(0, 3).map((meal, index) => (
-                      <MealCard
-                        meal={meal.title}
-                        key={index}
-                        photo={meal.photoPath}
-                        prepTime={meal.prepTime}
-                        price={meal.price}
-                        serving={meal.purchaseUnit}
-                        details={meal.details.productDetails}
-                      />
-                    ))}
-                  </div>
-
-                  <div className="column pt-1 px-4 is-4">
-                    {meals.slice(3, 6).map((meal, index) => (
-                      <MealCard
-                        meal={meal.title}
-                        key={index}
-                        photo={meal.photoPath}
-                        prepTime={meal.prepTime}
-                        price={meal.price}
-                        serving={meal.purchaseUnit}
-                        details={meal.details.productDetails}
-                      />
-                    ))}
-                  </div>
-
-                  <div className="column pt-1 px-4 is-4">
-                    {meals.slice(6, 9).map((meal, index) => (
-                      <MealCard
-                        meal={meal.title}
-                        key={index}
-                        photo={meal.photoPath}
-                        prepTime={meal.prepTime}
-                        price={meal.price}
-                        serving={meal.purchaseUnit}
-                        details={meal.details.productDetails}
-                      />
-                    ))}
-                  </div>
+                  {[0, 3, 6].map((n, i) => (
+                    <div className="column pt-1 px-4 is-4">
+                      {meals
+                        .slice(n + selectedWeek * 9, n + 3 + selectedWeek * 9)
+                        .map((meal, index) => (
+                          <MealCard
+                            meal={meal.title}
+                            key={index}
+                            photo={meal.photoPath}
+                            prepTime={meal.prepTime}
+                            price={meal.price}
+                            serving={meal.purchaseUnit}
+                            details={meal.details.productDetails}
+                          />
+                        ))}
+                    </div>
+                  ))}
                 </div>
               </Div>
             </Div>

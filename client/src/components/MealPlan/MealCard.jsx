@@ -3,14 +3,6 @@ import bulma from 'bulma';
 import styled from 'styled-components';
 import Modal from './Modal.jsx';
 
-const Div = styled.div`
-  //border: 2px solid black;
-`;
-
-const Img = styled.img`
-  object-fit: contain;
-`;
-
 function MealCard({ meal, photo, prepTime, price, serving, details }) {
   const [isOpen, setIsOpen] = useState(false);
   console.log(isOpen);

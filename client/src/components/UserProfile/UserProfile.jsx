@@ -10,47 +10,32 @@ import {
 } from 'react-router-dom';
 
 import Tabs from './Tabs.jsx';
-// import Sidebar from './Sidebar.jsx';
-
-const Section = styled.section`
-  //border: 2px solid yellow;
-`;
-const Container = styled.div`
-  //border: 2px solid red;
-`;
-
-const Div = styled.div`
-  //border: 2px solid purple;
-`;
-
-const Img = styled.img`
-  //border: 2px solid purple;
-  //box-sizin: border-box;
-`;
 
 function UserProfile() {
   return (
-    <Section className="section">
-      <Container className="container">
-        <Div className="columns box is-size-5 is-gapless m-6 pt-6">
-          <Div className="column media-left is-one-fifth">
+    <section className="section">
+      <div className="container">
+        <div className="columns box is-size-5 is-gapless m-6 pt-6">
+          <div className="column media-left is-one-fifth">
             <figure className="image is-1by1">
-              <Img
+              <img
                 className="is-rounded"
                 src="https://yt3.ggpht.com/ytc/AAUvwnjyKzvLyxW8YJV6nSRC71JFUikN6ICJn_v-53mz1Q=s900-c-k-c0x00ffffff-no-rj"
-                alt="Image"
+                alt="Profile"
               />
             </figure>
 
-            <p className="title is-size-4 has-text-centered is-capitalized mx-2 py-2">Billie Eilish</p>
-          </Div>
+            <p className="title is-size-4 has-text-centered is-capitalized mx-2 py-2">
+              Billie Eilish
+            </p>
+          </div>
 
-          <Div className="column">
+          <div className="column">
             <Tabs />
-          </Div>
-        </Div>
-      </Container>
-    </Section>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 

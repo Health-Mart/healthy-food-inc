@@ -10,15 +10,37 @@ import {
   useParams
 } from 'react-router-dom';
 
-function SearchMeal() {
-  //const [searchedKeyword]
+function SearchMeal({ searchMeals }) {
+  const [searchKeyword, setSearchKeyword] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    searchMeals(searchKeyword);
+  };
+
+
+
   return (
     <div className="field is-grouped my-6 px-6">
       <p className="control is-expanded">
-        <input className="input is-rounded" type="text" placeholder="What do you want to eat?" />
+        <input
+          className="input is-rounded"
+          type="text"
+          placeholder="Search ingredients"
+          onChange={(e) => {
+            setSearchKeyword(e.target.value);
+          }}
+        />
       </p>
       <p className="control">
-        <a className="button is-info">Search</a>
+        <input
+          className="button is-info"
+          type="submit"
+          value="Search"
+          onClick={(e) => {
+            handleSubmit(e);
+          }}
+        />
       </p>
     </div>
   );
