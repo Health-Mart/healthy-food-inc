@@ -89,6 +89,7 @@ const AddToCart = styled.button`
   color: white;
   font-size: 1.3rem;
   font-weight: bold;
+  z-index: 5;
 `;
 
 const RemoveFromCart = styled(AddToCart)`
@@ -102,11 +103,32 @@ const RemoveFromCart = styled(AddToCart)`
   border: none;
   color: white;
   font-size: 1.5rem;
+  z-index: 5;
+`;
+
+const StyledItemCounter = styled.h1`
+  visibility: ${props => props.itemCounter > 0 ?
+    'normal' : 'hidden'};
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: #403e3b;
+  opacity: 40%;
+  color: white;
+  z-index: 3;
+  font-size: 8rem;
+  font-weight: 700;
+  text-align: center;
+  justify-self: center;
 `;
 
 function Card({ item, indexKey, cartNumber, setCartNumber, count, setCount }) {
   const { photoPath, title, price, pricePer, purchaseUnit, producer } = item;
   const [itemAdded, setItemAdded] = useState('+');
+  const [itemCounter, setItemCounter] = useState(0);
+
   // const [isAdded, setIsAdded] = useState(false);
   // const onAddCartHandler = () => {
   //   cartNumber[indexKey] === undefined
@@ -116,11 +138,12 @@ function Card({ item, indexKey, cartNumber, setCartNumber, count, setCount }) {
   //   console.log('hey cartNum is this: ', cartNumber);
   // }
 
-  // const onRemoveCartHandler = () => {
-  //   console.log('hey cartNum is this: ', cartNumber);
-  //   cartNumber[indexKey] = cartNumber[indexKey] - 1;
-  //   setCartNumber(cartNumber);
-  // };
+  const onRemoveCartHandler = () => {
+    if (itemCounter === 1) {
+      setCount(count - 1);
+    }
+    setItemCounter(itemCounter - 1);
+  };
 
   // const onAddHandler = () => {
   //   if(isAdded) {
@@ -131,13 +154,17 @@ function Card({ item, indexKey, cartNumber, setCartNumber, count, setCount }) {
   // }
 
   const toggle = () => {
-    if (itemAdded === '+') {
-      setItemAdded('✓');
-      setCount(count + 1);
-    } else {
-      setItemAdded('+');
-      setCount(count - 1);
-    }
+    // if (itemAdded === '+') {
+      // setItemAdded('✓');
+      if (itemCounter === 0) {
+        setCount(count + 1);
+      }
+      setItemCounter(itemCounter + 1);
+    // } else {
+    //   setItemAdded('+');
+    //   setCount(count - 1);
+    //   setItemCounter(itemCounter - 1);
+    // }
   }
 
   return (
@@ -146,6 +173,8 @@ function Card({ item, indexKey, cartNumber, setCartNumber, count, setCount }) {
         <div className="card-image">
           <figure className="image">
             <img src={photoPath} alt={title} loading="lazy" />
+            {itemCounter > 0 ? <RemoveFromCart onClick={() => onRemoveCartHandler()}>-</RemoveFromCart> : <div></div>}
+            <StyledItemCounter itemCounter={itemCounter}>{itemCounter}</StyledItemCounter>
             <AddToCart onClick={() => toggle()}> {itemAdded} </AddToCart>
           </figure>
         </div>
