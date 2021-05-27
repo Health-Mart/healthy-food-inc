@@ -15,6 +15,8 @@ const TableLink = styled.a`
 `;
 
 function TimeSelector() {
+
+
   return (
     <nav className="pagination my-2 px-6" role="navigation" aria-label="pagination">
       <ul className="pagination-list is-size-6">

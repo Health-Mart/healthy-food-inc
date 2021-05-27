@@ -10,8 +10,7 @@ import {
 } from 'react-router-dom';
 
 import Tabs from './Tabs.jsx';
-import Sidebar from './Sidebar.jsx';
-
+// import Sidebar from './Sidebar.jsx';
 
 const Section = styled.section`
   //border: 2px solid yellow;
@@ -25,7 +24,7 @@ const Div = styled.div`
 `;
 
 const Img = styled.img`
- //border: 2px solid purple;
+  //border: 2px solid purple;
   //box-sizin: border-box;
 `;
 
@@ -43,7 +42,7 @@ function UserProfile() {
               />
             </figure>
 
-            <Sidebar />
+            <p className="title is-size-4 has-text-centered is-capitalized mx-2 py-2">Billie Eilish</p>
           </Div>
 
           <Div className="column">

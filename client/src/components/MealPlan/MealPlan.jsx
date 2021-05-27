@@ -9,6 +9,7 @@ import {
   useLocation,
   useParams
 } from 'react-router-dom';
+import axios from 'axios';
 import MealCard from './MealCard.jsx';
 import SearchMeal from './SearchMeal.jsx';
 
@@ -28,6 +29,21 @@ function MealPlan() {
     ['Chicken', 'Fish', 'Vegies'],
     ['Soup', 'Sandwich', 'Turkey']
   ]);
+
+  const getMealPlans = () => {
+    axios
+      .get('api/mealplans')
+      .then((res) => {
+        console.log('API results ', res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getMealPlans();
+  });
 
   return (
     <Section className="section m-3 p-3">
