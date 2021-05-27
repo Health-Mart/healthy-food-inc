@@ -52,10 +52,23 @@ const CloseButton = styled.button`
   outline: none;
   background: none;
 `;
+const NavItems = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const Logo = styled.a`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 1em;
+  margin-right: 1em;
+`;
 
 function Navbar() {
   const [showModal, setShowModal] = useState(false);
-
+  const location = useLocation();
   const [state, setState] = useState({
     username: '',
     password: ''
@@ -70,9 +83,9 @@ function Navbar() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(state);
+    console.log(  state);
   };
-
+  console.log('location', location);
   return (
     <div>
       {showModal ? (
@@ -124,55 +137,55 @@ function Navbar() {
         </CustomModal>
       ) : null}
       <div>
-        <nav className="navbar is-white" role="navigation" aria-label="main navigation">
+        <nav className="navbar is-success" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
-            <a className="navbar-item">
+            <Logo>
               <div>
-                <Link to="/">
+                <Link to="/" className="has-text-white">
                   <strong>Health Food inc.</strong>
                 </Link>
               </div>
-            </a>
+            </Logo>
           </div>
           <div id="navbarBasicExample" className="navbar-menu">
-            <div className="navbar-start">
-              <a className="navbar-item">
+            <NavItems className="navbar-start has-text-white">
+              <a className={`navbar-item ${location.pathname === '/questionnaire' ? 'is-tab is-active' : ''}`}>
                 <div>
-                  <Link to="/questionnaire">questionnaire</Link>
+                  <Link to="/questionnaire" className="has-text-white">Questionnaire</Link>
+                </div>
+              </a>
+              <a className={`navbar-item ${location.pathname === '/recipe-generator' ? 'is-tab is-active' : ''}`}>
+                <div>
+                  <Link to="/recipe-generator" className="has-text-white">Recipe Generator</Link>
+                </div>
+              </a>
+              <a className={`navbar-item ${location.pathname === '/mealplan' ? 'is-tab is-active' : ''}`}>
+                <div>
+                  <Link to="/mealplan" className="has-text-white">Meal Plans</Link>
+                </div>
+              </a>
+              <a className={`navbar-item ${location.pathname === '/grocery-store' ? 'is-tab is-active' : ''}`}>
+                <div>
+                  <Link to="/grocery-store" className="has-text-white">Grocery Market</Link>
+                </div>
+              </a>
+              {/* <a className="navbar-item">
+                <div>
+                  <Link to="/signup" className="has-text-white">sign up</Link>
                 </div>
               </a>
               <a className="navbar-item">
                 <div>
-                  <Link to="/recipe-generator">recipe generator</Link>
+                  <Link to="/user-profile" className="has-text-white">User Profile</Link>
                 </div>
-              </a>
-              <a className="navbar-item">
-                <div>
-                  <Link to="/mealplan">meal plan</Link>
-                </div>
-              </a>
-              <a className="navbar-item">
-                <div>
-                  <Link to="/grocery-store">grocery </Link>
-                </div>
-              </a>
-              <a className="navbar-item">
-                <div>
-                  <Link to="/signup">sign up</Link>
-                </div>
-              </a>
-              <a className="navbar-item">
-                <div>
-                  <Link to="/user-profile">user profile</Link>
-                </div>
-              </a>
-            </div>
+              </a> */}
+            </NavItems>
 
             <div className="navbar-end">
               <div className="navbar-item">
                 <div className="buttons">
                   <button type="button" className="button" onClick={() => setShowModal(true)}>
-                    log in
+                    Log In
                   </button>
                 </div>
               </div>

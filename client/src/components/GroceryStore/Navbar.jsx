@@ -14,6 +14,8 @@ const Count = styled.span`
     padding-left: 3px;
 `;
 
+
+
 function Navbar({ mainCategory, setMainCategory, count }) {
   return (
     <>
@@ -21,7 +23,7 @@ function Navbar({ mainCategory, setMainCategory, count }) {
         <div className="navbar-brand">
           <a className="navbar-item" href="/">
             <div>
-              <strong>FARMER MARKET</strong>
+              <strong>GROCERY MARKET</strong>
             </div>
           </a>
         </div>
