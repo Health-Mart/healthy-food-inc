@@ -136,24 +136,24 @@ function Navbar() {
           </div>
           <div id="navbarBasicExample" className="navbar-menu">
             <div className="navbar-start">
-              <a className="navbar-item">
+              {/* <a className="navbar-item">
                 <div>
                   <Link to="/questionnaire">questionnaire</Link>
                 </div>
-              </a>
+              </a> */}
               <a className="navbar-item">
                 <div>
-                  <Link to="/recipe-generator">recipe generator</Link>
+                  <Link to="/recipe-generator">Recipes</Link>
                 </div>
               </a>
               <a className="navbar-item">
                 <div>
-                  <Link to="/mealplan">meal plan</Link>
+                  <Link to="/mealplan">Meal Plan</Link>
                 </div>
               </a>
               <a className="navbar-item">
                 <div>
-                  <Link to="/grocery-store">grocery </Link>
+                  <Link to="/grocery-store">Grocery </Link>
                 </div>
               </a>
               <a className="navbar-item">
@@ -184,29 +184,29 @@ function Navbar() {
   );
 }
 
-const Nav = () => {
-  const divider = ' | ';
-  return (
-    <div>
-      <Link to="/">landing page</Link>
-      <span>{divider}</span>
-      <Link to="/signup">sign up</Link>
-      <span>{divider}</span>
-      <Link to="/login">log in</Link>
-      <span>{divider}</span>
-      <Link to="/mealplan">meal plan</Link>
-      <span>{divider}</span>
-      <Link to="/questionnaire">questionnaire</Link>
-      <span>{divider}</span>
-      <Link to="/recipe-generator">recipe generator</Link>
-      <span>{divider}</span>
-      <Link to="/grocery-store">grocery </Link>
-      <span>{divider}</span>
-      <Link to="/user-profile">user profile</Link>
-      <span>{divider}</span>
-    </div>
-  );
-};
+// const Nav = () => {
+//   const divider = ' | ';
+//   return (
+//     <div>
+//       <Link to="/">landing page</Link>
+//       <span>{divider}</span>
+//       <Link to="/signup">sign up</Link>
+//       <span>{divider}</span>
+//       <Link to="/login">log in</Link>
+//       <span>{divider}</span>
+//       <Link to="/mealplan">meal plan</Link>
+//       <span>{divider}</span>
+//       <Link to="/questionnaire">questionnaire</Link>
+//       <span>{divider}</span>
+//       <Link to="/recipe-generator">recipe generator</Link>
+//       <span>{divider}</span>
+//       <Link to="/grocery-store">grocery </Link>
+//       <span>{divider}</span>
+//       <Link to="/user-profile">user profile</Link>
+//       <span>{divider}</span>
+//     </div>
+//   );
+// };
 
 const App = () => (
   <>

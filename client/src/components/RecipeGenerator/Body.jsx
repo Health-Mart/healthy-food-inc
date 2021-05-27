@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import {
@@ -29,8 +31,8 @@ function Body(props) {
           <section className="section">
             <div className="container">
               <Cards>
-                {recipes.map((item) => (
-                  <Card item={item} />
+                {recipes.map((item, i) => (
+                  <Card item={item} key={i} />
                 ))}
                 <Card />
               </Cards>

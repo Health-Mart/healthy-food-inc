@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import {
@@ -9,6 +11,7 @@ import {
   useParams
 } from 'react-router-dom';
 import Modal from './Modal.jsx';
+import { HealthContext } from '../../context/healthContext.jsx';
 
 const replacementImages = {
   511748:
@@ -50,6 +53,7 @@ const replacementImages = {
 
 function Card({ item }) {
   const [showModal, setShowModal] = useState(false);
+  const [select, setSelect] = useState(false);
   const openModal = () => {
     setShowModal((prev) => !prev);
   };
@@ -58,15 +62,36 @@ function Card({ item }) {
   }
   const { title } = item;
   const image = replacementImages[item.id] ?? item.image;
+
+  function addRecipe() {
+    // const record = recipes.slice();
+    // console.log('this is record: ', record);
+    setSelect(true);
+    // setRecipes([item.id, ...recipes]);
+    // console.log(recipes);
+  }
+
+  function deleteRecipe() {
+    setSelect(false);
+  }
+
   return (
     <>
       <div className="card">
         <div className="card-image">
           <figure className="image is-4by3">
             <img src={image} alt="profile" />
-            <button onClick={openModal} className="button is-small" type="button">
-              Learn More
-            </button>
+            <div>
+              {select ? (
+                <button onClick={deleteRecipe} className="button is-small is-danger" type="button">
+                  saved
+                </button>
+              ) : (
+                <button onClick={openModal} className="button is-small" type="button">
+                  Learn More
+                </button>
+              )}
+            </div>
           </figure>
         </div>
         <div className="card-content">
@@ -77,6 +102,8 @@ function Card({ item }) {
         </div>
         <Modal
           item={item}
+          addRecipe={addRecipe}
+          deleteRecipe={deleteRecipe}
           showModal={showModal}
           setShowModal={setShowModal}
           openModal={openModal}
