@@ -12,8 +12,40 @@ import {
   useParams
 } from 'react-router-dom';
 
+const CreateContent = ({ count, params, signUp, handleChange }) =>
+  count === 4 ? (
+    <div>
+      <button onClick={() => setCount(1)}>Reset</button>
+    </div>
+  ) : (
+    params.map((paramGroup, index) =>
+      paramGroup.count === count
+        ? paramGroup.items.map((paramItem) => (
+            <div>
+              <div className="is-flex is-justify-content-left">
+                <div className="login-container ">
+                  <div className="field">
+                    <label className="label">{paramItem}</label>
+                    <input
+                      className="input"
+                      type="text"
+                      name={paramItem}
+                      value={signUp[paramItem]}
+                      /* onChange={(max) => console.log(max)} */
+                      onChange={handleChange}
+                      placeholder={paramItem}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        : null
+    )
+  );
+
 const Container = styled.div`
-  background-image: url(https://images.unsplash.com/photo-1576659185898-ed54d56a55c8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1834&q=80);
+  background-image: url(https://images.unsplash.com/photo-1467453678174-768ec283a940?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1928&q=80);
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -23,25 +55,37 @@ const Container = styled.div`
 
 const FactStyle = styled.div`
   border: black 1px;
-  opacity: 0.6;
+  opacity: 0.65;
 `;
 
 function SignUp() {
   const [count, setCount] = useState(1);
-  const [signUp, setSignUp] = useState('');
+  const [signUp, setSignUp] = useState({
+    Name: '',
+    Password: '',
+    Username: '',
+    Email: '',
+    Address: '',
+    City: '',
+    State: '',
+    ZipCode: '',
+    CreditCard: '',
+    Expiration: '',
+    SecurityCode: ''
+  });
 
-  const stuff = [
+  const params = [
     {
       count: 1,
       items: ['Name', 'Password', 'Username', 'Email']
     },
     {
       count: 2,
-      items: ['Address', 'City', 'State', 'Zip Code']
+      items: ['Address', 'City', 'State', 'ZipCode']
     },
     {
       count: 3,
-      items: ['Credit Card', 'Expiration', 'Security Code']
+      items: ['CreditCard', 'Expiration', 'SecurityCode']
     }
   ];
 
@@ -55,41 +99,11 @@ function SignUp() {
 
   const handleChange = (e) => {
     e.preventDefault();
-    setSignUp(e.target.value);
-    console.log(e.target.name);
-    console.log(signUp);
+    setSignUp((oldstate) => ({ ...oldstate, [e.target.name]: e.target.value }));
+    // /* console.log('e.target.value', e.target.value); */
+    // /* console.log('e.target.name', e.target.name); */
+    /* console.log(signUp); */
   };
-
-  const CreateContent = () =>
-    count === 4 ? (
-      <div>
-        <button onClick={() => setCount(1)}>Reset</button>
-      </div>
-    ) : (
-      stuff.map((bob, index) =>
-        bob.count === count
-          ? bob.items.map((jim) => (
-              <div>
-                <div className="is-flex is-justify-content-center">
-                  <div className="login-container ">
-                    <div className="field">
-                      <label className="label">{jim}</label>
-                      <input
-                        className="input"
-                        id={count}
-                        type="text"
-                        value={signUp}
-                        onChange={handleChange}
-                        placeholder={jim}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))
-          : null
-      )
-    );
 
   return (
     <>
@@ -100,13 +114,25 @@ function SignUp() {
           </FactStyle>
           <div className="column is-4" />
           <div className="column">
-            <CreateContent />
+            <CreateContent
+              count={count}
+              params={params}
+              signUp={signUp}
+              handleChange={handleChange}
+            />
+            <br />
             <div className="mt2">
-              <button onClick={() => setCount(count + 1)}>button</button>
+              <button
+                className=" button is-flex is-justify-content-center margin-top-5"
+                onClick={() => setCount(count + 1)}
+              >
+                button
+              </button>
             </div>
           </div>
         </div>
       </Container>
+      <br />
     </>
   );
 }
