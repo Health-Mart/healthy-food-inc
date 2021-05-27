@@ -16,10 +16,14 @@ import Footer from './Footer.jsx';
 function GroceryStore() {
   // const { countIncrement } = useContext(HealthContext);
   // const [count, setCount] = countIncrement;
+  const [mainCategory, setMainCategory] = useState('Produce');
+
+  // const cleanMainCategoryId = (category) => category.toLowerCase().split(' ').join('-');
+
   return (
     <>
-      <Navbar />
-      <Column />
+      <Navbar setMainCategory={setMainCategory} mainCategory={mainCategory} />
+      <Column mainCategory={ mainCategory }/>
       <Footer />
     </>
   );

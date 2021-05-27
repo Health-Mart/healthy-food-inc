@@ -7,10 +7,14 @@ const HealthProvider = (props) => {
   // create states here
   // ex: [test, setTest] = useState('im a test woot')
   const [survey, setSurvey] = useState([]);
+  const [recipes, setRecipes] = useState([]);
+  const [select, setSelect] = useState(false);
   return (
     <HealthContext.Provider
       value={{
         question: [survey, setSurvey],
+        recipeStore: [recipes, setRecipes],
+        isSelect: [select, setSelect]
       }}
     >
       {children}
