@@ -29,8 +29,8 @@ function Body(props) {
           <section className="section">
             <div className="container">
               <Cards>
-                {recipes.map((item) => (
-                  <Card item={item} />
+                {recipes.map((item, i) => (
+                  <Card item={item} key={i} />
                 ))}
                 <Card />
               </Cards>
