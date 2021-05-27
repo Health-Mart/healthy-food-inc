@@ -10,8 +10,6 @@ import {
   useParams
 } from 'react-router-dom';
 import Form from './Form.jsx';
-import Buttons from './Buttons.jsx';
-import dummyData from './dummyData.js';
 import Category from './Category.jsx';
 import Browse from './Browse.jsx';
 
@@ -42,8 +40,7 @@ function sortData(arr) {
   return obj;
 }
 
-function Column({ mainCategory }) {
-  const { produces } = dummyData;
+function Column({ mainCategory, setCount, count }) {
   const [isLoading, setLoading] = useState(true);
   const [categoryData, setCategoryData] = useState(null);
 
@@ -55,9 +52,7 @@ function Column({ mainCategory }) {
     axios
       .get('/api/grocery-items', { params })
       .then((res) => {
-        // console.log('API result:', res.data);
         const sortedData = sortData(res.data);
-        // console.log('sorted data is ', sortedData);
         setCategoryData(sortedData);
       })
       .then(() => {
@@ -70,7 +65,6 @@ function Column({ mainCategory }) {
 
   const cleanString = (key) => {
     const cleanKey = key.toLowerCase().split(' ').join('-');
-    // console.log(cleanKey);
     return cleanKey;
   };
 
@@ -92,9 +86,6 @@ function Column({ mainCategory }) {
                       ))}
                     </ul>
                   </aside>
-                  {/* {Object.keys(categoryData).map((key) => (
-                  <Buttons category={key} cleanHref={cleanString(key)} />
-                ))} */}
                 </ButtonNav>
               </div>
             </StyledSideBar>
@@ -107,6 +98,8 @@ function Column({ mainCategory }) {
                     categoryData={categoryData[key]}
                     category={key}
                     cleanHref={cleanString(key)}
+                    count={count}
+                    setCount={setCount}
                   />
                 ))}
               </div>
