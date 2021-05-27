@@ -11,13 +11,19 @@ import {
   useParams
 } from 'react-router-dom';
 import axios from 'axios';
+import { HealthContext } from '../../context/healthContext.jsx';
 import Header from './Header.jsx';
-import Body from './Body.jsx';
+import Bodyx from './Bodyx.jsx';
 import Footer from './Footer.jsx';
 
 function RecipeGenerator() {
+  const { question } = useContext(HealthContext);
+  const [survey, setSurvey] = question;
   const [recipes, setRecipes] = useState([]);
   const [dataReady, setdataReady] = useState(false);
+
+  console.log('data from survey: ', survey);
+
   const paramas = {
     query: 'pasta',
     tag: ['veryHealthy'],
@@ -54,12 +60,21 @@ function RecipeGenerator() {
       });
   }
 
+  function filter(term) {
+    console.log('filtering...', term);
+    const params = {
+      tag: ['veryHealthy'],
+      restrictions: ['dairy free', 'vagan']
+    };
+    // filter through the recipes
+  }
+
   if (dataReady) {
     return (
       <>
-        <Header searchRecipes={searchRecipes} />
+        <Header searchRecipes={searchRecipes} filter={filter} />
         <br />
-        <Body recipes={recipes} />
+        <Bodyx recipes={recipes} />
         <Footer />
       </>
     );

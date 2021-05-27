@@ -1,5 +1,7 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable array-callback-return */
+/* eslint-disable object-shorthand */
 /* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import {
@@ -10,6 +12,7 @@ import {
   useLocation,
   useParams
 } from 'react-router-dom';
+import Modal from './Modal.jsx';
 import { HealthContext } from '../../context/healthContext.jsx';
 
 const replacementImages = {
@@ -50,89 +53,98 @@ const replacementImages = {
     'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/slow-cooker-chili-horizontal-1529354330.png'
 };
 
-const Modal = ({ showModal, setShowModal, openModal, item, addRecipe, deleteRecipe }) => {
-  const { title, summary } = item;
-  const image = replacementImages[item.id] ?? item.image;
+function Cardx({ item, addRecipe, deleteRecipe }) {
+  const [showModal, setShowModal] = useState(false);
   const { recipeStore } = useContext(HealthContext);
-  const { isSelect } = useContext(HealthContext);
-  const [recipes, setRecipes] = recipeStore;
-  const [select, setSelect] = isSelect;
+  const [select, setSelect] = useState(false);
+  const [recipeMeta, setRecipeMeta] = recipeStore;
+  const openModal = () => {
+    setShowModal((prev) => !prev);
+  };
+  if (item === undefined) {
+    return null;
+  }
+  const { title } = item;
+  const image = replacementImages[item.id] ?? item.image;
+  const thisID = item.id;
+  // console.log('this item: ', item);
 
-  // function addRecipe() {
-  //   const record = recipes.slice();
-  //   console.log('this is record: ', record);
-  //   setSelect(true);
-  //   setRecipes([item.id, ...recipes]);
-  //   console.log(recipes);
-  // }
+  const selected = recipeMeta[thisID] === true;
+  // console.log('isSelect: ', selected, thisID);
 
-  // function deleteRecipe() {
-  //   setSelect(false);
-  //   console.log(recipes);
-  // }
-
+  if (selected === undefined || selected === false) {
+    return (
+      <>
+        <div className="card">
+          <div className="card-image">
+            <figure className="image is-4by3">
+              <img src={image} alt="profile" />
+              <div>
+                {/* {
+                    (selected === undefined || selected === false)
+                       ? (<div></div>)
+                       : (<span></span>)
+                  } */}
+                <button onClick={openModal} className="button is-small" type="button">
+                  Learn More
+                </button>
+              </div>
+            </figure>
+          </div>
+          <div className="card-content">
+            <p className="title is-5">{title}</p>
+            {/* <span>{item.id}</span> */}
+            <p className="title is-7" />
+            <p className="title is-7">{item.readyInMinutes} min</p>
+          </div>
+          <Modal
+            item={item}
+            addRecipe={addRecipe}
+            deleteRecipe={deleteRecipe}
+            showModal={showModal}
+            setShowModal={setShowModal}
+            openModal={openModal}
+          />
+        </div>
+      </>
+    );
+  }
   return (
     <>
-      {showModal ? (
-        <div className="modal is-active">
-          <div className="modal-background" />
-          <div className="modal-card">
-            <div className="card-image">
-              <figure className="image is-4by3">
-                <img src={image} alt="profile" />
-              </figure>
-            </div>
-            <div className="modal-card-body">
-              <p className="title is-4">{title}</p>
-              <p className="title is-7 is-black" dangerouslySetInnerHTML={{ __html: summary }} />
-              {/* <p className="title is-5">Ingredients</p>
-              <p className="title is-7">12 ounces fettuccine</p>
-              <p className="title is-7">4 slices bacon, chopped</p>
-              <p className="title is-7">1 pound chicken tenders, cut into 1-inch pieces</p>
-              <p className="title is-7">2 cloves garlic, minced</p>
-              <p className="title is-7">4 plum tomatoes, chopped</p>
-              <p className="title is-7">1 cup heavy cream</p>
-              <p className="title is-7">5 ounces baby spinach</p>
-              <p className="title is-7">3/4 cup grated Parmesan</p>
-              <p className="title is-7">3 tablespoons chopped fresh basil</p> */}
-            </div>
-            <div className="modal-card-foot is-white">
-              {select ? (
-                <button className="button is-danger is-rounded" type="button">
-                  Save
-                </button>
-              ) : (
-                <button
-                  onClick={() => {
-                    addRecipe(item);
-                  }}
-                  className="button is-white is-rounded"
-                  type="button"
-                >
-                  Save
-                </button>
-              )}
+      <div className="card">
+        <div className="card-image">
+          <figure className="image is-4by3">
+            <img src={image} alt="profile" />
+            <div>
               <button
                 onClick={() => {
                   deleteRecipe(item);
                 }}
-                className="button is-white is-rounded"
+                className="button is-small is-danger"
                 type="button"
               >
-                Delete
+                saved
               </button>
             </div>
-          </div>
-          <button
-            onClick={openModal}
-            type="button"
-            className="modal-close is-large"
-            aria-label="close"
-          />
+          </figure>
         </div>
-      ) : null}
+        <div className="card-content">
+          <p className="title is-5">{title}</p>
+          {/* <span>{item.id}</span> */}
+          <p className="title is-7" />
+          <p className="title is-7">{item.readyInMinutes} min</p>
+        </div>
+        <Modal
+          item={item}
+          addRecipe={addRecipe}
+          deleteRecipe={deleteRecipe}
+          showModal={showModal}
+          setShowModal={setShowModal}
+          openModal={openModal}
+        />
+      </div>
     </>
   );
-};
+}
 
-export default Modal;
+export default Cardx;
