@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import {
   BrowserRouter as Router,
@@ -8,6 +10,7 @@ import {
   useLocation,
   useParams
 } from 'react-router-dom';
+import { HealthContext } from '../../context/healthContext.jsx';
 
 const replacementImages = {
   511748:
@@ -47,9 +50,26 @@ const replacementImages = {
     'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/slow-cooker-chili-horizontal-1529354330.png'
 };
 
-const Modal = ({ showModal, setShowModal, openModal, item }) => {
+const Modal = ({ showModal, setShowModal, openModal, item, addRecipe, deleteRecipe }) => {
   const { title, summary } = item;
   const image = replacementImages[item.id] ?? item.image;
+  const { recipeStore } = useContext(HealthContext);
+  const { isSelect } = useContext(HealthContext);
+  const [recipes, setRecipes] = recipeStore;
+  const [select, setSelect] = isSelect;
+
+  // function addRecipe() {
+  //   const record = recipes.slice();
+  //   console.log('this is record: ', record);
+  //   setSelect(true);
+  //   setRecipes([item.id, ...recipes]);
+  //   console.log(recipes);
+  // }
+
+  // function deleteRecipe() {
+  //   setSelect(false);
+  //   console.log(recipes);
+  // }
 
   return (
     <>
@@ -64,7 +84,7 @@ const Modal = ({ showModal, setShowModal, openModal, item }) => {
             </div>
             <div className="modal-card-body">
               <p className="title is-4">{title}</p>
-              <p className="title is-7 is-black" dangerouslySetInnerHTML={ { __html: summary } }></p>
+              <p className="title is-7 is-black" dangerouslySetInnerHTML={{ __html: summary }} />
               <p className="title is-5">Ingredients</p>
               <p className="title is-7">12 ounces fettuccine</p>
               <p className="title is-7">4 slices bacon, chopped</p>
@@ -77,10 +97,16 @@ const Modal = ({ showModal, setShowModal, openModal, item }) => {
               <p className="title is-7">3 tablespoons chopped fresh basil</p>
             </div>
             <div className="modal-card-foot is-white">
-              <button className="button is-white" type="button">
-                Save
-              </button>
-              <button className="button" type="button">
+              {select ? (
+                <button onClick={addRecipe} className="button is-danger is-rounded" type="button">
+                  Save
+                </button>
+              ) : (
+                <button onClick={addRecipe} className="button is-white is-rounded" type="button">
+                  Save
+                </button>
+              )}
+              <button onClick={deleteRecipe} className="button is-white is-rounded" type="button">
                 Delete
               </button>
             </div>

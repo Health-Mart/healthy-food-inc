@@ -47,7 +47,6 @@ function MealPlan() {
 
               <div className="column pt-1 px-4 is-4">
                 {meals[1].map((meal, index) => (
-
                   <MealCard meal={meal} key={index} />
                 ))}
               </div>

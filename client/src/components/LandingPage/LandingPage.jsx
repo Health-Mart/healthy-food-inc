@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { GiFarmer } from 'react-icons/gi';
+import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 import styled from 'styled-components';
 import {
   BrowserRouter as Router,
@@ -10,6 +11,7 @@ import {
   useParams
 } from 'react-router-dom';
 import Bulma from 'bulma';
+import useUserInfo from '../../context/useUserInfo.jsx';
 
 function LandingPage() {
   const dummyImg = [
@@ -17,10 +19,10 @@ function LandingPage() {
     'https://images.unsplash.com/photo-1556911073-52527ac43761?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60',
     'https://images.unsplash.com/photo-1615657711994-f0e35eb9e46d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60'
   ];
-  const dummyImg2 = [
-    'https://www.svgrepo.com/show/277590/healthy-food-salad.svg',
-    'https://www.svgrepo.com/show/186339/recipe-book.svg',
-    'https://www.svgrepo.com/show/161390/happy.svg'
+  const farmerPics = [
+    'https://images.unsplash.com/photo-1593011951342-8426e949371f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1944&q=80',
+    'https://images.unsplash.com/photo-1602046747040-1df0f6527803?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2851&q=80',
+    'https://images.unsplash.com/photo-1596788068873-9ffd5cacd4c4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1510&q=80'
   ];
   const farmerData = [
     `Come on up and see me urchins. Me I’m Dishonest. And A Dishonest Man You Can Always Trust To Be Dishonest. Honestly Its The Honest Ones You Want To Watch Out For Because You Never Know When They Are Going To Do Something Completely Stupid! Why are pirates pirates? cuz they arrrrrr you know, thats the 2nd time I’v watched that man sail away with my ship.`
@@ -40,6 +42,16 @@ function LandingPage() {
       content: 'If ye can’t trust a pirate, ye damn well can’t trust a merchant either!'
     }
   ]);
+  const { updateUserInfo, userInfo } = useUserInfo();
+  const [current, setCurrent] = useState(0);
+
+  const nextSlide = () => {
+    setCurrent(current === farmerPics.length - 1 ? 0 : current + 1);
+  };
+
+  const prevSlide = () => {
+    setCurrent(current === 0 ? farmerPics.length - 1 : current - 1);
+  };
 
   const TitlesAndContent = () =>
     steps.map((step, index) => (
@@ -103,8 +115,21 @@ function LandingPage() {
             </button>
           </div>
         </div>
-        <FarmerPicture className="container section is-large column is-four-fifths" />
+        <FaChevronLeft className="left-arrow" onClick={prevSlide} />
+        {farmerPics.map((image, index) => {
+          console.log(image);
+          return <div key={index}>{index === current && <FarmerPicture src={image} alt="" />}</div>;
+        })}
+        <FaChevronRight className="right-arrow" onClick={nextSlide} />
       </FarmerInfo>
+      {/* <div>
+        <button className="button is-primary" type="button" onClick={() => {
+          updateUserInfo('name', 'jon')
+          updateUserInfo('email', 'fake@gmail.com')
+        }}>test</button>
+        <div className="has-text is-size-1">{userInfo.name}</div>
+        <button className="button is-warning" type="button" onClick={() => console.log(userInfo)}>Console</button>
+      </div> */}
     </>
   );
 }
@@ -117,7 +142,6 @@ const Header = styled.section`
 `;
 
 const FarmerPicture = styled(Header)`
-  background-image: url('https://images.unsplash.com/photo-1602046747040-1df0f6527803?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80');
   background-position: center;
   background-size: 100%;
 `;
