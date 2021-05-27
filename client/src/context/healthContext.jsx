@@ -10,7 +10,7 @@ const HealthProvider = (props) => {
   return (
     <HealthContext.Provider
       value={{
-        question: [survey, setSurvey]
+        question: [survey, setSurvey],
       }}
     >
       {children}
