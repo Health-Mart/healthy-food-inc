@@ -155,7 +155,7 @@ function Card({ item, addRecipe, deleteRecipe }) {
           </div>
           <CardContent>
             <CardTitle>{title}</CardTitle>
-            <span>{item.id}</span>
+            {/* <span>{item.id}</span> */}
             <CardButtom>{item.readyInMinutes} min</CardButtom>
           </CardContent>
           <Modal
@@ -181,7 +181,7 @@ function Card({ item, addRecipe, deleteRecipe }) {
                 onClick={() => {
                   deleteRecipe(item);
                 }}
-                className="button is-small is-danger"
+                className="button is-small is-primary"
                 type="button"
               >
                 saved

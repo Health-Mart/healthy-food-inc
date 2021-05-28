@@ -77,9 +77,9 @@ const replacementImages = {
 };
 
 const Text = styled.div`
-  font-weight: 350;
+  font-weight: 400;
   line-height: 1.5;
-  font-size: 2rem;
+  font-size: 1rem;
   margin-top: 1.5em;
 `;
 
@@ -123,7 +123,7 @@ const Modal = ({ showModal, setShowModal, openModal, item, addRecipe, deleteReci
               <figure className="image">
                 <Img src={image} alt="profile" />
               </figure>
-              <Text className="title is-7 is-black" dangerouslySetInnerHTML={{ __html: summary }} />
+              <Text className="title is-6 is-black" dangerouslySetInnerHTML={{ __html: summary }} />
             </section>
             <div className="modal-card-foot">
               {select ? (
