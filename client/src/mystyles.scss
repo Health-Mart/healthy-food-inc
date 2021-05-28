@@ -17,5 +17,10 @@ $warning: $background;
 $light: $backgroundlight;
 $navbar-tab-active-border-bottom-color:#D4AFB9;
 $navbar-tab-active-border-bottom-width: 5px;
+$pagination-color: $caption;
+$pagination-border-color: $caption;
+$pagination-current-background-color: $danger;
+$pagination-current-border-color: $caption;
+$pagination-disabled-border-color: $caption;
 @import "../../node_modules/bulma";
 
