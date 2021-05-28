@@ -16,7 +16,7 @@ function Footer() {
       <footer className="footer">
         <div className="content has-text-centered">
           <p>
-            <strong>Sign Up</strong> by Health Food inc.
+            <strong>Sign Up</strong> by Healthy Food inc.
           </p>
         </div>
       </footer>
