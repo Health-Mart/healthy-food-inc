@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { HealthContext } from './healthContext.jsx';
 
 const useUserInfo = () => {
-  const [userInfo, setUserInfo] = useState({});
+  // const [userInfo, setUserInfo] = useState({});
+  const { userInfoStore } = useContext(HealthContext);
+  const [userInfo, setUserInfo] = userInfoStore;
 
   const updateUserInfo = (x, y) => {
     setUserInfo((oldUserInfo) => ({ ...oldUserInfo, [x]: y }));

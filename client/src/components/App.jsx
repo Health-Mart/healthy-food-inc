@@ -25,6 +25,8 @@ import UserProfile from './UserProfile/UserProfile.jsx';
 
 import 'bulma/css/bulma.min.css';
 
+import useUserInfo from '../context/useUserInfo.jsx';
+
 const CustomModal = styled.div`
   background: rgba(0, 0, 0, 0.5);
   border: 1px solid black;
@@ -87,9 +89,12 @@ function Navbar() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(  state);
+    console.log(state);
   };
   console.log('location', location);
+
+  const { userInfo } = useUserInfo();
+
   return (
     <div>
       {showModal ? (
@@ -187,11 +192,15 @@ function Navbar() {
 
             <div className="navbar-end">
               <div className="navbar-item">
-                <div className="buttons">
-                  <button type="button" className="button" onClick={() => setShowModal(true)}>
+                {Boolean(userInfo.Name)
+                  ? (<button type="button" className="button">
+                  {/* <a className={`navbar-item ${location.pathname === '/user-profile' ? 'is-tab is-active' : ''}`}> */}
+                      <Link to="/user-profile" className="has-text-white">My Account</Link>
+                    </button> )
+                  : (<button type="button" className="button" onClick={() => setShowModal(true)}>
                     Log In
-                  </button>
-                </div>
+                  </button>)
+                }
               </div>
             </div>
           </div>
