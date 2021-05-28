@@ -1,3 +1,7 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useContext } from 'react';
 import {
   BrowserRouter as Router,

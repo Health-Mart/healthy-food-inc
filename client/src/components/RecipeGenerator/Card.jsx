@@ -1,6 +1,8 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable object-shorthand */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import {
   BrowserRouter as Router,
@@ -53,7 +55,9 @@ const replacementImages = {
 
 function Card({ item }) {
   const [showModal, setShowModal] = useState(false);
+  const { recipeStore } = useContext(HealthContext);
   const [select, setSelect] = useState(false);
+  const [recipeMeta, setRecipeMeta] = recipeStore;
   const openModal = () => {
     setShowModal((prev) => !prev);
   };
@@ -62,17 +66,107 @@ function Card({ item }) {
   }
   const { title } = item;
   const image = replacementImages[item.id] ?? item.image;
+  const thisID = item.id;
 
-  function addRecipe() {
-    // const record = recipes.slice();
-    // console.log('this is record: ', record);
-    setSelect(true);
-    // setRecipes([item.id, ...recipes]);
-    // console.log(recipes);
+  function addRecipe(item) {
+    console.log(item);
+    const { id, title } = item;
+    const data = {};
+    data[id] = {
+      title: title,
+      isSelect: true
+    };
+    console.log('id: ', id, data);
+    const record = recipeMeta.slice();
+    console.log('record: ', record);
+    if (record.length === 0) {
+      setRecipeMeta([data, ...recipeMeta]);
+    } else {
+      record.map((item) => {
+        let result = false;
+        if (item.id === id) {
+          result = false;
+        }
+        result = true;
+        if (result) {
+          console.log('working');
+          setRecipeMeta([data, ...recipeMeta]);
+        }
+      });
+    }
+    console.log('final: ', recipeMeta);
   }
 
   function deleteRecipe() {
     setSelect(false);
+  }
+
+  if (recipeMeta.length !== 0) {
+    const selected = recipeMeta.thisID;
+    console.log('isSelect: ', selected);
+
+    if (selected === undefined || selected === false) {
+      return (
+        <>
+          <div className="card">
+            <div className="card-image">
+              <figure className="image is-4by3">
+                <img src={image} alt="profile" />
+                <div>
+                  <button onClick={openModal} className="button is-small" type="button">
+                    Learn More
+                  </button>
+                </div>
+              </figure>
+            </div>
+            <div className="card-content">
+              <p className="title is-5">{title}</p>
+              {/* <span>{item.id}</span> */}
+              <p className="title is-7" />
+              <p className="title is-7">{item.readyInMinutes} min</p>
+            </div>
+            <Modal
+              item={item}
+              addRecipe={addRecipe}
+              deleteRecipe={deleteRecipe}
+              showModal={showModal}
+              setShowModal={setShowModal}
+              openModal={openModal}
+            />
+          </div>
+        </>
+      );
+    }
+    return (
+      <>
+        <div className="card">
+          <div className="card-image">
+            <figure className="image is-4by3">
+              <img src={image} alt="profile" />
+              <div>
+                <button onClick={deleteRecipe} className="button is-small is-danger" type="button">
+                  saved
+                </button>
+              </div>
+            </figure>
+          </div>
+          <div className="card-content">
+            <p className="title is-5">{title}</p>
+            {/* <span>{item.id}</span> */}
+            <p className="title is-7" />
+            <p className="title is-7">{item.readyInMinutes} min</p>
+          </div>
+          <Modal
+            item={item}
+            addRecipe={addRecipe}
+            deleteRecipe={deleteRecipe}
+            showModal={showModal}
+            setShowModal={setShowModal}
+            openModal={openModal}
+          />
+        </div>
+      </>
+    );
   }
 
   return (
@@ -82,15 +176,9 @@ function Card({ item }) {
           <figure className="image is-4by3">
             <img src={image} alt="profile" />
             <div>
-              {select ? (
-                <button onClick={deleteRecipe} className="button is-small is-danger" type="button">
-                  saved
-                </button>
-              ) : (
-                <button onClick={openModal} className="button is-small" type="button">
-                  Learn More
-                </button>
-              )}
+              <button onClick={openModal} className="button is-small" type="button">
+                Learn More
+              </button>
             </div>
           </figure>
         </div>

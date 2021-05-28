@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState, createContext } from 'react';
 
 export const HealthContext = createContext();
@@ -7,13 +8,13 @@ const HealthProvider = (props) => {
   // create states here
   // ex: [test, setTest] = useState('im a test woot')
   const [survey, setSurvey] = useState([]);
-  const [recipes, setRecipes] = useState([]);
+  const [recipeMeta, setRecipeMeta] = useState({});
   const [select, setSelect] = useState(false);
   return (
     <HealthContext.Provider
       value={{
         question: [survey, setSurvey],
-        recipeStore: [recipes, setRecipes],
+        recipeStore: [recipeMeta, setRecipeMeta],
         isSelect: [select, setSelect]
       }}
     >
