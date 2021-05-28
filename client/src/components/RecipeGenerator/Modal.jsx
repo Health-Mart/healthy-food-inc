@@ -74,7 +74,7 @@ const Modal = ({ showModal, setShowModal, openModal, item, addRecipe, deleteReci
   return (
     <>
       {showModal ? (
-        <div className="modal is-active">
+        <div className="modal is-active is-danger">
           <div className="modal-background" />
           <div className="modal-card">
             <div className="card-image">
@@ -106,7 +106,7 @@ const Modal = ({ showModal, setShowModal, openModal, item, addRecipe, deleteReci
                   onClick={() => {
                     addRecipe(item);
                   }}
-                  className="button is-white is-rounded"
+                  className="button is-success is-rounded"
                   type="button"
                 >
                   Save
@@ -116,7 +116,7 @@ const Modal = ({ showModal, setShowModal, openModal, item, addRecipe, deleteReci
                 onClick={() => {
                   deleteRecipe(item);
                 }}
-                className="button is-white is-rounded"
+                className="button is-success is-rounded"
                 type="button"
               >
                 Delete

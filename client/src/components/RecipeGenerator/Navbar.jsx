@@ -33,7 +33,7 @@ function Navbar({ filter }) {
                   onClick={() => {
                     filter('readyInMinutes: less than 20mins');
                   }}
-                  className="navbar-item"
+                  className="navbar-item is-success"
                 >
                   quick meal
                 </a>

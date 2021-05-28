@@ -61,7 +61,23 @@ function RecipeGenerator() {
   }
 
   function filter(term) {
+    /*
+    filter one - time to cook
+    1. quick meal
+    2. stantard
+    3. show cook more
+    filter two - preference
+    */
+
+    const arr = [];
+    recipes.map((item) => {
+      console.log(item);
+    });
+
     console.log('filtering...', term);
+    // readyInMinutes: '45'
+    // tags: 'veryHealthy'
+
     const params = {
       tag: ['veryHealthy'],
       restrictions: ['dairy free', 'vagan']
@@ -83,3 +99,5 @@ function RecipeGenerator() {
 }
 
 export default RecipeGenerator;
+
+// git checkout c5f567 -- file1/to/restore file2/to/restore
