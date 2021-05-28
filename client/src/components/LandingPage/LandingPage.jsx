@@ -55,7 +55,7 @@ function LandingPage() {
 
   const TitlesAndContent = () =>
     steps.map((step, index) => (
-      <div className="columns">
+      <div className="columns even-height">
         <CardContent className="column card" key={index}>
           <div className="card-image">
             <figure className="image is-3x4">
@@ -139,11 +139,13 @@ const Header = styled.section`
   background-repeat: no-repeat;
   background-position: right bottom;
   margin: 0;
+  max-width: 9999px !important;
 `;
 
 const FarmerPicture = styled(Header)`
   background-position: center;
   background-size: 100%;
+  max-width: 9999px !important;
 `;
 
 const Bullshit = styled.section`
@@ -158,17 +160,22 @@ const FarmerInfo = styled.section`
   margin: 0;
 `;
 
-const Content = styled.section``;
+const Content = styled.section`
+`;
 
 const CardText = styled.p`
   text-align: center;
   padding: 0.5rem;
+  margin-top: -12px;
 `;
 
 const CardContent = styled.div`
   background-color: #d4afb9;
   padding: 0;
   margin: 2rem;
+  margin-bottom: 12px !important;
+  height: 372px !important;
+  /* margin: -12px -12px 12px !important; */
 `;
 
 export default LandingPage;

@@ -117,6 +117,7 @@ function Questionnarie() {
 
 const Section = styled.div`
   margin: 0;
+  height: 500px;
 `;
 
 const Button = styled.button`
@@ -137,11 +138,13 @@ const Div = styled.div`
 `;
 
 const Title = styled.div`
+  width: 100%;
   text-align: left;
   font-size: 3em;
   font-weight: bold;
   color: #087f8c;
   overflow-wrap: break-word;
+
 `;
 
 export default Questionnarie;
