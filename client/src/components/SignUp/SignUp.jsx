@@ -56,13 +56,7 @@ const Container = styled.div`
   background-attachment: fixed;
   background-size: cover;
   background-color: #999;
-  height 100vh;
-  opacity .90;
-`;
-
-const FactStyle = styled.div`
-  border: black 1px;
-  background: #f0ffff;
+  height 110vh;
   opacity .90;
 `;
 
@@ -74,7 +68,7 @@ const FormStyle = styled.div`
   margin-left: 35vw;
   margin-bottom: 20vw;
   text-align: center;
-  padding: 10vh;
+  padding: 2em 3em;
   opacity .95;
   border-radius: 5%;
 `;
@@ -110,15 +104,6 @@ function SignUp() {
     }
   ];
 
-  const facts = [
-    '',
-    'The first oranges weren’t orange.',
-    'A cow-bison hybrid is called a “beefalo”.',
-    'Johnny Appleseed’s fruits weren’t for eating.',
-    '90% of clients who sign up gain 6 packs.',
-    '90% of clients who sign up gain washboard ab.'
-  ];
-
   const { updateUserInfo, userInfo } = useUserInfo();
 
   const handleChange = (e) => {
@@ -139,38 +124,41 @@ function SignUp() {
   console.log(userInfo);
 
   return (
-  <>
-  <Container>
-      <section className="section is-medium">
-        <FormStyle className="container">
-          <h1 className="subtitle">Health Food</h1>
-          <CreateContent
-            count={count}
-            params={params}
-            signUp={signUp}
-            handleChange={handleChange}
-            addUserInfo={addUserInfo}
-            userInfo={userInfo}
-          />
-          <br />
-          <div>
-            <button
-              className=" button n is-success has-text-white has-text-weight-bold is-roundedis-flex is-justify-content-center margin-top-5"
-              onClick={() => {
-                setCount(count + 1);
-                addUserInfo;
-              }}
-            >
-              Next
-            </button>
-          </div>
-        </FormStyle>
-      </section>
-    </Container>
-    <Footer />
-  </>
-);
-
+    <>
+      <Container>
+        <section className="section is-medium">
+          <FormStyle className="container">
+            <img
+              src="https://lh3.googleusercontent.com/gn9gZjIQ3m8Xm5ROR3AvwF3XcIqFplg7Sd3EV7di7Jwb813yXpWgErIr2-R9p5RpIxPV1PVsU9tY_Awnu0a_uJmfgU-EPk8u34JKjSsw"
+              alt="alternatetext"
+            />
+            <h1 className="subtitle">Health Food</h1>
+            <CreateContent
+              count={count}
+              params={params}
+              signUp={signUp}
+              handleChange={handleChange}
+              addUserInfo={addUserInfo}
+              userInfo={userInfo}
+            />
+            <br />
+            <div>
+              <button
+                className=" button n is-success has-text-white has-text-weight-bold is-roundedis-flex is-justify-content-center margin-top-5"
+                onClick={() => {
+                  setCount(count + 1);
+                  addUserInfo;
+                }}
+              >
+                Next
+              </button>
+            </div>
+          </FormStyle>
+        </section>
+      </Container>
+      <Footer />
+    </>
+  );
 }
 
 export default SignUp;
