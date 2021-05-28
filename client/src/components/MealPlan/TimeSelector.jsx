@@ -14,6 +14,10 @@ const TableLink = styled.a`
   display: table;
 `;
 
+
+
+
+
 function TimeSelector({ selectedWeek, setSelectedWeek }) {
   const weeks = [
     ['May-Jun', '29-04'],
@@ -29,7 +33,7 @@ function TimeSelector({ selectedWeek, setSelectedWeek }) {
         {weeks.map((item, i) => (
           <li>
             <TableLink
-              className={`pagination-link${i === selectedWeek ? ' is-current' : ''}`}
+              className={`pagination-link ${i === selectedWeek ? ' is-current' : ''}`}
               onClick={() => {
                 setSelectedWeek(i);
               }}

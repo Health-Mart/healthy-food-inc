@@ -14,6 +14,24 @@ const Img = styled.img`
   object-fit: contain;
 `;
 
+const Strong = styled.strong`
+  font-weight: 300;
+  line-height: 1.4;
+  font-size: 1rem;
+`;
+
+const Span = styled.span`
+  font-weight: 300;
+  line-height: 1.4;
+  font-size: 1rem;
+`;
+
+const CardButtom = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+`;
+
 function Modal({ resetModal, mealTitle, photo, prepTime, price, serving, details }) {
   const closeModal = () => {
     const element = document.getElementById('modal');
@@ -42,19 +60,21 @@ function Modal({ resetModal, mealTitle, photo, prepTime, price, serving, details
           </figure>
           <div>
             {details.map((item, index) => {
+              console.log(details);
               const element = item.elementType;
               return (
-                <div>
-                  <element key={index}>{item.text}</element>
-                </div>
+                <p>
+                  {element === 'strong' ? <Strong key={index}>{item.text}</Strong> : <br />}
+                  {element === 'span' ? <Span key={index}>{item.text}</Span> : <br />}
+                </p>
               );
             })}
           </div>
         </section>
         <footer className="modal-card-foot">
-          <div>{prepTime}</div>
-          <div>{price}</div>
-          <div>{serving}</div>
+          <CardButtom>
+            <div className="has-text-right">{serving}</div>
+          </CardButtom>
         </footer>
       </div>
     </div>
