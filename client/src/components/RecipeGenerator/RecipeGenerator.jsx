@@ -11,13 +11,19 @@ import {
   useParams
 } from 'react-router-dom';
 import axios from 'axios';
+import { HealthContext } from '../../context/healthContext.jsx';
 import Header from './Header.jsx';
-import Body from './Body.jsx';
+import Bodyx from './Bodyx.jsx';
 import Footer from './Footer.jsx';
 
 function RecipeGenerator() {
+  const { question } = useContext(HealthContext);
+  const [survey, setSurvey] = question;
   const [recipes, setRecipes] = useState([]);
   const [dataReady, setdataReady] = useState(false);
+
+  console.log('data from survey: ', survey);
+
   const paramas = {
     query: 'pasta',
     tag: ['veryHealthy'],
@@ -54,12 +60,37 @@ function RecipeGenerator() {
       });
   }
 
+  function filter(term) {
+    /*
+    filter one - time to cook
+    1. quick meal
+    2. stantard
+    3. show cook more
+    filter two - preference
+    */
+
+    const arr = [];
+    recipes.map((item) => {
+      console.log(item);
+    });
+
+    console.log('filtering...', term);
+    // readyInMinutes: '45'
+    // tags: 'veryHealthy'
+
+    const params = {
+      tag: ['veryHealthy'],
+      restrictions: ['dairy free', 'vagan']
+    };
+    // filter through the recipes
+  }
+
   if (dataReady) {
     return (
       <>
-        <Header searchRecipes={searchRecipes} />
+        <Header searchRecipes={searchRecipes} filter={filter} />
         <br />
-        <Body recipes={recipes} />
+        <Bodyx recipes={recipes} />
         <Footer />
       </>
     );
@@ -68,3 +99,5 @@ function RecipeGenerator() {
 }
 
 export default RecipeGenerator;
+
+// git checkout c5f567 -- file1/to/restore file2/to/restore

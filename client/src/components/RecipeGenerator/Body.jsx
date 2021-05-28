@@ -11,7 +11,6 @@ import {
   useParams
 } from 'react-router-dom';
 import Card from './Card.jsx';
-// import dummyData from './dummyData.js';
 
 const Cards = styled.div`
   display: grid;

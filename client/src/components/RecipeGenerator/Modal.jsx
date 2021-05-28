@@ -74,7 +74,7 @@ const Modal = ({ showModal, setShowModal, openModal, item, addRecipe, deleteReci
   return (
     <>
       {showModal ? (
-        <div className="modal is-active">
+        <div className="modal is-active is-danger">
           <div className="modal-background" />
           <div className="modal-card">
             <div className="card-image">
@@ -85,7 +85,7 @@ const Modal = ({ showModal, setShowModal, openModal, item, addRecipe, deleteReci
             <div className="modal-card-body">
               <p className="title is-4">{title}</p>
               <p className="title is-7 is-black" dangerouslySetInnerHTML={{ __html: summary }} />
-              <p className="title is-5">Ingredients</p>
+              {/* <p className="title is-5">Ingredients</p>
               <p className="title is-7">12 ounces fettuccine</p>
               <p className="title is-7">4 slices bacon, chopped</p>
               <p className="title is-7">1 pound chicken tenders, cut into 1-inch pieces</p>
@@ -94,19 +94,31 @@ const Modal = ({ showModal, setShowModal, openModal, item, addRecipe, deleteReci
               <p className="title is-7">1 cup heavy cream</p>
               <p className="title is-7">5 ounces baby spinach</p>
               <p className="title is-7">3/4 cup grated Parmesan</p>
-              <p className="title is-7">3 tablespoons chopped fresh basil</p>
+              <p className="title is-7">3 tablespoons chopped fresh basil</p> */}
             </div>
             <div className="modal-card-foot is-white">
               {select ? (
-                <button onClick={addRecipe} className="button is-danger is-rounded" type="button">
+                <button className="button is-danger is-rounded" type="button">
                   Save
                 </button>
               ) : (
-                <button onClick={addRecipe} className="button is-white is-rounded" type="button">
+                <button
+                  onClick={() => {
+                    addRecipe(item);
+                  }}
+                  className="button is-success is-rounded"
+                  type="button"
+                >
                   Save
                 </button>
               )}
-              <button onClick={deleteRecipe} className="button is-white is-rounded" type="button">
+              <button
+                onClick={() => {
+                  deleteRecipe(item);
+                }}
+                className="button is-success is-rounded"
+                type="button"
+              >
                 Delete
               </button>
             </div>

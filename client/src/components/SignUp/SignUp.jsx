@@ -12,23 +12,27 @@ import {
   useParams
 } from 'react-router-dom';
 import useUserInfo from '../../context/useUserInfo.jsx';
+import Footer from './Footer.jsx';
 
 const CreateContent = ({ count, params, signUp, handleChange, addUserInfo, userInfo }) =>
   count === 4 ? (
     <div>
-      <button type="button" onClick={() => addUserInfo(signUp)}> Check </button>
+      <button type="button" onClick={() => addUserInfo(signUp)}>
+        {' '}
+        Check{' '}
+      </button>
     </div>
   ) : (
     params.map((paramGroup, index) =>
       paramGroup.count === count
         ? paramGroup.items.map((paramItem) => (
             <div>
-              <div className="is-flex is-justify-content-left">
+              <div className="is-flex is-justify-content-center">
                 <div className="login-container ">
                   <div className="field">
                     <label className="label">{paramItem}</label>
                     <input
-                      className="input"
+                      className="input is-medium"
                       type="text"
                       name={paramItem}
                       value={signUp[paramItem]}
@@ -52,11 +56,21 @@ const Container = styled.div`
   background-attachment: fixed;
   background-size: cover;
   background-color: #999;
+  height 110vh;
+  opacity .90;
 `;
 
-const FactStyle = styled.div`
+const FormStyle = styled.div`
   border: black 1px;
-  opacity: 0.65;
+  background: #f0ffff;
+  justify-items: center;
+  margin-right: 35vw;
+  margin-left: 35vw;
+  margin-bottom: 20vw;
+  text-align: center;
+  padding: 2em 3em;
+  opacity .95;
+  border-radius: 5%;
 `;
 
 function SignUp() {
@@ -90,14 +104,6 @@ function SignUp() {
     }
   ];
 
-  const facts = [
-    '',
-    'The first oranges weren’t orange.',
-    'A cow-bison hybrid is called a “beefalo”.',
-    'Johnny Appleseed’s fruits weren’t for eating.',
-    '90% of clients who sign up gain 6 packs.'
-  ];
-
   const { updateUserInfo, userInfo } = useUserInfo();
 
   const handleChange = (e) => {
@@ -120,12 +126,13 @@ function SignUp() {
   return (
     <>
       <Container>
-        <div className="columns section is-medium">
-          <FactStyle className="column is-5 is-size-1 box">
-            Fun Fact: <br /> {facts[count]}
-          </FactStyle>
-          <div className="column is-4" />
-          <div className="column">
+        <section className="section is-medium">
+          <FormStyle className="container">
+            <img
+              src="https://lh3.googleusercontent.com/gn9gZjIQ3m8Xm5ROR3AvwF3XcIqFplg7Sd3EV7di7Jwb813yXpWgErIr2-R9p5RpIxPV1PVsU9tY_Awnu0a_uJmfgU-EPk8u34JKjSsw"
+              alt="alternatetext"
+            />
+            <h1 className="subtitle">Health Food</h1>
             <CreateContent
               count={count}
               params={params}
@@ -135,23 +142,59 @@ function SignUp() {
               userInfo={userInfo}
             />
             <br />
-            <div className="mt2">
+            <div>
               <button
-                className=" button is-flex is-justify-content-center margin-top-5"
+                className=" button n is-success has-text-white has-text-weight-bold is-roundedis-flex is-justify-content-center margin-top-5"
                 onClick={() => {
-                  setCount(count + 1)
+                  setCount(count + 1);
                   addUserInfo;
                 }}
               >
-                button
+                Next
               </button>
             </div>
-          </div>
-        </div>
+          </FormStyle>
+        </section>
       </Container>
-      <br />
+      <Footer />
     </>
   );
 }
 
 export default SignUp;
+
+// return (
+//   <>
+//     <Container>
+//       <div className="columns section is-medium">
+//         {/* <FactStyle className="column is-5 is-size-3 box">
+//           Fun Fact: <br /> {facts[count]}
+//         </FactStyle> */}
+//         <div className="column is-2" />
+//         <FormStyle className="column box">
+//           <CreateContent
+//             count={count}
+//             params={params}
+//             signUp={signUp}
+//             handleChange={handleChange}
+//             addUserInfo={addUserInfo}
+//             userInfo={userInfo}
+//           />
+//           <br />
+//           <div>
+//             <button
+//               className=" button n is-success has-text-white has-text-weight-bold is-roundedis-flex is-justify-content-center margin-top-5"
+//               onClick={() => {
+//                 setCount(count + 1);
+//                 addUserInfo;
+//               }}
+//             >
+//               Next
+//             </button>
+//           </div>
+//         </FormStyle>
+//       </div>
+//     </Container>
+//     <br />
+//   </>
+// );

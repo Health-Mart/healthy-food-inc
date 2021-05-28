@@ -1,29 +1,46 @@
 import React, { useState, useEffect, useContext } from 'react';
 import bulma from 'bulma';
 import styled from 'styled-components';
+import Modal from './Modal.jsx';
 
-const Div = styled.div`
-  //border: 2px solid black;
-`;
+function MealCard({ meal, photo, prepTime, price, serving, details }) {
+  const [isOpen, setIsOpen] = useState(false);
+  console.log(isOpen);
 
-function MealCard({ meal }) {
+  const resetModal = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <Div className="card my-3 mx-0 py-1 px-1 ">
-      <Div className="card-header m-0 p-0">
-        <div className="card-header-title">{meal}</div>
-      </Div>
+    <>
+      <div className="card my-3 py-1 px-2">
+        <div className="card-header m-0 p-0">
+          <div className="card-header-title is-size-7">{meal}</div>
+        </div>
 
-      <Div className="card-image">
-        <figure className="image is-1by1">
-          <img
-            src="https://www.heynutritionlady.com/wp-content/uploads/2018/01/winter_vegetable_meal_prep_bowls.jpg"
-            alt="images"
-          />
-        </figure>
-      </Div>
+        <div className="card-image">
+          <figure className="image is-1by1" onClick={() => setIsOpen(true)}>
+            <img src={photo} alt="image" />
+          </figure>
+        </div>
 
-      <Div className="card-content">Lorem Ipsum</Div>
-    </Div>
+        <div className="card-content is-size-7">
+          <span className="has-text-left">{prepTime}</span>
+          <span className="has-text-right">{price}</span>
+        </div>
+      </div>
+      {isOpen ? (
+        <Modal
+          resetModal={resetModal}
+          mealTitle={meal}
+          photo={photo}
+          prepTime={prepTime}
+          price={price}
+          serving={serving}
+          details={details}
+        />
+      ) : null}
+    </>
   );
 }
 

@@ -14,13 +14,13 @@ function ContactInfo() {
     <div className="ml-4 pl-4">
       <div className="is-size-4 title is-right">
         Contact Information
-        <button className="button is-small ml-3" type="submit">
+        <button className="button is-small ml-3 is-rounded" type="submit">
           Update
         </button>
       </div>
 
       <div className="container is-flex is-flex-direction-row">
-        <div className="columns is-flex is-flex-direction-column my-2 p-3">
+        <div className="columns is-flex is-flex-direction-column my-2 px-2">
           <div className="column">
             <div>Phone:</div>
           </div>
@@ -34,7 +34,7 @@ function ContactInfo() {
           </div>
         </div>
 
-        <div className="columns is-flex is-flex-direction-column my-2 p-3">
+        <div className="columns is-flex is-flex-direction-column my-2 px-2">
           <div className="column">
             <div>+415 123 45 67</div>
           </div>

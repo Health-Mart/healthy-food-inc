@@ -167,7 +167,11 @@ const Header = styled.div`
 
 const Section = styled.div`
   margin: 0;
+<<<<<<< HEAD
   height: 600px;
+=======
+  height: 500px;
+>>>>>>> 2f0354a8ca6bb44613e170586f1e9c059fb26c56
 `;
 
 const Button = styled.button`
@@ -188,12 +192,14 @@ const Div = styled.div`
 `;
 
 const Title = styled.div`
+  width: 100%;
   text-align: left;
   font-size: 3em;
   font-weight: bold;
   width: 100%;
   color: #087f8c;
   overflow-wrap: break-word;
+
 `;
 
 const Option = styled.div`
