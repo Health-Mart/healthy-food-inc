@@ -134,9 +134,9 @@ function Baner({ searchRecipes }) {
       <>
         <Background className="section">
           <div className="container">
-            <h1 className="title has-text-white">
+            <Tex className="title has-text-white">
               <strong>Find a Recipe</strong>
-            </h1>
+            </Tex>
             <div className="search-bar" style={searchFieldStyle}>
               <input
                 className="react-search-field-input"
@@ -206,9 +206,9 @@ function Baner({ searchRecipes }) {
     <>
       <Backgroundy className="section">
         <div className="container">
-          <h1 className="title has-text-white">
+          <Tex className="title has-text-white">
             <strong>Find a Recipe</strong>
-          </h1>
+          </Tex>
           <div className="search-bar" style={searchFieldStyle}>
             {/* <input
               className="input is-success is-medium is-rounded"
