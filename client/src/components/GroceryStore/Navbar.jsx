@@ -92,9 +92,15 @@ function Navbar({ mainCategory, setMainCategory, count }) {
               <a className="navbar-link">More</a>
 
               <div className="navbar-dropdown">
-                <a className="navbar-item" href="/mealplan">Meal Plan</a>
-                <a className="navbar-item" href="/recipe-generator">Recipe Generator</a>
-                <a className="navbar-item" href="/questionnaire">Questionnaire</a>
+                <a className="navbar-item">
+                  <Link to="/mealplan" className="has-text-black">Meal Plan</Link>
+                </a>
+                <a className="navbar-item">
+                  <Link to="/recipe-generator" className="has-text-black">Recipe Generator</Link>
+                </a>
+                <a className="navbar-item">
+                  <Link to="/questionnaire" className="has-text-black">Questionnaire</Link>
+                </a>
               </div>
             </div>
           </div>
