@@ -195,7 +195,7 @@ function Navbar() {
                 {Boolean(userInfo.Name)
                   ? (<button type="button" className="button">
                   {/* <a className={`navbar-item ${location.pathname === '/user-profile' ? 'is-tab is-active' : ''}`}> */}
-                      <Link to="/user-profile" className="has-text-white">My Account</Link>
+                      <Link to="/user-profile" className="is-primary" style={{'color': 'black'}}>My Account</Link>
                     </button> )
                   : (<button type="button" className="button" onClick={() => setShowModal(true)}>
                     Log In
