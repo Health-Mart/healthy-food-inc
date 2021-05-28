@@ -73,7 +73,11 @@ const replacementImages = {
   682619:
     'https://hips.hearstapps.com/del.h-cdn.co/assets/17/24/1497458825-delish-shrimp-fried-rice-1-1024.jpg',
   656777: 'http://www.gimmesomeoven.com/wp-content/uploads/2012/11/pork-fried-rice-1.jpg',
-  663559: 'https://lostinfood.co.uk/wp-content/uploads/2018/01/LIF-January-24-2018-001-29.jpg'
+  663559: 'https://lostinfood.co.uk/wp-content/uploads/2018/01/LIF-January-24-2018-001-29.jpg',
+  617047: 'https://www.cookwithmanali.com/wp-content/uploads/2014/07/Rasmalai-Recipe.jpg',
+  149656: 'https://www.budgetbytes.com/wp-content/uploads/2020/08/Beef-Taco-Skillet-close.jpg',
+  652448:
+    'https://www.thehungrybites.com/wp-content/uploads/2017/04/moroccan-rice-pilaf-side-dish-gluten-free-vegan-vegetarian-plant-based-recipe-marokino-rizi-5a.jpg'
 };
 
 const Text = styled.div`
