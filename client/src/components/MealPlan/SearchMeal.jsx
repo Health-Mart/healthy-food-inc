@@ -34,7 +34,7 @@ function SearchMeal({ searchMeals }) {
       </p>
       <p className="control">
         <input
-          className="button is-info"
+          className="button is-info is-rounded"
           type="submit"
           value="Search"
           onClick={(e) => {
