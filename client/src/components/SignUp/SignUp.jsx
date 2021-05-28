@@ -12,6 +12,7 @@ import {
   useParams
 } from 'react-router-dom';
 import useUserInfo from '../../context/useUserInfo.jsx';
+import Footer from './Footer.jsx';
 
 const CreateContent = ({ count, params, signUp, handleChange, addUserInfo, userInfo }) =>
   count === 4 ? (
@@ -71,11 +72,11 @@ const FormStyle = styled.div`
   justify-items: center;
   margin-right: 35vw;
   margin-left: 35vw;
-  margin-bottom: 10vw;
+  margin-bottom: 20vw;
   text-align: center;
-  padding: 100px;
+  padding: 10vh;
   opacity .95;
-  border-radius: 10%;
+  border-radius: 5%;
 `;
 
 function SignUp() {
@@ -166,7 +167,7 @@ function SignUp() {
         </FormStyle>
       </section>
     </Container>
-    <br />
+    <Footer />
   </>
 );
 
