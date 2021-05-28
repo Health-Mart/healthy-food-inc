@@ -78,13 +78,17 @@ const Price = styled.div`
 `;
 
 const AddToCart = styled.button`
+  &:hover {
+    background-color: white;
+    color: #e29db0;
+  }
   position: absolute;
   right: 0.5rem;
   bottom: 0.5rem;
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  background-color: orange;
+  background-color: #e29db0;
   border: none;
   color: white;
   font-size: 1.3rem;
@@ -93,13 +97,17 @@ const AddToCart = styled.button`
 `;
 
 const RemoveFromCart = styled(AddToCart)`
+  &:hover {
+    background-color: white;
+    color: #e29db0;
+  }
   position: absolute;
   left: 0.5rem;
   bottom: 0.5rem;
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  background-color: orange;
+  background-color: #e29db0;
   border: none;
   color: white;
   font-size: 1.5rem;
@@ -123,6 +131,22 @@ const StyledItemCounter = styled.h1`
   text-align: center;
   justify-self: center;
 `;
+
+const StyledAddedToCart = styled.h4`
+  visibility: ${(props) => (props.itemCounter > 0 ? 'normal' : 'hidden')};
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,0);
+  text-align: center;
+  justify-self: center;
+  bottom: 0.75rem;
+  color: white;
+  opacity: 40%;
+  font-size: 1.25rem;
+  font-weight: bold;
+  z-index: 5;
+`;
+
 
 function Card({ item, indexKey, cartNumber, setCartNumber, count, setCount }) {
   const { photoPath, title, price, pricePer, purchaseUnit, producer } = item;
@@ -175,6 +199,7 @@ function Card({ item, indexKey, cartNumber, setCartNumber, count, setCount }) {
             <img src={photoPath} alt={title} loading="lazy" />
             {itemCounter > 0 ? <RemoveFromCart onClick={() => onRemoveCartHandler()}>-</RemoveFromCart> : <div></div>}
             <StyledItemCounter itemCounter={itemCounter}>{itemCounter}</StyledItemCounter>
+            <StyledAddedToCart itemCounter={itemCounter}>ITEMS ADDED</StyledAddedToCart>
             <AddToCart onClick={() => toggle()}> {itemAdded} </AddToCart>
           </figure>
         </div>
