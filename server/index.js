@@ -36,7 +36,7 @@ app.get(apiPrefix + '/grocery-items', getGroceryItems);
 // // {username, contact-info, meal-preference, restrictions, exercise-level, household-size, height, weight, bmi, subscription-status, meal-history… }
 
 
-// app.get(apiPrefix + '/mealplans', getMealPlans);
+app.get(apiPrefix + '/meals', getMealPlans);
 // // ->{id, title, description, price, meals-per-day, image?}
 // app.get(apiPrefix + '/mealplan', getMealPlan);
 // // -> { id } // user's current plan
