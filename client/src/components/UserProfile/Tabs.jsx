@@ -11,16 +11,16 @@ import {
 import ContactInfo from './ContactInfo.jsx';
 import PaymentInfo from './PaymentInfo.jsx';
 
-function Tabs() {
+function Tabs({ userInfo, updateUserInfo }) {
   const [selectedTab, setSelectedTab] = useState('My Profile');
 
   let tab;
   if (selectedTab === 'My Profile') {
-    tab = <ContactInfo />;
+    tab = <ContactInfo userInfo={userInfo} updateUserInfo={updateUserInfo} />;
   }
 
   if (selectedTab === 'Subscription') {
-    tab = <PaymentInfo />;
+    tab = <PaymentInfo userInfo={userInfo} updateUserInfo={updateUserInfo} />;
   }
 
   return (

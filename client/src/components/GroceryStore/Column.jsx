@@ -20,7 +20,9 @@ const StyledSideBar = styled.section`
 `;
 
 const ButtonNav = styled.div`
-  color: red;
+  ul {
+    font-weight: 500;
+  }
 `;
 
 function sortData(arr) {
@@ -73,7 +75,7 @@ function Column({ mainCategory, setCount, count }) {
       {isLoading === true ? (
         <div> </div>
       ) : (
-        <div className="columns">
+        <div className="columns has-background-white">
           <div className="column is-one-fifth">
             <StyledSideBar className="section">
               <div className="container">

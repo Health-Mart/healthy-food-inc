@@ -10,28 +10,34 @@ import {
 } from 'react-router-dom';
 
 import Tabs from './Tabs.jsx';
+import useUserInfo from '../../context/useUserInfo.jsx';
+
+const Img = styled.img`
+  object-fit: none;
+`;
 
 function UserProfile() {
+  const { userInfo, updateUserInfo } = useUserInfo();
+  useEffect(() => {
+    updateUserInfo('Name', 'Jon Doe');
+  }, []);
   return (
     <section className="section">
       <div className="container">
         <div className="columns box is-size-5 is-gapless m-6 pt-6">
           <div className="column media-left is-one-fifth">
             <figure className="image is-1by1">
-              <img
-                className="is-rounded"
-                src="https://yt3.ggpht.com/ytc/AAUvwnjyKzvLyxW8YJV6nSRC71JFUikN6ICJn_v-53mz1Q=s900-c-k-c0x00ffffff-no-rj"
-                alt="Profile"
-              />
+              <Img className="is-rounded" src="./random_guy.jpeg" alt="Profile" />
             </figure>
-
-            <p className="title is-size-4 has-text-centered is-capitalized mx-2 py-2">
-              Billie Eilish
+            {/* client/dist/random_guy.jpeg
+            client/src/components/UserProfile/UserProfile.jsx */}
+            <p className="title is-size-3 has-text-success has-text-centered is-capitalized mx-2 py-2">
+              {userInfo.Name}
             </p>
           </div>
 
           <div className="column">
-            <Tabs />
+            <Tabs userInfo={userInfo} updateUserInfo={updateUserInfo} />
           </div>
         </div>
       </div>

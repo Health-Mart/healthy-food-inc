@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable no-unused-vars */
@@ -15,7 +16,7 @@ import {
 function Navbar({ filter }) {
   return (
     <>
-      <nav className="navbar is-white">
+      <nav className="navbar is-light">
         <div className="navbar-brand">
           <a className="navbar-item">
             <div>
@@ -31,7 +32,7 @@ function Navbar({ filter }) {
               <div className="navbar-dropdown">
                 <a
                   onClick={() => {
-                    filter('readyInMinutes: less than 20mins');
+                    filter(20);
                   }}
                   className="navbar-item is-success"
                 >
@@ -39,7 +40,7 @@ function Navbar({ filter }) {
                 </a>
                 <a
                   onClick={() => {
-                    filter('readyInMinutes: between 20 to 45mins');
+                    filter(30);
                   }}
                   className="navbar-item"
                 >
@@ -47,7 +48,7 @@ function Navbar({ filter }) {
                 </a>
                 <a
                   onClick={() => {
-                    filter('readyInMinutes: more than 45mins');
+                    filter(50);
                   }}
                   className="navbar-item"
                 >

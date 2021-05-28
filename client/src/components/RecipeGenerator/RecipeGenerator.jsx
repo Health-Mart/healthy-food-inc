@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useContext } from 'react';
@@ -13,13 +14,14 @@ import {
 import axios from 'axios';
 import { HealthContext } from '../../context/healthContext.jsx';
 import Header from './Header.jsx';
-import Bodyx from './Bodyx.jsx';
+import Body from './Body.jsx';
 import Footer from './Footer.jsx';
 
 function RecipeGenerator() {
   const { question } = useContext(HealthContext);
   const [survey, setSurvey] = question;
   const [recipes, setRecipes] = useState([]);
+  const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [dataReady, setdataReady] = useState(false);
 
   console.log('data from survey: ', survey);
@@ -35,6 +37,7 @@ function RecipeGenerator() {
       .get('/api/recipes', { paramas })
       .then((response) => {
         setRecipes(response.data);
+        setFilteredRecipes(response.data);
         setdataReady(true);
       })
       .catch((error) => {
@@ -53,7 +56,7 @@ function RecipeGenerator() {
     axios
       .get('/api/recipes', { params })
       .then((response) => {
-        setRecipes(response.data);
+        setFilteredRecipes(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -68,30 +71,50 @@ function RecipeGenerator() {
     3. show cook more
     filter two - preference
     */
-
-    const arr = [];
-    recipes.map((item) => {
-      console.log(item);
-    });
-
-    console.log('filtering...', term);
-    // readyInMinutes: '45'
-    // tags: 'veryHealthy'
-
     const params = {
       tag: ['veryHealthy'],
       restrictions: ['dairy free', 'vagan']
     };
+
+    const filtered = [];
+    console.log('filtering...', term);
+    // readyInMinutes: '45'
+    // tags: 'veryHealthy'
+
+    if (term === 20) {
+      // filter quick meal
+      recipes.map((item) => {
+        if (item.readyInMinutes <= 20) {
+          filtered.push(item);
+        }
+      });
+    } else if (term === 30) {
+      // filter standard
+      recipes.map((item) => {
+        if (item.readyInMinutes > 20 && item.readyInMinutes <= 50) {
+          filtered.push(item);
+        }
+      });
+    } else {
+      // filter slow cook
+      recipes.map((item) => {
+        if (item.readyInMinutes >= 50) {
+          filtered.push(item);
+        }
+      });
+    }
     // filter through the recipes
+    setFilteredRecipes(filtered);
+    console.log('filtered recipes: ', filtered);
   }
 
   if (dataReady) {
     return (
       <>
         <Header searchRecipes={searchRecipes} filter={filter} />
-        <br />
-        <Bodyx recipes={recipes} />
+        <Body recipes={filteredRecipes} />
         <Footer />
+        <br />
       </>
     );
   }
