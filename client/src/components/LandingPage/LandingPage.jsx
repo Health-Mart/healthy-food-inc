@@ -26,19 +26,20 @@ function LandingPage() {
   ];
   const farmerData = [
     `Come on up and see me urchins. Me I’m Dishonest. And A Dishonest Man You Can Always Trust To Be Dishonest. Honestly Its The Honest Ones You Want To Watch Out For Because You Never Know When They Are Going To Do Something Completely Stupid! Why are pirates pirates? cuz they arrrrrr you know, thats the 2nd time I’v watched that man sail away with my ship.`
+
   ];
 
   const [steps, setSteps] = useState([
     {
-      title: 'More Choice, Less Boredom',
+      title: 'Take our questionnaire',
       content: 'Pardon me, but would ya mind if I fired me cannon through your porthole?'
     },
     {
-      title: 'Quicker Recipes, Less Prep Work',
+      title: 'Find a recipe right for you',
       content: 'I’d love to drop anchor in your lagoon.'
     },
     {
-      title: 'Flexible Plans, Less Hassle',
+      title: 'Make a plan and get it delivered',
       content: 'If ye can’t trust a pirate, ye damn well can’t trust a merchant either!'
     }
   ]);
@@ -64,7 +65,7 @@ function LandingPage() {
     ));
 
   return (
-    <>
+    <div>
       <Header className="box container is-fullhd section is-medium">
         <div className="hero-body">
           <div className="is-size-3 has-text-success has-text-weight-bold">Start a plan</div>
@@ -87,35 +88,23 @@ function LandingPage() {
           <TitlesAndContent />
         </div>
       </section>
-      {/* <Bullshit className="container section is-large">
-        <p className="is-size-1 has-text-black has-text-weight-bold">Our purpose is to create a happy healthy life style.</p>
-      </Bullshit> */}
       <FarmerInfo className="columns box">
-        <div className="column is-two-fifths">
+        <div className="column is-one-quarter">
           <div className="columns">
             <h1 className="column is-size-3 has-text-warning has-text-weight-bold">
-              Meet the <span className="is-size-2">farmer</span>
-              <p className="has-text-light container">George Lopez</p>
+              Meet the farmer
+            <p className="has-text-light">Shawn Valdez</p>
             </h1>
             <GiFarmer reverse size={100} className="column has-text-warning" />
           </div>
           <br />
           <div className="">
             <p className="has-text-light container is-size-6">{farmerData[0]}</p>
-            <div className="section is-medium" />
           </div>
         </div>
         <FarmerPicture className="column" />
       </FarmerInfo>
-      {/* <div>
-        <button className="button is-primary" type="button" onClick={() => {
-          updateUserInfo('name', 'jon')
-          updateUserInfo('email', 'fake@gmail.com')
-        }}>test</button>
-        <div className="has-text is-size-1">{userInfo.name}</div>
-        <button className="button is-warning" type="button" onClick={() => console.log(userInfo)}>Console</button>
-      </div> */}
-    </>
+    </div>
   );
 }
 
@@ -138,6 +127,7 @@ const FarmerPicture = styled(Header)`
 const FarmerInfo = styled.section`
   background-color: #095256;
   padding: 0;
+  height: 480px;
   margin: 0;
 `;
 

@@ -14,7 +14,7 @@ import { HealthContext } from '../../context/healthContext.jsx';
 
 const TransitionPage = () => (
   <BigSection className="section has-background-light">
-    <Header className="container section has-background-light has-text-weight-bold">
+    <Header className="container has-background-light has-text-weight-bold">
       Welcome to Healthy Food!
       <GiFruiting size={100} />
     </Header>
@@ -37,32 +37,39 @@ const TransitionPage = () => (
       <div className="container column">
         <div className="columns">
           <Option className="box has-background-dark-light">
-            <h1 className="column is-size-3 has-text-weight-bold">Ready for your recipes?</h1>
-            {/* <p>Our recipe generator is curated for your personal tastes</p> */}
+            <CardTitle className="column is-size-3 has-text-weight-bold">
+              Ready for your recipes?
+            </CardTitle>
+            <br />
             <FaBook size={130} />
             <div className="section" />
             <Link to="/recipe-generator" className="level">
-              <button
-                type="button"
-                className="column level-item button has-background-success has-text-light is-rounded"
-              >
-                Give me my recipes
-              </button>
+              <div className="column level-item">
+                <button
+                  type="button"
+                  className="button has-background-success has-text-light is-rounded"
+                >
+                  Give me my recipes
+                </button>
+              </div>
             </Link>
           </Option>
           <Option className="box has-background-dark-light">
-            <h1 className="column is-size-3 has-text-weight-bold">Want to sign up?</h1>
-            <br />
+            <CardTitle className="column is-size-3 has-text-weight-bold">
+              Want to sign up?
+            </CardTitle>
             <br />
             <FaSignInAlt size={130} />
             <div className="section" />
             <Link to="/signup" className="level">
-              <button
-                type="button"
-                className="column level-item button has-background-success has-text-light is-rounded"
-              >
-                Sign me up
-              </button>
+              <div className="column level-item">
+                <button
+                  type="button"
+                  className="button has-background-success has-text-light is-rounded"
+                >
+                  Sign me up
+                </button>
+              </div>
             </Link>
           </Option>
         </div>
@@ -129,7 +136,6 @@ function Questionnarie() {
     : 'title button is-medium is-warning has-text-light is-rounded';
   const handleClick = (value) => {
     setSurvey((oldSurvey) => [...oldSurvey, value]);
-    // setColorChange(!colorChange);
   };
 
   const RenderItems = () =>
@@ -178,6 +184,10 @@ function Questionnarie() {
     );
   return <RenderItems />;
 }
+
+const CardTitle = styled.h1`
+  height: 100px !important;
+`;
 
 const BigFont = styled.p`
   font-size: 3rem;
@@ -229,8 +239,10 @@ const Title = styled.div`
 `;
 
 const Option = styled.div`
+  text-align: center;
   margin: 1rem;
   width: 400px;
+  height: 450px !important;
   border: 3px solid #e39774;
   border-radius: 25px;
   box-shadow: 3px 5px 4px #e39774;
