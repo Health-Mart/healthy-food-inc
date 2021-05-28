@@ -14,42 +14,31 @@ const TableLink = styled.a`
   display: table;
 `;
 
-function TimeSelector() {
+function TimeSelector({ selectedWeek, setSelectedWeek }) {
+  const weeks = [
+    ['May-Jun', '29-04'],
+    ['Jun', '05-11'],
+    ['Jun', '12-18'],
+    ['Jun', '19-25'],
+    ['Jun', '26-02']
+  ];
+
   return (
     <nav className="pagination my-2 px-6" role="navigation" aria-label="pagination">
       <ul className="pagination-list is-size-6">
-        <li>
-          <TableLink className="pagination-link is-current" aria-label="Goto page 1">
-            <div>May-Jun</div>
-            <div>29-04</div>
-          </TableLink>
-        </li>
-
-        <li>
-          <TableLink className="pagination-link" aria-label="Goto page 45">
-            <div>Jun</div>
-            <div>05-11</div>
-          </TableLink>
-        </li>
-        <li>
-          <TableLink className="pagination-link" aria-label="Page 46" aria-current="page">
-            <div>Jun</div>
-            <div>12-18</div>
-          </TableLink>
-        </li>
-        <li>
-          <TableLink className="pagination-link" aria-label="Goto page 47">
-            <div>Jun</div>
-            <div>19-25</div>
-          </TableLink>
-        </li>
-
-        <li>
-          <TableLink className="pagination-link" aria-label="Goto page 86">
-            <div>Jun-July</div>
-            <div>26-02</div>
-          </TableLink>
-        </li>
+        {weeks.map((item, i) => (
+          <li>
+            <TableLink
+              className={`pagination-link${i === selectedWeek ? ' is-current' : ''}`}
+              onClick={() => {
+                setSelectedWeek(i);
+              }}
+            >
+              <div>{item[0]}</div>
+              <div>{item[1]}</div>
+            </TableLink>
+          </li>
+        ))}
       </ul>
     </nav>
   );

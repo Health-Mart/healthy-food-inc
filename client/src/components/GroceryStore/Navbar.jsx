@@ -14,6 +14,7 @@ const Count = styled.span`
     padding-left: 3px;
 `;
 
+<<<<<<< HEAD
 const Nav = styled.nav`
   position: sticky;
   top: 0px;
@@ -29,6 +30,21 @@ function Navbar({ mainCategory, setMainCategory, count }) {
           </div>
         </a>
       </div>
+=======
+
+
+function Navbar({ mainCategory, setMainCategory, count }) {
+  return (
+    <>
+      <nav className="navbar is-success" role="navigation" aria-label="main navigation">
+        <div className="navbar-brand">
+          <a className="navbar-item" href="/">
+            <div>
+              <strong>GROCERY MARKET</strong>
+            </div>
+          </a>
+        </div>
+>>>>>>> 795e9b8540ca7a311a55912c9b6d655fa62e561a
 
       <div id="navbarBasicExample" className="navbar-menu">
         <div className="navbar-start">
