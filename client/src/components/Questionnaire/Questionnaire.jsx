@@ -9,53 +9,70 @@ import {
   useParams
 } from 'react-router-dom';
 import { GiFruiting } from 'react-icons/gi';
+import { FaBook, FaSignInAlt } from 'react-icons/fa';
 import { HealthContext } from '../../context/healthContext.jsx';
 
 const TransitionPage = () => (
   <BigSection className="section has-background-light">
     <Header className="container section has-background-light has-text-weight-bold">
       Welcome to Healthy Food!
-      <GiFruiting size={200} />
+      <GiFruiting size={100} />
     </Header>
     <div className="section columns">
       <div className="container column">
         <BigFont className="has-text-black has-text-weight-bold">
           Save up to <span className="has-text-dark has-text-weight-bold">$1000</span> a year!
         </BigFont>
-        <div className="section" />
-        <p className="is-size-2 has-text-black">
-          Try us <span className="has-text-info has-text-weight-bold">risk free</span> for 30 days
-          and <span className="has-text-info has-text-weight-bold">start saving</span>
-        </p>
+        <div className="level">
+          <Underline className="level is-right is-size-2 has-text-dark has-text-weight-bold">
+            Membership Benefits
+          </Underline>
+        </div>
+        <div className="columns">
+          <p className="column">Guaranteed savings on 6000 + healthy essentials</p>
+          <p className="column">Fast, free, carbon-neutral shipping</p>
+          <p className="column">Get meals from local farmers</p>
+        </div>
       </div>
       <div className="container column">
-        <Option className="box columns section has-background-dark-light">
-          <h1 className="column is-size-1">Ready for your recipes?</h1>
-          <p>Our recipe generator is curated for your personal tastes</p>
-          <Link to="/recipe-generator">
-            <button type="button" className="column">
-              Give me my recipes
-            </button>
-          </Link>
-        </Option>
-        <Option className="box columns section has-background-dark-light">
-          <h1 className="column">Want to sign up? Our members get...</h1>
-          <p>Guaranteed savings on 6000 + healthy essentials</p>
-          <p>Fast, free, carbon-neutral shipping</p>
-          <p>Get meals from local farmers</p>
-          <Link to="/signup">
-            <button type="button" className="column">
-              Sign me up
-            </button>
-          </Link>
-        </Option>
+        <div className="columns">
+          <Option className="box has-background-dark-light">
+            <h1 className="column is-size-3 has-text-weight-bold">Ready for your recipes?</h1>
+            {/* <p>Our recipe generator is curated for your personal tastes</p> */}
+            <FaBook size={130} />
+            <div className="section" />
+            <Link to="/recipe-generator" className="level">
+              <button
+                type="button"
+                className="column level-item button has-background-success has-text-light is-rounded"
+              >
+                Give me my recipes
+              </button>
+            </Link>
+          </Option>
+          <Option className="box has-background-dark-light">
+            <h1 className="column is-size-3 has-text-weight-bold">Want to sign up?</h1>
+            <br />
+            <br />
+            <FaSignInAlt size={130} />
+            <div className="section" />
+            <Link to="/signup" className="level">
+              <button
+                type="button"
+                className="column level-item button has-background-success has-text-light is-rounded"
+              >
+                Sign me up
+              </button>
+            </Link>
+          </Option>
+        </div>
       </div>
     </div>
   </BigSection>
 );
 
 function Questionnarie() {
-  const [step, setStep] = useState(5);
+  const [step, setStep] = useState(1);
   const { question } = useContext(HealthContext);
   const [survey, setSurvey] = question;
   const options = [
@@ -117,7 +134,7 @@ function Questionnarie() {
           <BigSection className="section">
             <progress className="progress is-danger" value={step} max={4} />
             <Container className="container card">
-              <Section className="columns section is-medium" key={i}>
+              <Section className="columns section" key={i}>
                 <Div className="section column" />
                 <Div className="section column columns is-multiline">
                   <Title className="title is-1 column">{option.title}</Title>
@@ -152,26 +169,26 @@ function Questionnarie() {
 }
 
 const BigFont = styled.p`
-  font-size: 5rem;
-  padding-right: 4rem;
+  font-size: 3rem;
+  padding-right: 2rem;
+`;
+
+const Underline = styled.p`
+  border-bottom: 2px solid #095256;
 `;
 
 const BigSection = styled.div`
   height: 100vh;
-  text-align: center;
 `;
 
 const Header = styled.div`
-  font-size: 5rem;
+  font-size: 3rem;
+  text-align: center;
 `;
 
 const Section = styled.div`
   margin: 0;
-<<<<<<< HEAD
-  height: 600px;
-=======
-  height: 500px;
->>>>>>> 2f0354a8ca6bb44613e170586f1e9c059fb26c56
+  height: 400px;
 `;
 
 const Button = styled.button`
@@ -192,18 +209,17 @@ const Div = styled.div`
 `;
 
 const Title = styled.div`
-  width: 100%;
+  width: 100% !important;
   text-align: left;
   font-size: 3em;
   font-weight: bold;
-  width: 100%;
   color: #087f8c;
   overflow-wrap: break-word;
-
 `;
 
 const Option = styled.div`
   margin: 1rem;
+  width: 400px;
   border: 3px solid #e39774;
   border-radius: 25px;
   box-shadow: 3px 5px 4px #e39774;

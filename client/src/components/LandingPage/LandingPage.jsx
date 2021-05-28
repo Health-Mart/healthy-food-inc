@@ -43,15 +43,6 @@ function LandingPage() {
     }
   ]);
   const { updateUserInfo, userInfo } = useUserInfo();
-  const [current, setCurrent] = useState(0);
-
-  const nextSlide = () => {
-    setCurrent(current === farmerPics.length - 1 ? 0 : current + 1);
-  };
-
-  const prevSlide = () => {
-    setCurrent(current === 0 ? farmerPics.length - 1 : current - 1);
-  };
 
   const TitlesAndContent = () =>
     steps.map((step, index) => (
@@ -91,39 +82,30 @@ function LandingPage() {
       <div className="container section level">
         <h1 className="title level-item is-size-1 ">How it works</h1>
       </div>
-      <Content className="container is-max-desktop level">
+      <section className="container is-max-desktop level">
         <div className="columns is-desktop is-vcentered section">
           <TitlesAndContent />
         </div>
-      </Content>
+      </section>
       {/* <Bullshit className="container section is-large">
         <p className="is-size-1 has-text-black has-text-weight-bold">Our purpose is to create a happy healthy life style.</p>
       </Bullshit> */}
       <FarmerInfo className="columns box">
-        <div className="column">
+        <div className="column is-two-fifths">
           <div className="columns">
             <h1 className="column is-size-3 has-text-warning has-text-weight-bold">
-              Meet the <span className="is-size-2">farmers</span>
+              Meet the <span className="is-size-2">farmer</span>
+              <p className="has-text-light container">George Lopez</p>
             </h1>
             <GiFarmer reverse size={100} className="column has-text-warning" />
           </div>
           <br />
           <div className="">
             <p className="has-text-light container is-size-6">{farmerData[0]}</p>
-            <br />
-            <p className="has-text-light container">Want to know more about ( ??? )</p>
-            <br />
-            <button type="button" className="button is-decoration1 is-rounded">
-              Click for more
-            </button>
+            <div className="section is-medium" />
           </div>
         </div>
-        <FaChevronLeft className="left-arrow" onClick={prevSlide} />
-        {farmerPics.map((image, index) => {
-          console.log(image);
-          return <div key={index}>{index === current && <FarmerPicture src={image} alt="" />}</div>;
-        })}
-        <FaChevronRight className="right-arrow" onClick={nextSlide} />
+        <FarmerPicture className="column" />
       </FarmerInfo>
       {/* <div>
         <button className="button is-primary" type="button" onClick={() => {
@@ -146,24 +128,17 @@ const Header = styled.section`
 `;
 
 const FarmerPicture = styled(Header)`
+  background-image: url('https://images.unsplash.com/photo-1602046747040-1df0f6527803?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80') !important;
   background-position: center;
-  background-size: 100%;
+  background-size: cover;
+  padding: 0;
   max-width: 9999px !important;
-`;
-
-const Bullshit = styled.section`
-  background-image: url('https://images.unsplash.com/photo-1556911073-a517e752729c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
-  background-position: center;
-  background-repeat: no-repeat;
 `;
 
 const FarmerInfo = styled.section`
   background-color: #095256;
   padding: 0;
   margin: 0;
-`;
-
-const Content = styled.section`
 `;
 
 const CardText = styled.p`
