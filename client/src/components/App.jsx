@@ -165,7 +165,7 @@ function Navbar() {
             <Logo>
               <div>
                 <Link to="/" className="has-text-white">
-                  <strong>Health Food inc.</strong>
+                  <strong>Healthy Food Inc</strong>
                 </Link>
               </div>
             </Logo>
@@ -216,23 +216,12 @@ function Navbar() {
                   </Link>
                 </div>
               </a>
-              {/* <a className="navbar-item">
-                <div>
-                  <Link to="/signup" className="has-text-white">sign up</Link>
-                </div>
-              </a>
-              <a className="navbar-item">
-                <div>
-                  <Link to="/user-profile" className="has-text-white">User Profile</Link>
-                </div>
-              </a> */}
             </NavItems>
 
             <div className="navbar-end">
               <div className="navbar-item">
                 {Boolean(userInfo.Name)
                   ? (<button type="button" className="button">
-                  {/* <a className={`navbar-item ${location.pathname === '/user-profile' ? 'is-tab is-active' : ''}`}> */}
                       <Link to="/user-profile" className="is-primary" style={{'color': 'black'}}>My Account</Link>
                     </button> )
                   : (<button type="button" className="button" onClick={() => setShowModal(true)}>
@@ -247,30 +236,6 @@ function Navbar() {
     </div>
   );
 }
-
-// const Nav = () => {
-//   const divider = ' | ';
-//   return (
-//     <div>
-//       <Link to="/">landing page</Link>
-//       <span>{divider}</span>
-//       <Link to="/signup">sign up</Link>
-//       <span>{divider}</span>
-//       <Link to="/login">log in</Link>
-//       <span>{divider}</span>
-//       <Link to="/mealplan">meal plan</Link>
-//       <span>{divider}</span>
-//       <Link to="/questionnaire">questionnaire</Link>
-//       <span>{divider}</span>
-//       <Link to="/recipe-generator">recipe generator</Link>
-//       <span>{divider}</span>
-//       <Link to="/grocery-store">grocery </Link>
-//       <span>{divider}</span>
-//       <Link to="/user-profile">user profile</Link>
-//       <span>{divider}</span>
-//     </div>
-//   );
-// };
 
 const App = () => (
   <>
