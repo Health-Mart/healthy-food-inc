@@ -39,10 +39,10 @@ const CustomModal = styled.div`
 `;
 
 const CustomModalLogin = styled.div`
-  background: white;
+  background: #f0ffff;
   border-radius: 6px;
-  height: 300px;
-  width: 250px;
+  height: 600px;
+  width: 550px;
   margin-top: 7rem;
   padding: 2rem;
   position: relative;
@@ -87,7 +87,7 @@ function Navbar() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(  state);
+    console.log(state);
   };
   console.log('location', location);
   return (
@@ -100,8 +100,16 @@ function Navbar() {
             </CloseButton>
             <form onSubmit={handleSubmit}>
               <div className="login-container">
+                <div className="is-flex is-justify-content-center">
+                  <img
+                    width="365px"
+                    height="237px"
+                    src="https://lh3.googleusercontent.com/gn9gZjIQ3m8Xm5ROR3AvwF3XcIqFplg7Sd3EV7di7Jwb813yXpWgErIr2-R9p5RpIxPV1PVsU9tY_Awnu0a_uJmfgU-EPk8u34JKjSsw"
+                    alt="alternatetext"
+                  />
+                </div>
                 <div className="field">
-                  <label className="label">Username</label>
+                  <label className="label pt-5">Username</label>
                   <div className="control has-icons-left has-icons-right">
                     <input
                       className="input"
@@ -118,7 +126,7 @@ function Navbar() {
                 </div>
                 <div className="field">
                   <label className="label">Password</label>
-                  <div className="control has-icons-left has-icons-right">
+                  <div className="control has-icons-left has-icons-right mb-6">
                     <input
                       className="input"
                       type="password"
@@ -132,9 +140,15 @@ function Navbar() {
                     </span>
                   </div>
                 </div>
-                <button className="button mt-4 " type="submit" onClick={() => setShowModal(false)}>
-                  Sign In
-                </button>
+                <div className="is-flex is-justify-content-center">
+                  <button
+                    className="button is-success has-text-white is-size-5 has-text-weight-bold is-rounded"
+                    type="submit"
+                    onClick={() => setShowModal(false)}
+                  >
+                    Sign In
+                  </button>
+                </div>
               </div>
             </form>
           </CustomModalLogin>
@@ -153,24 +167,48 @@ function Navbar() {
           </div>
           <div id="navbarBasicExample" className="navbar-menu">
             <NavItems className="navbar-start has-text-white">
-              <a className={`navbar-item ${location.pathname === '/questionnaire' ? 'is-tab is-active' : ''}`}>
+              <a
+                className={`navbar-item ${
+                  location.pathname === '/questionnaire' ? 'is-tab is-active' : ''
+                }`}
+              >
                 <div>
-                  <Link to="/questionnaire" className="has-text-white">Questionnaire</Link>
+                  <Link to="/questionnaire" className="has-text-white">
+                    Questionnaire
+                  </Link>
                 </div>
               </a>
-              <a className={`navbar-item ${location.pathname === '/recipe-generator' ? 'is-tab is-active' : ''}`}>
+              <a
+                className={`navbar-item ${
+                  location.pathname === '/recipe-generator' ? 'is-tab is-active' : ''
+                }`}
+              >
                 <div>
-                  <Link to="/recipe-generator" className="has-text-white">Recipe Generator</Link>
+                  <Link to="/recipe-generator" className="has-text-white">
+                    Recipe Generator
+                  </Link>
                 </div>
               </a>
-              <a className={`navbar-item ${location.pathname === '/mealplan' ? 'is-tab is-active' : ''}`}>
+              <a
+                className={`navbar-item ${
+                  location.pathname === '/mealplan' ? 'is-tab is-active' : ''
+                }`}
+              >
                 <div>
-                  <Link to="/mealplan" className="has-text-white">Meal Plans</Link>
+                  <Link to="/mealplan" className="has-text-white">
+                    Meal Plans
+                  </Link>
                 </div>
               </a>
-              <a className={`navbar-item ${location.pathname === '/grocery-store' ? 'is-tab is-active' : ''}`}>
+              <a
+                className={`navbar-item ${
+                  location.pathname === '/grocery-store' ? 'is-tab is-active' : ''
+                }`}
+              >
                 <div>
-                  <Link to="/grocery-store" className="has-text-white">Grocery Market</Link>
+                  <Link to="/grocery-store" className="has-text-white">
+                    Grocery Market
+                  </Link>
                 </div>
               </a>
               {/* <a className="navbar-item">
@@ -261,8 +299,7 @@ const App = () => (
       </Route>
     </Switch>
     <Switch>
-      <Route path={['/signup', '/login']}>
-      </Route>
+      <Route path={['/signup', '/login']} />
     </Switch>
   </>
 );
