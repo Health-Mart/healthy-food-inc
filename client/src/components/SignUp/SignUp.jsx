@@ -12,6 +12,7 @@ import {
   useParams
 } from 'react-router-dom';
 import useUserInfo from '../../context/useUserInfo.jsx';
+import Footer from './Footer.jsx';
 
 const CreateContent = ({ count, params, signUp, handleChange, addUserInfo, userInfo }) =>
   count === 4 ? (
@@ -166,7 +167,7 @@ function SignUp() {
         </FormStyle>
       </section>
     </Container>
-    <br />
+    <Footer />
   </>
 );
 
