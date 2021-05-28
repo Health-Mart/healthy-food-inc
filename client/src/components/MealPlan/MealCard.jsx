@@ -13,22 +13,22 @@ function MealCard({ meal, photo, prepTime, price, serving, details }) {
 
   return (
     <>
-      <Div className="card my-3 py-1 px-2">
-        <Div className="card-header m-0 p-0">
+      <div className="card my-3 py-1 px-2">
+        <div className="card-header m-0 p-0">
           <div className="card-header-title is-size-7">{meal}</div>
-        </Div>
+        </div>
 
-        <Div className="card-image">
+        <div className="card-image">
           <figure className="image is-1by1" onClick={() => setIsOpen(true)}>
-            <Img src={photo} alt="image" />
+            <img src={photo} alt="image" />
           </figure>
-        </Div>
+        </div>
 
-        <Div className="card-content is-size-7">
+        <div className="card-content is-size-7">
           <span className="has-text-left">{prepTime}</span>
           <span className="has-text-right">{price}</span>
-        </Div>
-      </Div>
+        </div>
+      </div>
       {isOpen ? (
         <Modal
           resetModal={resetModal}
