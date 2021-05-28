@@ -132,7 +132,6 @@ function SignUp() {
               src="https://lh3.googleusercontent.com/gn9gZjIQ3m8Xm5ROR3AvwF3XcIqFplg7Sd3EV7di7Jwb813yXpWgErIr2-R9p5RpIxPV1PVsU9tY_Awnu0a_uJmfgU-EPk8u34JKjSsw"
               alt="alternatetext"
             />
-            <h1 className="subtitle">Health Food</h1>
             <CreateContent
               count={count}
               params={params}
