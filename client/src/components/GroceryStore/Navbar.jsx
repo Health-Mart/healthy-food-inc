@@ -21,9 +21,11 @@ function Navbar({ mainCategory, setMainCategory, count }) {
     <>
       <nav className="navbar is-success" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <a className="navbar-item" href="/">
+          <a className="navbar-item has-text-white">
             <div>
-              <strong>GROCERY MARKET</strong>
+              <Link to="/">
+                <strong>GROCERY MARKET</strong>
+              </Link>
             </div>
           </a>
         </div>
