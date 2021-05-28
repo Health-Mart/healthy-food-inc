@@ -99,7 +99,7 @@ const CardTitle = styled.p`
   }
 `;
 
-const CardButtom = styled.div`
+const CardButton = styled.div`
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -168,7 +168,7 @@ function Card({ item, addRecipe, deleteRecipe }) {
         <CardContent>
           <CardTitle>{title}</CardTitle>
           {/* <span>{item.id}</span> */}
-          <CardButtom>{item.readyInMinutes} min</CardButtom>
+          <CardButton>{item.readyInMinutes} min</CardButton>
         </CardContent>
         <Modal
           item={item}
@@ -181,6 +181,7 @@ function Card({ item, addRecipe, deleteRecipe }) {
       </div>
     </>
   );
-}
+};
+
 
 export default Card;

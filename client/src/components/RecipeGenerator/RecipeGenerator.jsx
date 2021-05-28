@@ -21,6 +21,7 @@ function RecipeGenerator() {
   const { question } = useContext(HealthContext);
   const [survey, setSurvey] = question;
   const [recipes, setRecipes] = useState([]);
+  const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [dataReady, setdataReady] = useState(false);
 
   console.log('data from survey: ', survey);
@@ -36,6 +37,7 @@ function RecipeGenerator() {
       .get('/api/recipes', { paramas })
       .then((response) => {
         setRecipes(response.data);
+        setFilteredRecipes(response.data);
         setdataReady(true);
       })
       .catch((error) => {
@@ -54,7 +56,7 @@ function RecipeGenerator() {
     axios
       .get('/api/recipes', { params })
       .then((response) => {
-        setRecipes(response.data);
+        setFilteredRecipes(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -102,7 +104,7 @@ function RecipeGenerator() {
       });
     }
     // filter through the recipes
-    setRecipes(filtered);
+    setFilteredRecipes(filtered);
     console.log('filtered recipes: ', filtered);
   }
 
@@ -110,7 +112,7 @@ function RecipeGenerator() {
     return (
       <>
         <Header searchRecipes={searchRecipes} filter={filter} />
-        <Body recipes={recipes} />
+        <Body recipes={filteredRecipes} />
         <Footer />
         <br />
       </>
