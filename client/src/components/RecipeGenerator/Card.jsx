@@ -134,58 +134,28 @@ function Card({ item, addRecipe, deleteRecipe }) {
   const selected = recipeMeta[thisID] === true;
   // console.log('isSelect: ', selected, thisID);
 
-  if (selected === undefined || selected === false) {
-    return (
-      <>
-        <div className="card">
-          <div className="card-image">
-            <figure>
-              <div>
-                {/* {
-                    (selected === undefined || selected === false)
-                       ? (<div></div>)
-                       : (<span></span>)
-                  } */}
-                <Img src={image} alt="profile" loading="lazy" />
-                <Button onClick={openModal} className="button is-small" type="button">
-                  Learn More
-                </Button>
-              </div>
-            </figure>
-          </div>
-          <CardContent>
-            <CardTitle>{title}</CardTitle>
-            {/* <span>{item.id}</span> */}
-            <CardButtom>{item.readyInMinutes} min</CardButtom>
-          </CardContent>
-          <Modal
-            item={item}
-            addRecipe={addRecipe}
-            deleteRecipe={deleteRecipe}
-            showModal={showModal}
-            setShowModal={setShowModal}
-            openModal={openModal}
-          />
-        </div>
-      </>
-    );
-  }
   return (
     <>
       <div className="card">
         <div className="card-image">
           <figure className="image is-4by3">
-            <Img src={image} alt="profile" loading="lazy" />
             <div>
-              <Button
-                onClick={() => {
-                  deleteRecipe(item);
-                }}
-                className="button is-small is-primary"
-                type="button"
-              >
-                saved
-              </Button>
+              <Img src={image} alt="profile" loading="lazy" />
+              {(selected === undefined || selected === false)
+                ? (<Button
+                  onClick={openModal}
+                  className="button is-small"
+                  type="button"
+                >
+                  Learn More
+                </Button>)
+                : (<Button
+                  onClick={() => { deleteRecipe(item); }}
+                  className="button is-small is-primary"
+                  type="button"
+                > saved </Button>)
+              }
+
             </div>
           </figure>
         </div>
@@ -205,6 +175,7 @@ function Card({ item, addRecipe, deleteRecipe }) {
       </div>
     </>
   );
-}
+};
+
 
 export default Card;
