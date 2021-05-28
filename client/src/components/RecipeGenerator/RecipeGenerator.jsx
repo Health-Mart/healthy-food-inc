@@ -69,21 +69,41 @@ function RecipeGenerator() {
     3. show cook more
     filter two - preference
     */
-
-    const arr = [];
-    recipes.map((item) => {
-      console.log(item);
-    });
-
-    console.log('filtering...', term);
-    // readyInMinutes: '45'
-    // tags: 'veryHealthy'
-
     const params = {
       tag: ['veryHealthy'],
       restrictions: ['dairy free', 'vagan']
     };
+
+    const filtered = [];
+    console.log('filtering...', term);
+    // readyInMinutes: '45'
+    // tags: 'veryHealthy'
+
+    if (term === 20) {
+      // filter quick meal
+      recipes.map((item) => {
+        if (item.readyInMinutes <= 20) {
+          filtered.push(item);
+        }
+      });
+    } else if (term === 30) {
+      // filter standard
+      recipes.map((item) => {
+        if (item.readyInMinutes > 20 && item.readyInMinutes <= 50) {
+          filtered.push(item);
+        }
+      });
+    } else {
+      // filter slow cook
+      recipes.map((item) => {
+        if (item.readyInMinutes >= 50) {
+          filtered.push(item);
+        }
+      });
+    }
     // filter through the recipes
+    setRecipes(filtered);
+    console.log('filtered recipes: ', filtered);
   }
 
   if (dataReady) {

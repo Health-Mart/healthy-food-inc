@@ -32,7 +32,7 @@ function Navbar({ filter }) {
               <div className="navbar-dropdown">
                 <a
                   onClick={() => {
-                    filter('readyInMinutes: less than 20mins');
+                    filter(20);
                   }}
                   className="navbar-item is-success"
                 >
@@ -40,7 +40,7 @@ function Navbar({ filter }) {
                 </a>
                 <a
                   onClick={() => {
-                    filter('readyInMinutes: between 20 to 45mins');
+                    filter(30);
                   }}
                   className="navbar-item"
                 >
@@ -48,7 +48,7 @@ function Navbar({ filter }) {
                 </a>
                 <a
                   onClick={() => {
-                    filter('readyInMinutes: more than 45mins');
+                    filter(50);
                   }}
                   className="navbar-item"
                 >

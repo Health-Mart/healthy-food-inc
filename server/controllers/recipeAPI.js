@@ -7,7 +7,7 @@ exports.getRecipes = async (req, res) => {
     const query = req.query.query ?? '';
     const tags = req.query.tags ?? [];
     const restrictions = req.query.restrictions ?? [];
-    const count = req.query.count ?? 12;
+    const count = req.query.count ?? 24;
     const offset = req.query.offset ?? 0;
 
     console.log('params: ', query, tags, restrictions, count, offset);
