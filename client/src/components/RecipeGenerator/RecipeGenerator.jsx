@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useContext } from 'react';
@@ -13,7 +14,7 @@ import {
 import axios from 'axios';
 import { HealthContext } from '../../context/healthContext.jsx';
 import Header from './Header.jsx';
-import Bodyx from './Bodyx.jsx';
+import Body from './Body.jsx';
 import Footer from './Footer.jsx';
 
 function RecipeGenerator() {
@@ -90,7 +91,7 @@ function RecipeGenerator() {
       <>
         <Header searchRecipes={searchRecipes} filter={filter} />
         <br />
-        <Bodyx recipes={recipes} />
+        <Body recipes={recipes} />
         <Footer />
       </>
     );
