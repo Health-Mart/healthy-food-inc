@@ -177,7 +177,7 @@ function Navbar() {
                   }`}
               >
                 <div>
-                  <Link to="/questionnaire" className="has-text-white">
+                  <Link to="/" className="has-text-white">
                     Healthy Food Inc.
                   </Link>
                 </div>
