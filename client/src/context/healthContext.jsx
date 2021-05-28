@@ -10,12 +10,14 @@ const HealthProvider = (props) => {
   const [survey, setSurvey] = useState([]);
   const [recipeMeta, setRecipeMeta] = useState({});
   const [select, setSelect] = useState(false);
+  const [userInfo, setUserInfo] = useState(false);
   return (
     <HealthContext.Provider
       value={{
         question: [survey, setSurvey],
         recipeStore: [recipeMeta, setRecipeMeta],
-        isSelect: [select, setSelect]
+        isSelect: [select, setSelect],
+        userInfoStore: [userInfo, setUserInfo],
       }}
     >
       {children}

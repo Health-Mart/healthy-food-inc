@@ -123,7 +123,14 @@ function Questionnarie() {
     }
   ];
 
-  const handleClick = (value) => setSurvey((oldSurvey) => [...oldSurvey, value]);
+  const [colorChange, setColorChange] = useState(false);
+  const textChange = colorChange
+    ? 'title button is-medium is-dark has-text-info is-rounded'
+    : 'title button is-medium is-warning has-text-light is-rounded';
+  const handleClick = (value) => {
+    setSurvey((oldSurvey) => [...oldSurvey, value]);
+    // setColorChange(!colorChange);
+  };
 
   const RenderItems = () =>
     step === 5 ? (
@@ -131,7 +138,7 @@ function Questionnarie() {
     ) : (
       options.map((option, i) =>
         option.step === step ? (
-          <BigSection className="section">
+          <section className="section full-height-background">
             <progress className="progress is-danger" value={step} max={4} />
             <Container className="container card">
               <Section className="columns section" key={i}>
@@ -141,7 +148,11 @@ function Questionnarie() {
                   {option.option.map((items, j) => (
                     <Div className="column">
                       <p
-                        className="title button is-medium is-warning has-text-info is-rounded"
+                        className={
+                          survey.includes(items)
+                            ? 'title button is-medium is-dark has-text-white is-rounded'
+                            : 'title button is-medium is-warning has-text-info is-rounded'
+                        }
                         onClick={() => handleClick(items)}
                         aria-hidden="true"
                       >
@@ -161,7 +172,7 @@ function Questionnarie() {
                 </Button>
               </div>
             </Container>
-          </BigSection>
+          </section>
         ) : null
       )
     );

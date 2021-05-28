@@ -15,9 +15,9 @@ import useUserInfo from '../../context/useUserInfo.jsx';
 import Footer from './Footer.jsx';
 
 const CreateContent = ({ count, params, signUp, handleChange, addUserInfo, userInfo }) =>
-  count === 4 ? (
+  count === 9 ? (
     <div>
-      <button type="button" onClick={() => addUserInfo(signUp)}>
+      <button type="button">
         {' '}
         Check{' '}
       </button>
@@ -26,25 +26,25 @@ const CreateContent = ({ count, params, signUp, handleChange, addUserInfo, userI
     params.map((paramGroup, index) =>
       paramGroup.count === count
         ? paramGroup.items.map((paramItem) => (
-            <div>
-              <div className="is-flex is-justify-content-center">
-                <div className="login-container ">
-                  <div className="field">
-                    <label className="label">{paramItem}</label>
-                    <input
-                      className="input is-medium"
-                      type="text"
-                      name={paramItem}
-                      value={signUp[paramItem]}
-                      /* onChange={(max) => console.log(max)} */
-                      onChange={handleChange}
-                      placeholder={paramItem}
-                    />
-                  </div>
+          <div>
+            <div className="is-flex is-justify-content-center">
+              <div className="login-container ">
+                <div className="field">
+                  <label className="label">{paramItem}</label>
+                  <input
+                    className="input is-medium"
+                    type="text"
+                    name={paramItem}
+                    value={signUp[paramItem]}
+                    /* onChange={(max) => console.log(max)} */
+                    onChange={handleChange}
+                    placeholder={paramItem}
+                  />
                 </div>
               </div>
             </div>
-          ))
+          </div>
+        ))
         : null
     )
   );
@@ -132,7 +132,6 @@ function SignUp() {
               src="https://lh3.googleusercontent.com/gn9gZjIQ3m8Xm5ROR3AvwF3XcIqFplg7Sd3EV7di7Jwb813yXpWgErIr2-R9p5RpIxPV1PVsU9tY_Awnu0a_uJmfgU-EPk8u34JKjSsw"
               alt="alternatetext"
             />
-            <h1 className="subtitle">Health Food</h1>
             <CreateContent
               count={count}
               params={params}
@@ -146,11 +145,19 @@ function SignUp() {
               <button
                 className=" button n is-success has-text-white has-text-weight-bold is-roundedis-flex is-justify-content-center margin-top-5"
                 onClick={() => {
-                  setCount(count + 1);
-                  addUserInfo;
-                }}
+                  if (count < 3) {
+                    setCount(count + 1);
+                    console.log(count);
+                  } else {
+                    addUserInfo(signUp);
+                    console.log('redirect');
+                  }
+                }
+                }
               >
-                Next
+                {count < 3 ? 'Next' :
+                  (<Link to="/recipe-generator" className="has-text-white">Sign Up</Link>)
+                }
               </button>
             </div>
           </FormStyle>
