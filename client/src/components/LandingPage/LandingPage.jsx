@@ -26,7 +26,6 @@ function LandingPage() {
   ];
   const farmerData = [
     `Come on up and see me urchins. Me I’m Dishonest. And A Dishonest Man You Can Always Trust To Be Dishonest. Honestly Its The Honest Ones You Want To Watch Out For Because You Never Know When They Are Going To Do Something Completely Stupid! Why are pirates pirates? cuz they arrrrrr you know, thats the 2nd time I’v watched that man sail away with my ship.`
-
   ];
 
   const [steps, setSteps] = useState([
@@ -93,7 +92,7 @@ function LandingPage() {
           <div className="columns">
             <h1 className="column is-size-3 has-text-warning has-text-weight-bold">
               Meet the farmer
-            <p className="has-text-light">Shawn Valdez</p>
+              <p className="has-text-light">Shawn Valdez</p>
             </h1>
             <GiFarmer reverse size={100} className="column has-text-warning" />
           </div>
