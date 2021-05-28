@@ -175,6 +175,7 @@ function Card({ item, addRecipe, deleteRecipe }) {
       </div>
     </>
   );
+};
 
 
-  export default Card;
+export default Card;
