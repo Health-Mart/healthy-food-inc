@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable no-unused-vars */
@@ -15,7 +16,7 @@ import {
 function Navbar({ filter }) {
   return (
     <>
-      <nav className="navbar is-white">
+      <nav className="navbar is-light">
         <div className="navbar-brand">
           <a className="navbar-item">
             <div>

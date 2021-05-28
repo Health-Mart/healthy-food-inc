@@ -90,9 +90,9 @@ function RecipeGenerator() {
     return (
       <>
         <Header searchRecipes={searchRecipes} filter={filter} />
-        <br />
         <Body recipes={recipes} />
         <Footer />
+        <br />
       </>
     );
   }
