@@ -35,7 +35,7 @@ function ContactInfo({ userInfo, updateUserInfo }) {
 
   return (
     <div className="ml-4 pl-4">
-      <div className="is-size-4 title is-right">
+      <div className="is-size-3 title is-right has-text-success">
         Contact Information
         <button className="button is-small ml-3 is-rounded is-success" type="submit">
           Update
@@ -71,7 +71,7 @@ function ContactInfo({ userInfo, updateUserInfo }) {
           </div>
 
           <div className="column">
-            <div>Lorem ipsum dolor San Francisco, CA 94022</div>
+            <div>123 Fake St. San Francisco, CA 94510</div>
           </div>
 
           <div className="column">

@@ -10,6 +10,7 @@ import {
   useParams
 } from 'react-router-dom';
 import axios from 'axios';
+import * as GiIcons from 'react-icons/gi';
 import MealCard from './MealCard.jsx';
 import SearchMeal from './SearchMeal.jsx';
 import TimeSelector from './TimeSelector.jsx';
@@ -74,7 +75,12 @@ function MealPlan() {
             <div className="container mx-3 px-3">
               <div className="container mx-6 px-6">
                 <div className="container mx-0 px-0">
-                  <h1 className="title is-size-2 my-4 px-6 has-text-success">Meal Plans</h1>
+                  <h1 className="title is-size-2 my-4 px-6 has-text-success">
+                    Meal Plans
+                    <span className="ml-2">
+                      <GiIcons.GiHotMeal />
+                    </span>
+                  </h1>
                   <TimeSelector selectedWeek={selectedWeek} setSelectedWeek={setSelectedWeek} />
                   <SearchMeal searchMeals={searchMeals} />
 
