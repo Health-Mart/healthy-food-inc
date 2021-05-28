@@ -16,13 +16,17 @@ const Img = styled.img`
   object-fit: none;
 `;
 
+const Wrapper = styled.section`
+  height: 100vh;
+`;
+
 function UserProfile() {
   const { userInfo, updateUserInfo } = useUserInfo();
   useEffect(() => {
     updateUserInfo('Name', 'Jon Doe');
   }, []);
   return (
-    <section className="section">
+    <Wrapper className="section">
       <div className="container">
         <div className="columns box is-size-5 is-gapless m-6 pt-6">
           <div className="column media-left is-one-fifth">
@@ -41,7 +45,7 @@ function UserProfile() {
           </div>
         </div>
       </div>
-    </section>
+    </Wrapper>
   );
 }
 
