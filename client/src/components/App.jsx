@@ -162,10 +162,10 @@ function Navbar() {
       <div>
         <nav className="navbar is-success" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
-            <Logo>
+            <Logo style={{marginRight: '12px'}}>
               <div>
                 <Link to="/" className="has-text-white">
-                  <strong>Health Food inc.</strong>
+                  <img src="icon3.png"></img>
                 </Link>
               </div>
             </Logo>
@@ -173,9 +173,18 @@ function Navbar() {
           <div id="navbarBasicExample" className="navbar-menu">
             <NavItems className="navbar-start has-text-white">
               <a
-                className={`navbar-item ${
-                  location.pathname === '/questionnaire' ? 'is-tab is-active' : ''
-                }`}
+                className={`navbar-item ${location.pathname === '/' ? 'is-tab is-active' : ''
+                  }`}
+              >
+                <div>
+                  <Link to="/questionnaire" className="has-text-white">
+                    Healthy Food Inc.
+                  </Link>
+                </div>
+              </a>
+              <a
+                className={`navbar-item ${location.pathname === '/questionnaire' ? 'is-tab is-active' : ''
+                  }`}
               >
                 <div>
                   <Link to="/questionnaire" className="has-text-white">
@@ -184,9 +193,8 @@ function Navbar() {
                 </div>
               </a>
               <a
-                className={`navbar-item ${
-                  location.pathname === '/recipe-generator' ? 'is-tab is-active' : ''
-                }`}
+                className={`navbar-item ${location.pathname === '/recipe-generator' ? 'is-tab is-active' : ''
+                  }`}
               >
                 <div>
                   <Link to="/recipe-generator" className="has-text-white">
@@ -195,9 +203,8 @@ function Navbar() {
                 </div>
               </a>
               <a
-                className={`navbar-item ${
-                  location.pathname === '/mealplan' ? 'is-tab is-active' : ''
-                }`}
+                className={`navbar-item ${location.pathname === '/mealplan' ? 'is-tab is-active' : ''
+                  }`}
               >
                 <div>
                   <Link to="/mealplan" className="has-text-white">
@@ -206,9 +213,8 @@ function Navbar() {
                 </div>
               </a>
               <a
-                className={`navbar-item ${
-                  location.pathname === '/grocery-store' ? 'is-tab is-active' : ''
-                }`}
+                className={`navbar-item ${location.pathname === '/grocery-store' ? 'is-tab is-active' : ''
+                  }`}
               >
                 <div>
                   <Link to="/grocery-store" className="has-text-white">
@@ -232,9 +238,9 @@ function Navbar() {
               <div className="navbar-item">
                 {Boolean(userInfo.Name)
                   ? (<button type="button" className="button">
-                  {/* <a className={`navbar-item ${location.pathname === '/user-profile' ? 'is-tab is-active' : ''}`}> */}
-                      <Link to="/user-profile" className="is-primary" style={{'color': 'black'}}>My Account</Link>
-                    </button> )
+                    {/* <a className={`navbar-item ${location.pathname === '/user-profile' ? 'is-tab is-active' : ''}`}> */}
+                    <Link to="/user-profile" className="is-primary" style={{ 'color': 'black' }}>My Account</Link>
+                  </button>)
                   : (<button type="button" className="button" onClick={() => setShowModal(true)}>
                     Log In
                   </button>)
