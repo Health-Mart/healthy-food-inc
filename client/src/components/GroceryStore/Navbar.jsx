@@ -14,6 +14,11 @@ const Count = styled.span`
     padding-left: 3px;
 `;
 
+const GroceryBrand = styled.strong`
+    color: #fff;
+`;
+
+
 
 
 function Navbar({ mainCategory, setMainCategory, count }) {
@@ -22,11 +27,9 @@ function Navbar({ mainCategory, setMainCategory, count }) {
       <nav className="navbar is-success" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <a className="navbar-item has-text-white">
-            <div>
               <Link to="/">
-                <strong>GROCERY MARKET</strong>
+                <GroceryBrand>GROCERY MARKET</GroceryBrand>
               </Link>
-            </div>
           </a>
         </div>
 
