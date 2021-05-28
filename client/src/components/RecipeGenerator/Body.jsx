@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import {
   BrowserRouter as Router,
@@ -11,7 +11,7 @@ import {
   useParams
 } from 'react-router-dom';
 import Card from './Card.jsx';
-// import dummyData from './dummyData.js';
+import { HealthContext } from '../../context/healthContext.jsx';
 
 const Cards = styled.div`
   display: grid;
@@ -23,7 +23,21 @@ const Cards = styled.div`
 
 function Body(props) {
   const { recipes } = props;
-  console.log('recipes: ', recipes);
+  // console.log('recipes: ', recipes);
+  const { recipeStore } = useContext(HealthContext);
+  const [select, setSelect] = useState(false);
+  const [recipeMeta, setRecipeMeta] = recipeStore;
+
+  function addRecipe(item) {
+    const { id } = item;
+    setRecipeMeta((oldRecipeMeta) => ({ ...oldRecipeMeta, [id]: true }));
+  }
+
+  function deleteRecipe(item) {
+    const { id } = item;
+    setRecipeMeta((oldRecipeMeta) => ({ ...oldRecipeMeta, [id]: false }));
+  }
+
   return (
     <>
       <div>
@@ -32,7 +46,7 @@ function Body(props) {
             <div className="container">
               <Cards>
                 {recipes.map((item, i) => (
-                  <Card item={item} key={i} />
+                  <Card item={item} key={i} addRecipe={addRecipe} deleteRecipe={deleteRecipe} />
                 ))}
                 <Card />
               </Cards>

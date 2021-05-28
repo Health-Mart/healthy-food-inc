@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useContext } from 'react';
@@ -14,11 +15,11 @@ import { HealthContext } from '../../context/healthContext.jsx';
 
 const replacementImages = {
   511748:
-    'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/200518-delish-seo-breakfast-tacos-h-14601-eb-1590516559.jpg?crop=1xw:0.9164255020608612xh;center,top&resize=980:*',
+    'https://www.girlgonegourmet.com/wp-content/uploads/2018/04/Breakfast-Tacos-4-tastyrecipes.jpg',
   665282:
     'https://goodeggs4.imgix.net/c7dbfd66-3bc6-464c-9e44-66ec80431d85.jpg?w=840&h=525&fm=jpg&q=80&fit=crop',
   636062:
-    'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/porridge-with-quick-berry-compote-figs-pistachios-7187c9f.jpg?quality=90&resize=960,872',
+    'https://www.cookforyourlife.org/wp-content/uploads/2018/08/iStock_000056548760_Large.jpg',
   636066: 'http://yestoyolks.com/wp-content/uploads/2014/04/IMG_1532.jpg',
   636080: 'http://assets.kraftfoods.com/recipe_images/opendeploy/56928_640x428.jpg',
   644822:
@@ -39,7 +40,7 @@ const replacementImages = {
   652335: 'https://thecozyapron.com/wp-content/uploads/2018/05/mongolian-beef_thecozyapron_1.jpg',
   797177: 'https://img.taste.com.au/s9qgdSXL/taste/2016/11/corned-beef-hash-cakes-14696-1.jpeg',
   635793:
-    'https://lh3.googleusercontent.com/proxy/4UjS0e93eUmMB5XQQbpSbFg_29HVuPNoey1az4BatI0rNE2oLgOWOCD7UHrO9IMu3p1r7Bew4-C8qGQpRKJ7TVc5qxxPRcSLbJDBGZLLBYsmZc8kx-WIHmrMaF0rfRAxYUIU_HEyZlU',
+    'https://static01.nyt.com/images/2019/01/23/dining/23kitchrex1/merlin_149035125_4687a6e2-ed75-45a2-b406-1b93cab6d220-articleLarge.jpg',
   390813:
     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi20Onn2CiABwIPc04rLBRSSSiSTFcmTDqWg&usqp=CAU',
   644711:
@@ -47,8 +48,44 @@ const replacementImages = {
   634710:
     'https://jamiecooksitup.net/wp-content/uploads/2018/04/Teriyaki-Beef-and-Pepper-Stir-Fry2.jpg',
   660273:
-    'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/slow-cooker-chili-horizontal-1529354330.png'
+    'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/slow-cooker-chili-horizontal-1529354330.png',
+  639306:
+    'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimg1.cookinglight.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fmedium_2x%2Fpublic%2Fimage%2F2017%2F01%2Fmain%2Fshallow-poached-eggs.jpg%3Fitok%3DUMR_8ory',
+  646071:
+    'https://i8.amplience.net/i/traeger/DW_Recipe_gyros_Hero?w=1200&sm=aspect&aspect=2:1&scaleFit=poi&$poi2$',
+  1096161:
+    'https://www.budgetbytes.com/wp-content/uploads/2018/12/Sheet-Pan-Greek-Chicken-and-Vegetables-diagonal.jpg',
+  716433:
+    'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2003/10/16/4/tm1b17_fruit_parfaits1.jpg.rend.hgtvcom.616.462.suffix/1434575166114.jpeg',
+  715438:
+    'https://photos.bigoven.com/recipe/hero/main-cornbread-casserole-mexic-6c6c88.jpg?h=500&w=500',
+  647615:
+    'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F9%2F2016%2F07%2Fhuli-huli-chicken-wings-ft-recipe0619_0.jpg',
+  918026: 'https://readyseteat.com/sites/g/files/qyyrlu501/files/uploadedImages/img_2273_8280.jpg',
+  635701: 'https://www.billeauds.com/wp-content/uploads/boudin-cut-black.jpg',
+  634476: 'https://www.foodnetwork.com/content/dam/images/food/video/0/01/013/0137/0137773.jpg',
+  637876: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/Chicken_65_%28Dish%29.jpg',
+  1096256: 'https://www.realfoodsource.com/wp-content/uploads/2017/02/tiger-nut-crumble-bars-1.jpg',
+  632342: 'https://www.onestop.co.uk/wp-content/uploads/Recipe-Thumbnails-1.jpg',
+  640134:
+    'https://d47gxy3fatgwk.cloudfront.net/wp-content/uploads/2019/07/slow-cooker-corned-beef-and-cabbage-2284-horiz.jpg',
+  606953: 'https://southernbite.com/wp-content/uploads/2018/04/Cajun-Chicken-Pasta-3.jpg',
+  682619:
+    'https://hips.hearstapps.com/del.h-cdn.co/assets/17/24/1497458825-delish-shrimp-fried-rice-1-1024.jpg',
+  656777: 'http://www.gimmesomeoven.com/wp-content/uploads/2012/11/pork-fried-rice-1.jpg',
+  663559: 'https://lostinfood.co.uk/wp-content/uploads/2018/01/LIF-January-24-2018-001-29.jpg',
+  617047: 'https://www.cookwithmanali.com/wp-content/uploads/2014/07/Rasmalai-Recipe.jpg',
+  149656: 'https://www.budgetbytes.com/wp-content/uploads/2020/08/Beef-Taco-Skillet-close.jpg',
+  652448:
+    'https://www.thehungrybites.com/wp-content/uploads/2017/04/moroccan-rice-pilaf-side-dish-gluten-free-vegan-vegetarian-plant-based-recipe-marokino-rizi-5a.jpg'
 };
+
+const Text = styled.div`
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 1rem;
+  margin-top: 1.5em;
+`;
 
 const Modal = ({ showModal, setShowModal, openModal, item, addRecipe, deleteRecipe }) => {
   const { title, summary } = item;
@@ -58,65 +95,67 @@ const Modal = ({ showModal, setShowModal, openModal, item, addRecipe, deleteReci
   const [recipes, setRecipes] = recipeStore;
   const [select, setSelect] = isSelect;
 
-  // function addRecipe() {
-  //   const record = recipes.slice();
-  //   console.log('this is record: ', record);
-  //   setSelect(true);
-  //   setRecipes([item.id, ...recipes]);
-  //   console.log(recipes);
-  // }
+  const Img = styled.img`
+    object-fit: contain;
+  `;
 
-  // function deleteRecipe() {
-  //   setSelect(false);
-  //   console.log(recipes);
-  // }
+  const Top = styled.div`
+    display: flex;
+    margin: 0.5em 0 1em 0;
+  `;
 
   return (
     <>
       {showModal ? (
-        <div className="modal is-active">
+        <div id="modal" className="modal is-active">
           <div className="modal-background" />
           <div className="modal-card">
-            <div className="card-image">
-              <figure className="image is-4by3">
-                <img src={image} alt="profile" />
+            <section className="modal-card-body">
+              <Top>
+                <p className="modal-card-title">
+                  <strong>{title}</strong>
+                </p>
+                <button
+                  onClick={() => {
+                    openModal();
+                  }}
+                  className="delete"
+                  type="submit"
+                  aria-label="close"
+                />
+              </Top>
+              <figure className="image">
+                <Img src={image} alt="profile" />
               </figure>
-            </div>
-            <div className="modal-card-body">
-              <p className="title is-4">{title}</p>
-              <p className="title is-7 is-black" dangerouslySetInnerHTML={{ __html: summary }} />
-              <p className="title is-5">Ingredients</p>
-              <p className="title is-7">12 ounces fettuccine</p>
-              <p className="title is-7">4 slices bacon, chopped</p>
-              <p className="title is-7">1 pound chicken tenders, cut into 1-inch pieces</p>
-              <p className="title is-7">2 cloves garlic, minced</p>
-              <p className="title is-7">4 plum tomatoes, chopped</p>
-              <p className="title is-7">1 cup heavy cream</p>
-              <p className="title is-7">5 ounces baby spinach</p>
-              <p className="title is-7">3/4 cup grated Parmesan</p>
-              <p className="title is-7">3 tablespoons chopped fresh basil</p>
-            </div>
-            <div className="modal-card-foot is-white">
+              <Text className="title is-6 is-black" dangerouslySetInnerHTML={{ __html: summary }} />
+            </section>
+            <div className="modal-card-foot">
               {select ? (
-                <button onClick={addRecipe} className="button is-danger is-rounded" type="button">
+                <button className="button is-danger is-rounded" type="button">
                   Save
                 </button>
               ) : (
-                <button onClick={addRecipe} className="button is-white is-rounded" type="button">
+                <button
+                  onClick={() => {
+                    addRecipe(item);
+                  }}
+                  className="button is-success is-rounded"
+                  type="button"
+                >
                   Save
                 </button>
               )}
-              <button onClick={deleteRecipe} className="button is-white is-rounded" type="button">
+              <button
+                onClick={() => {
+                  deleteRecipe(item);
+                }}
+                className="button is-success is-rounded"
+                type="button"
+              >
                 Delete
               </button>
             </div>
           </div>
-          <button
-            onClick={openModal}
-            type="button"
-            className="modal-close is-large"
-            aria-label="close"
-          />
         </div>
       ) : null}
     </>
