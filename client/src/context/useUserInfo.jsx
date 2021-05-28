@@ -23,7 +23,8 @@ export default useUserInfo;
 //     lastFourNumber: 9123,
 //     expiration: '3/23',
 //     securityCode: 123
-//   }
+//   },
+//   signedIn: true
 // };
 //
 // store questionnaire data (even if user not logged in)
@@ -39,9 +40,6 @@ export default useUserInfo;
 // email
 // address
 // signedIn: false <-- determines what user sees
-
-// questionare: null,
-//
 
 // questionare: {
 // people: [],

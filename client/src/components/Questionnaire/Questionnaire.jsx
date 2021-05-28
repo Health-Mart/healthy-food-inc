@@ -8,44 +8,50 @@ import {
   useLocation,
   useParams
 } from 'react-router-dom';
+import { GiFruiting } from 'react-icons/gi';
 import { HealthContext } from '../../context/healthContext.jsx';
 
 const TransitionPage = () => (
-  <>
-    <div className="container section has-background-success is-size-2 has-text-weight-bold">
+  <BigSection className="section has-background-light">
+    <Header className="container section has-background-light has-text-weight-bold">
       Welcome to Healthy Food!
-    </div>
-    <div className="section is-medium columns">
+      <GiFruiting size={200} />
+    </Header>
+    <div className="section columns">
       <div className="container column">
-        <p>Save up to $1000 a year!</p>
-        <p>Try us risk free for 30 days and start saving</p>
+        <BigFont className="has-text-black has-text-weight-bold">
+          Save up to <span className="has-text-dark has-text-weight-bold">$1000</span> a year!
+        </BigFont>
+        <div className="section" />
+        <p className="is-size-2 has-text-black">
+          Try us <span className="has-text-info has-text-weight-bold">risk free</span> for 30 days
+          and <span className="has-text-info has-text-weight-bold">start saving</span>
+        </p>
       </div>
       <div className="container column">
-        <Option className="box columns section has-background-warning">
-          <h1 className="column">Hello</h1>
+        <Option className="box columns section has-background-dark-light">
+          <h1 className="column is-size-1">Ready for your recipes?</h1>
+          <p>Our recipe generator is curated for your personal tastes</p>
           <Link to="/recipe-generator">
             <button type="button" className="column">
-              Hello
+              Give me my recipes
             </button>
           </Link>
         </Option>
-        <Option className="box columns section">
-          <h1 className="column">Goodbye</h1>
-          <Link to="/signup">
-            <button type="button" className="column">
-              Goodbye
-            </button>
-          </Link>
-        </Option>
-        <div>
-          <h1>Membership benefits</h1>
+        <Option className="box columns section has-background-dark-light">
+          <h1 className="column">Want to sign up? Our members get...</h1>
           <p>Guaranteed savings on 6000 + healthy essentials</p>
           <p>Fast, free, carbon-neutral shipping</p>
           <p>Get meals from local farmers</p>
-        </div>
+          <Link to="/signup">
+            <button type="button" className="column">
+              Sign me up
+            </button>
+          </Link>
+        </Option>
       </div>
     </div>
-  </>
+  </BigSection>
 );
 
 function Questionnarie() {
@@ -108,13 +114,13 @@ function Questionnarie() {
     ) : (
       options.map((option, i) =>
         option.step === step ? (
-          <section className="section">
+          <BigSection className="section">
             <progress className="progress is-danger" value={step} max={4} />
             <Container className="container card">
               <Section className="columns section is-medium" key={i}>
                 <Div className="section column" />
                 <Div className="section column columns is-multiline">
-                  <Title className="title is-1">{option.title}</Title>
+                  <Title className="title is-1 column">{option.title}</Title>
                   {option.option.map((items, j) => (
                     <Div className="column">
                       <p
@@ -138,15 +144,30 @@ function Questionnarie() {
                 </Button>
               </div>
             </Container>
-          </section>
+          </BigSection>
         ) : null
       )
     );
   return <RenderItems />;
 }
 
+const BigFont = styled.p`
+  font-size: 5rem;
+  padding-right: 4rem;
+`;
+
+const BigSection = styled.div`
+  height: 100vh;
+  text-align: center;
+`;
+
+const Header = styled.div`
+  font-size: 5rem;
+`;
+
 const Section = styled.div`
   margin: 0;
+  height: 600px;
 `;
 
 const Button = styled.button`
@@ -170,15 +191,16 @@ const Title = styled.div`
   text-align: left;
   font-size: 3em;
   font-weight: bold;
+  width: 100%;
   color: #087f8c;
   overflow-wrap: break-word;
 `;
 
 const Option = styled.div`
   margin: 1rem;
-  border: 3px solid #095256;
+  border: 3px solid #e39774;
   border-radius: 25px;
-  box-shadow: 1px 2px 3px;
+  box-shadow: 3px 5px 4px #e39774;
 `;
 
 export default Questionnarie;
