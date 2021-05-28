@@ -78,7 +78,7 @@ function Questionnarie() {
     ) : (
       options.map((option, i) =>
         option.step === step ? (
-          <section className="section">
+          <section className="section full-height-background">
             <progress className="progress is-danger" value={step} max={4} />
             <Container className="container card">
               <Section className="columns section is-medium" key={i}>
