@@ -71,11 +71,11 @@ const FormStyle = styled.div`
   justify-items: center;
   margin-right: 35vw;
   margin-left: 35vw;
-  margin-bottom: 10vw;
+  margin-bottom: 20vw;
   text-align: center;
-  padding: 100px;
+  padding: 10vh;
   opacity .95;
-  border-radius: 10%;
+  border-radius: 5%;
 `;
 
 function SignUp() {
