@@ -1,5 +1,7 @@
-# Healthy Food Inc.
-# _Providing healthy, locally-sourced meals for busy eaters._
+# Healthy Food Inc. 
+### _Providing healthy, locally-sourced meals for busy eaters._
+
+
 Healthy Food Inc. is a meal planning, recipe generating, and grocery shopping platform where users can purchase healthy products from local producers. 
 
 
