@@ -1,4 +1,17 @@
-Providing healthy, locally-sourced meals for busy eaters.
+# Healthy Food Inc.
+# _Providing healthy, locally-sourced meals for busy eaters._
+Healthy Food Inc. is a meal planning, recipe generating, and grocery shopping platform where users can purchase healthy products from local producers. 
+
+
+## Features
+
+- ✨A landing page featuring 'Getting Started', 'How It Works' and 'Meet the Farmers' sections.
+- ✨A questionnaire survey page to gather user preferences for a more customized user experience.  
+- ✨A  meal  planning page  that displays meal kits for users to choose from based on their dietary needs.
+- ✨A page that generates healthy recipes from a collection of up to 360,000 meals tailored to user preferences. 
+- ✨A online grocery page containing over 5,000 unique products with an 'Add to Cart' functionality.  
+- ✨An user system that tracks subscription status, authenticates user identity, and retains saved recipes. 
+
 
 ## Installation
 - Clone repo
