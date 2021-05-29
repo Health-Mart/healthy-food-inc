@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import bulma from 'bulma';
+// import bulma from 'bulma';
 import styled from 'styled-components';
 import {
   BrowserRouter as Router,

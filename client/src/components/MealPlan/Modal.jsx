@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import bulma from 'bulma';
+// import bulma from 'bulma';
 import styled from 'styled-components';
 import {
   BrowserRouter as Router,
@@ -26,7 +26,7 @@ const Span = styled.span`
   font-size: 1rem;
 `;
 
-const CardButtom = styled.div`
+const CardBottom = styled.div`
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -72,9 +72,9 @@ function Modal({ resetModal, mealTitle, photo, prepTime, price, serving, details
           </div>
         </section>
         <footer className="modal-card-foot">
-          <CardButtom>
+          <CardBottom>
             <div className="has-text-right">{serving}</div>
-          </CardButtom>
+          </CardBottom>
         </footer>
       </div>
     </div>

@@ -10,11 +10,9 @@ import {
 } from 'react-router-dom';
 
 const Count = styled.span`
-    font-weight: 800;
-    padding-left: 3px;
+  font-weight: 800;
+  padding-left: 3px;
 `;
-
-
 
 function Navbar({ mainCategory, setMainCategory, count }) {
   return (
@@ -79,14 +77,12 @@ function Navbar({ mainCategory, setMainCategory, count }) {
               Pantry
             </a>
             <a
-              className={`navbar-item ${
-                mainCategory === 'Health & Home' ? 'is-tab is-active' : ''
-              }`}
+              className={`navbar-item ${mainCategory === 'Health & Home' ? 'is-tab is-active' : ''
+                }`}
               onClick={() => setMainCategory('Health & Home')}
             >
               Health & Home
             </a>
-
 
             <div className="navbar-item has-dropdown is-hoverable">
               <a className="navbar-link">More</a>

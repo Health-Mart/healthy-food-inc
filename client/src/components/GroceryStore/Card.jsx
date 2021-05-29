@@ -42,7 +42,7 @@ const CardTitle = styled.p`
   }
 `;
 
-const CardButtom = styled.div`
+const CardBottom = styled.div`
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -179,11 +179,11 @@ function Card({ item, indexKey, cartNumber, setCartNumber, count, setCount }) {
 
   const toggle = () => {
     // if (itemAdded === '+') {
-      // setItemAdded('✓');
-      if (itemCounter === 0) {
-        setCount(count + 1);
-      }
-      setItemCounter(itemCounter + 1);
+    // setItemAdded('✓');
+    if (itemCounter === 0) {
+      setCount(count + 1);
+    }
+    setItemCounter(itemCounter + 1);
     // } else {
     //   setItemAdded('+');
     //   setCount(count - 1);
@@ -208,11 +208,11 @@ function Card({ item, indexKey, cartNumber, setCartNumber, count, setCount }) {
             <CardProducer>{producer}</CardProducer>
             <CardTitle>{title}</CardTitle>
           </CardTop>
-          <CardButtom>
+          <CardBottom>
             <PricePer>{pricePer}</PricePer>
             <PriceUnit>{purchaseUnit}</PriceUnit>
             <Price>{price}</Price>
-          </CardButtom>
+          </CardBottom>
         </CardContent>
       </div>
     </>

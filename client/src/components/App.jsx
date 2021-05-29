@@ -23,7 +23,7 @@ import RecipeGenerator from './RecipeGenerator/RecipeGenerator.jsx';
 import GroceryStore from './GroceryStore/GroceryStore.jsx';
 import UserProfile from './UserProfile/UserProfile.jsx';
 
-import 'bulma/css/bulma.min.css';
+// import 'bulma/css/bulma.min.css';
 
 import useUserInfo from '../context/useUserInfo.jsx';
 
@@ -178,7 +178,7 @@ function Navbar() {
               >
                 <div>
                   <Link to="/" className="has-text-white">
-                    Healthy Food Inc.
+                    Healthy Foods
                   </Link>
                 </div>
               </a>

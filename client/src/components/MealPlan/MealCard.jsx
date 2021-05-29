@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import bulma from 'bulma';
+// import bulma from 'bulma';
 import styled from 'styled-components';
 import Modal from './Modal.jsx';
 
@@ -36,14 +36,14 @@ function MealCard({ meal, photo, prepTime, price, serving, details }) {
   `;
 
   const PricePer = styled.div`
-  order: 1;
-  flex-grow: 1;
-  flex-shrink: 1;
-  padding-right: 0.5em;
-  font-size: 0.8em;
-  color: #403e3b;
-  opacity: 0.7;
-  font-weight: 600;
+    order: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding-right: 0.5em;
+    font-size: 0.8em;
+    color: #403e3b;
+    opacity: 0.7;
+    font-weight: 600;
 `;
 
 

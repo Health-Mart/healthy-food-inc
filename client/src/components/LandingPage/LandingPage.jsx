@@ -10,7 +10,7 @@ import {
   useLocation,
   useParams
 } from 'react-router-dom';
-import Bulma from 'bulma';
+// import Bulma from 'bulma';
 import useUserInfo from '../../context/useUserInfo.jsx';
 
 function LandingPage() {
@@ -68,7 +68,9 @@ function LandingPage() {
     <div>
       <Header className="box container is-fullhd section is-medium">
         <div className="hero-body">
-          <div className="is-size-3 has-text-success has-text-weight-bold">Start a plan</div>
+          <div className="is-size-3 has-text-success has-text-weight-bold"
+            // style={{display:'none'}}
+          >Start a plan</div>
           <div className="is-size-2 has-text-success has-text-weight-bold">Change your life</div>
           <Link to="/questionnaire">
             <button

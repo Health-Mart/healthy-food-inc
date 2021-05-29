@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import 'bulma/css/bulma.min.css';
+// import 'bulma/css/bulma.min.css';
 
 import {
   BrowserRouter as Router,
