@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import 'bulma/css/bulma.min.css';
+// import 'bulma/css/bulma.min.css';
 
 import {
   BrowserRouter as Router,
@@ -129,7 +129,7 @@ function SignUp() {
         <section className="section is-medium">
           <FormStyle className="container">
             <img
-              src="https://lh3.googleusercontent.com/gn9gZjIQ3m8Xm5ROR3AvwF3XcIqFplg7Sd3EV7di7Jwb813yXpWgErIr2-R9p5RpIxPV1PVsU9tY_Awnu0a_uJmfgU-EPk8u34JKjSsw"
+              src="healthyfoodinc.png"
               alt="alternatetext"
             />
             <CreateContent
