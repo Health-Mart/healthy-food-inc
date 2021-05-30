@@ -14,6 +14,24 @@ Healthy Food Inc. is a meal planning, recipe generating, and grocery shopping pl
 - ✨A online grocery page containing over 5,000 unique products with an 'Add to Cart' functionality.  
 - ✨An user system that tracks subscription status, authenticates user identity, and retains saved recipes. 
 
+## Quick Look
+#### Landing Page & Questionnaire
+![til](https://github.com/Health-Mart/healthy-food-inc/blob/main/GIFs/Landing_Page_And_Questionnaire.gif?raw=true)
+
+#### Meal Plans
+![til](https://github.com/Health-Mart/healthy-food-inc/blob/main/GIFs/Meal_Plans.gif?raw=true)
+
+#### Recipe Generator
+![til](https://github.com/Health-Mart/healthy-food-inc/blob/main/GIFs/Recipe_Generator.gif?raw=true)
+
+#### Grocery Market
+![til](https://github.com/Health-Mart/healthy-food-inc/blob/main/GIFs/Grocery.gif?raw=true)
+
+#### User Profile
+![til](https://github.com/Health-Mart/healthy-food-inc/blob/main/GIFs/User_Profile.gif?raw=true)
+
+#### Log in/ Sign up
+![til](https://github.com/Health-Mart/healthy-food-inc/blob/main/GIFs/Log_In_Sign_Up.gif?raw=true)
 
 ## Installation
 - Clone repo
