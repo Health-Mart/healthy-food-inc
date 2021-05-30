@@ -25,22 +25,21 @@ function LandingPage() {
     'https://images.unsplash.com/photo-1596788068873-9ffd5cacd4c4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1510&q=80'
   ];
   const farmerData = [
-    `Come on up and see me urchins. Me I’m Dishonest. And A Dishonest Man You Can Always Trust To Be Dishonest. Honestly Its The Honest Ones You Want To Watch Out For Because You Never Know When They Are Going To Do Something Completely Stupid! Why are pirates pirates? cuz they arrrrrr you know, thats the 2nd time I’v watched that man sail away with my ship.`
-
+    `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.`
   ];
 
   const [steps, setSteps] = useState([
     {
-      title: 'Take our questionnaire',
-      content: 'Pardon me, but would ya mind if I fired me cannon through your porthole?'
+      title: 'Take Our Questionnaire',
+      content: 'Let us know your dietary preferences and we will take care the rest!'
     },
     {
-      title: 'Find a recipe right for you',
-      content: 'I’d love to drop anchor in your lagoon.'
+      title: 'Find a Recipe Right for You',
+      content: 'Thousands of recipes are waiting for you. From Gluten Free Dinner Rolls to Skillet Enchilada Dinner, we got them all.'
     },
     {
-      title: 'Make a plan and get it delivered',
-      content: 'If ye can’t trust a pirate, ye damn well can’t trust a merchant either!'
+      title: 'Make a Plan and Have It Delivered',
+      content: 'We will deliver the freshest and healthiest meals to your frontdoor! Save you time and stress.'
     }
   ]);
   const { updateUserInfo, userInfo } = useUserInfo();
@@ -68,8 +67,8 @@ function LandingPage() {
     <div>
       <Header className="box container is-fullhd section is-medium">
         <div className="hero-body">
-          <div className="is-size-3 has-text-success has-text-weight-bold">Start a plan</div>
-          <div className="is-size-2 has-text-success has-text-weight-bold">Change your life</div>
+          <div className="is-size-3 has-text-success has-text-weight-bold">Start A Plan</div>
+          <div className="is-size-2 has-text-success has-text-weight-bold">Change Your Life</div>
           <Link to="/questionnaire">
             <button
               type="button"
@@ -80,8 +79,8 @@ function LandingPage() {
           </Link>
         </div>
       </Header>
-      <div className="container section level">
-        <h1 className="title level-item is-size-1 ">How it works</h1>
+      <div>
+        <h1 className="title level-item is-size-1 ">How It Works</h1>
       </div>
       <section className="container is-max-desktop level">
         <div className="columns is-desktop is-vcentered section">
@@ -92,7 +91,7 @@ function LandingPage() {
         <div className="column is-one-quarter">
           <div className="columns">
             <h1 className="column is-size-3 has-text-warning has-text-weight-bold">
-              Meet the farmer
+              Meet the Farmer
             <p className="has-text-light">Shawn Valdez</p>
             </h1>
             <GiFarmer reverse size={100} className="column has-text-warning" />

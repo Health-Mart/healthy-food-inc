@@ -107,10 +107,10 @@ function Navbar() {
               <div className="login-container">
                 <div className="is-flex is-justify-content-center">
                   <img
-                    width="365px"
-                    height="237px"
-                    src="https://lh3.googleusercontent.com/gn9gZjIQ3m8Xm5ROR3AvwF3XcIqFplg7Sd3EV7di7Jwb813yXpWgErIr2-R9p5RpIxPV1PVsU9tY_Awnu0a_uJmfgU-EPk8u34JKjSsw"
-                    alt="alternatetext"
+                    width="400px"
+                    heigh="200px"
+                    src="healthyfoodinc.png"
+                    alt="Healthy Food Inc Icon"
                   />
                 </div>
                 <div className="field">
