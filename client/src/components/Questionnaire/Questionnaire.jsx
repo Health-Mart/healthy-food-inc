@@ -12,6 +12,8 @@ import { GiFruiting } from 'react-icons/gi';
 import { FaBook, FaSignInAlt } from 'react-icons/fa';
 import { HealthContext } from '../../context/healthContext.jsx';
 
+
+
 const TransitionPage = () => (
   <BigSection className="section has-background-light">
     <Header className="container has-background-light has-text-weight-bold">
@@ -41,7 +43,7 @@ const TransitionPage = () => (
               Ready for your recipes?
             </CardTitle>
             <br />
-            <FaBook size={130} />
+            <FaBook size={100} />
             <div className="section" />
             <Link to="/recipe-generator" className="level">
               <div className="column level-item">
@@ -59,7 +61,7 @@ const TransitionPage = () => (
               Want to sign up?
             </CardTitle>
             <br />
-            <FaSignInAlt size={130} />
+            <FaSignInAlt size={100} />
             <div className="section" />
             <Link to="/signup" className="level">
               <div className="column level-item">
@@ -151,9 +153,10 @@ function Questionnarie() {
                 <Div className="section column" />
                 <Div className="section column columns is-multiline">
                   <Title className="title is-1 column">{option.title}</Title>
+                  <Selections>
                   {option.option.map((items, j) => (
                     <Div className="column">
-                      <p
+                      <Text
                         className={
                           survey.includes(items)
                             ? 'title button is-medium is-dark has-text-white is-rounded'
@@ -163,12 +166,13 @@ function Questionnarie() {
                         aria-hidden="true"
                       >
                         {items}
-                      </p>
+                      </Text>
                     </Div>
                   ))}
+                  </Selections>
                 </Div>
               </Section>
-              <div className="level">
+              <NextButton className="level">
                 <Button
                   className="button is-info is-rounded is-focused is-large"
                   type="button"
@@ -176,7 +180,7 @@ function Questionnarie() {
                 >
                   Next
                 </Button>
-              </div>
+              </NextButton>
             </Container>
           </section>
         ) : null
@@ -212,9 +216,16 @@ const Section = styled.div`
   height: 400px;
 `;
 
+const NextButton = styled.div`
+  justify-content: flex-end;
+  padding-bottom: 2em;
+  padding-right: 2em;
+`;
+
 const Button = styled.button`
   padding: 2rem;
   position: right;
+  display: flex;
 `;
 
 const Container = styled.div`
@@ -238,6 +249,15 @@ const Title = styled.div`
   overflow-wrap: break-word;
 `;
 
+const Selections = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+
+const Text = styled.div`
+  display: flex;
+`;
 const Option = styled.div`
   text-align: center;
   margin: 1rem;
