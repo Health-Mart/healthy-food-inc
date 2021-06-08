@@ -24,7 +24,7 @@ const GroceryBrand = styled.strong`
 function Navbar({ mainCategory, setMainCategory, count }) {
   return (
     <>
-      <nav className="navbar is-success" role="navigation" aria-label="main navigation">
+      <nav className="navbar is-success is-fixed-top" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <a className="navbar-item has-text-white">
               <Link to="/">

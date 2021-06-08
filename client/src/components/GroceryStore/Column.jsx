@@ -20,6 +20,8 @@ const StyledSideBar = styled.section`
 `;
 
 const ButtonNav = styled.div`
+  margin-top: 3rem;
+
   ul {
     font-weight: 500;
   }
@@ -50,6 +52,8 @@ function Column({ mainCategory, setCount, count }) {
     const params = {
       mainCategory
     };
+
+    window.scrollTo(0, 0);
 
     axios
       .get('/api/grocery-items', { params })
